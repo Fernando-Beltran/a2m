@@ -1,0 +1,1454 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="a2mModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Business">
+          <Key>
+            <PropertyRef Name="Pk_Business" />
+          </Key>
+          <Property Name="Pk_Business" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phone" Type="nchar" MaxLength="12" />
+          <Property Name="Alternate_Phone" Type="nchar" MaxLength="12" />
+          <Property Name="Fk_Schedule" Type="int" Nullable="false" />
+          <Property Name="Address" Type="nchar" MaxLength="200" />
+          <Property Name="Fk_Municipality" Type="int" Nullable="false" />
+          <Property Name="Email" Type="nchar" MaxLength="50" />
+          <Property Name="Webpage" Type="nchar" MaxLength="50" />
+          <Property Name="Min_Price_For_Shipping" Type="money" />
+          <Property Name="Allow_Shipping" Type="bit" Nullable="false" />
+          <Property Name="Allow_PickUp" Type="bit" Nullable="false" />
+          <Property Name="Shipping_Cost_If_Not_Min_Price" Type="money" Nullable="false" />
+          <Property Name="Allow_Shipping_Not_Enougth_Amount" Type="bit" Nullable="false" />
+          <Property Name="Fk_Business_Status" Type="int" Nullable="false" />
+          <Property Name="Max_Order_Price_Allowed" Type="money" />
+          <Property Name="Creation_Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Business_Status">
+          <Key>
+            <PropertyRef Name="Pk_Business_Status" />
+          </Key>
+          <Property Name="Pk_Business_Status" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="Pk_Product_Category" />
+          </Key>
+          <Property Name="Pk_Product_Category" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="Fk_Business" Type="int" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Pk_Customer" />
+          </Key>
+          <Property Name="Pk_Customer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="50" />
+          <Property Name="Surname" Type="nchar" MaxLength="50" />
+          <Property Name="Second_Surname" Type="nchar" MaxLength="50" />
+          <Property Name="Phone" Type="nchar" MaxLength="10" />
+          <Property Name="Alternate_Phone" Type="nchar" MaxLength="10" />
+          <Property Name="Email" Type="nchar" MaxLength="50" />
+          <Property Name="Password" Type="nchar" MaxLength="50" />
+          <Property Name="Fk_Customer_Status" Type="int" Nullable="false" />
+          <Property Name="Creation_Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customer_Address">
+          <Key>
+            <PropertyRef Name="Fk_Address" />
+          </Key>
+          <Property Name="Fk_Address" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fk_Customer" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="Is_Default" Type="bit" Nullable="false" />
+          <Property Name="Address" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="Number" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Floor" Type="nchar" MaxLength="10" />
+          <Property Name="Stairs" Type="nchar" MaxLength="10" />
+          <Property Name="Letter" Type="nchar" MaxLength="10" />
+          <Property Name="Aditional_Data" Type="nchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Customer_Status">
+          <Key>
+            <PropertyRef Name="Pk_Status" />
+          </Key>
+          <Property Name="Pk_Status" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Municipality">
+          <Key>
+            <PropertyRef Name="Pk_Municipality" />
+          </Key>
+          <Property Name="Pk_Municipality" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="50" />
+          <Property Name="Postal_Code" Type="nchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="Order_Details">
+          <Key>
+            <PropertyRef Name="Pk_Order_Detail" />
+          </Key>
+          <Property Name="Pk_Order_Detail" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fk_Order_Product" Type="int" Nullable="false" />
+          <Property Name="Fk_Order_Extender" Type="int" />
+          <Property Name="Fk_Order" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Order_Movements">
+          <Key>
+            <PropertyRef Name="Pk_Order_Movement" />
+          </Key>
+          <Property Name="Pk_Order_Movement" Type="int" Nullable="false" />
+          <Property Name="Fk_Order" Type="int" Nullable="false" />
+          <Property Name="Datetime" Type="datetime" Nullable="false" />
+          <Property Name="Fk_Order_Status" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Order_Status">
+          <Key>
+            <PropertyRef Name="Pk_Order_Status" />
+          </Key>
+          <Property Name="Pk_Order_Status" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="Pk_Order" />
+          </Key>
+          <Property Name="Pk_Order" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fk_Customer" Type="int" Nullable="false" />
+          <Property Name="Fk_Bussiness" Type="int" Nullable="false" />
+          <Property Name="Fk_Order_Status" Type="int" Nullable="false" />
+          <Property Name="Total_Amount" Type="int" Nullable="false" />
+          <Property Name="Discount" Type="int" />
+          <Property Name="Need_Money_Change" Type="int" />
+          <Property Name="What_Change" Type="int" />
+          <Property Name="Vat" Type="int" />
+        </EntityType>
+        <EntityType Name="Product_Extender">
+          <Key>
+            <PropertyRef Name="Pk_Product_Extender" />
+          </Key>
+          <Property Name="Pk_Product_Extender" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="Fk_Product_Extender_Group" Type="int" Nullable="false" />
+          <Property Name="Total_Price" Type="money" />
+          <Property Name="Add_Price" Type="money" />
+          <Property Name="Is_Default" Type="bit" />
+        </EntityType>
+        <EntityType Name="Product_Extender_Group">
+          <Key>
+            <PropertyRef Name="Pk_Product_Extender_Group" />
+          </Key>
+          <Property Name="Pk_Product_Extender_Group" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="Fk_Product" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="Pk_Product" />
+          </Key>
+          <Property Name="Pk_Product" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="Unit_Price" Type="money" />
+          <Property Name="Fk_Category" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nchar" MaxLength="500" Nullable="false" />
+          <Property Name="Icon" Type="nchar" MaxLength="255" />
+          <Property Name="Custom_Image" Type="nchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Products_Product_Extender_Group">
+          <Key>
+            <PropertyRef Name="Pk_Products_Product_Extender_Group" />
+          </Key>
+          <Property Name="Fk_Product" Type="int" Nullable="false" />
+          <Property Name="Fk_Product_Extender_Group" Type="int" Nullable="false" />
+          <Property Name="Pk_Products_Product_Extender_Group" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Products_Special_Food_Categories">
+          <Key>
+            <PropertyRef Name="Pk_Products_Special_Food_Categories" />
+          </Key>
+          <Property Name="Fk_Product" Type="int" Nullable="false" />
+          <Property Name="Fk_Special_Food_Categories" Type="int" Nullable="false" />
+          <Property Name="Pk_Products_Special_Food_Categories" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Schedule">
+          <Key>
+            <PropertyRef Name="Pk_Schedule" />
+          </Key>
+          <Property Name="Pk_Schedule" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Day_Week" Type="smallint" Nullable="false" />
+          <Property Name="Time_Mask" Type="char" MaxLength="48" Nullable="false" />
+          <Property Name="Fk_Business" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Special_Food_Categories">
+          <Key>
+            <PropertyRef Name="Pk_Special_Food" />
+          </Key>
+          <Property Name="Pk_Special_Food" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Special_Offers">
+          <Key>
+            <PropertyRef Name="Pk_Special_Offer" />
+          </Key>
+          <Property Name="Pk_Special_Offer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="30" />
+          <Property Name="Description" Type="nchar" MaxLength="400" />
+          <Property Name="Image" Type="nchar" MaxLength="50" />
+          <Property Name="Start_Date" Type="datetime" Nullable="false" />
+          <Property Name="End_Date" Type="datetime" />
+          <Property Name="Min_Total_Amount" Type="money" />
+          <Property Name="Discount" Type="int" />
+          <Property Name="Fixed_Price" Type="money" />
+          <Property Name="Promotional_Code" Type="nchar" MaxLength="20" />
+          <Property Name="Fk_Business" Type="int" />
+          <Property Name="Fk_Product" Type="int" />
+          <Property Name="Fk_Product_Extender" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_Business_Business_Status">
+          <End Role="Business_Status" Type="Self.Business_Status" Multiplicity="1" />
+          <End Role="Business" Type="Self.Business" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Business_Status">
+              <PropertyRef Name="Pk_Business_Status" />
+            </Principal>
+            <Dependent Role="Business">
+              <PropertyRef Name="Fk_Business_Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Business_Municipality">
+          <End Role="Municipality" Type="Self.Municipality" Multiplicity="1" />
+          <End Role="Business" Type="Self.Business" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Municipality">
+              <PropertyRef Name="Pk_Municipality" />
+            </Principal>
+            <Dependent Role="Business">
+              <PropertyRef Name="Fk_Municipality" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Business_Schedule">
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="1" />
+          <End Role="Business" Type="Self.Business" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schedule">
+              <PropertyRef Name="Pk_Schedule" />
+            </Principal>
+            <Dependent Role="Business">
+              <PropertyRef Name="Fk_Schedule" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Categories_Business">
+          <End Role="Business" Type="Self.Business" Multiplicity="0..1" />
+          <End Role="Categories" Type="Self.Categories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Business">
+              <PropertyRef Name="Pk_Business" />
+            </Principal>
+            <Dependent Role="Categories">
+              <PropertyRef Name="Fk_Business" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_Address_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Customer_Address" Type="Self.Customer_Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Pk_Customer" />
+            </Principal>
+            <Dependent Role="Customer_Address">
+              <PropertyRef Name="Fk_Customer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_Customer_Status">
+          <End Role="Customer_Status" Type="Self.Customer_Status" Multiplicity="1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer_Status">
+              <PropertyRef Name="Pk_Status" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="Fk_Customer_Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Details_Orders">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="Order_Details" Type="Self.Order_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="Pk_Order" />
+            </Principal>
+            <Dependent Role="Order_Details">
+              <PropertyRef Name="Fk_Order" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Details_Product_Extender">
+          <End Role="Product_Extender" Type="Self.Product_Extender" Multiplicity="0..1" />
+          <End Role="Order_Details" Type="Self.Order_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product_Extender">
+              <PropertyRef Name="Pk_Product_Extender" />
+            </Principal>
+            <Dependent Role="Order_Details">
+              <PropertyRef Name="Fk_Order_Extender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Details_Products">
+          <End Role="Products" Type="Self.Products" Multiplicity="1" />
+          <End Role="Order_Details" Type="Self.Order_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="Pk_Product" />
+            </Principal>
+            <Dependent Role="Order_Details">
+              <PropertyRef Name="Fk_Order_Product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Movements_Order_Status">
+          <End Role="Order_Status" Type="Self.Order_Status" Multiplicity="1" />
+          <End Role="Order_Movements" Type="Self.Order_Movements" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order_Status">
+              <PropertyRef Name="Pk_Order_Status" />
+            </Principal>
+            <Dependent Role="Order_Movements">
+              <PropertyRef Name="Fk_Order_Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Movements_Orders">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="Order_Movements" Type="Self.Order_Movements" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="Pk_Order" />
+            </Principal>
+            <Dependent Role="Order_Movements">
+              <PropertyRef Name="Fk_Order" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Business">
+          <End Role="Business" Type="Self.Business" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Business">
+              <PropertyRef Name="Pk_Business" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="Fk_Bussiness" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Pk_Customer" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="Fk_Customer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Order_Status">
+          <End Role="Order_Status" Type="Self.Order_Status" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order_Status">
+              <PropertyRef Name="Pk_Order_Status" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="Fk_Order_Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Extender_Product_Extender_Group">
+          <End Role="Product_Extender_Group" Type="Self.Product_Extender_Group" Multiplicity="1" />
+          <End Role="Product_Extender" Type="Self.Product_Extender" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product_Extender_Group">
+              <PropertyRef Name="Pk_Product_Extender_Group" />
+            </Principal>
+            <Dependent Role="Product_Extender">
+              <PropertyRef Name="Fk_Product_Extender_Group" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_Categories">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="Pk_Product_Category" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="Fk_Category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_Product_Extender_Group_Product_Extender_Group">
+          <End Role="Product_Extender_Group" Type="Self.Product_Extender_Group" Multiplicity="1" />
+          <End Role="Products_Product_Extender_Group" Type="Self.Products_Product_Extender_Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product_Extender_Group">
+              <PropertyRef Name="Pk_Product_Extender_Group" />
+            </Principal>
+            <Dependent Role="Products_Product_Extender_Group">
+              <PropertyRef Name="Fk_Product_Extender_Group" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_Product_Extender_Group_Products">
+          <End Role="Products" Type="Self.Products" Multiplicity="1" />
+          <End Role="Products_Product_Extender_Group" Type="Self.Products_Product_Extender_Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="Pk_Product" />
+            </Principal>
+            <Dependent Role="Products_Product_Extender_Group">
+              <PropertyRef Name="Fk_Product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_Special_Food_Categories_Products">
+          <End Role="Products" Type="Self.Products" Multiplicity="1" />
+          <End Role="Products_Special_Food_Categories" Type="Self.Products_Special_Food_Categories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="Pk_Product" />
+            </Principal>
+            <Dependent Role="Products_Special_Food_Categories">
+              <PropertyRef Name="Fk_Product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_Special_Food_Categories_Special_Food_Categories">
+          <End Role="Special_Food_Categories" Type="Self.Special_Food_Categories" Multiplicity="1" />
+          <End Role="Products_Special_Food_Categories" Type="Self.Products_Special_Food_Categories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Special_Food_Categories">
+              <PropertyRef Name="Pk_Special_Food" />
+            </Principal>
+            <Dependent Role="Products_Special_Food_Categories">
+              <PropertyRef Name="Fk_Special_Food_Categories" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Special_Offers_Business">
+          <End Role="Business" Type="Self.Business" Multiplicity="0..1" />
+          <End Role="Special_Offers" Type="Self.Special_Offers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Business">
+              <PropertyRef Name="Pk_Business" />
+            </Principal>
+            <Dependent Role="Special_Offers">
+              <PropertyRef Name="Fk_Business" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Special_Offers_Product_Extender">
+          <End Role="Product_Extender" Type="Self.Product_Extender" Multiplicity="0..1" />
+          <End Role="Special_Offers" Type="Self.Special_Offers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product_Extender">
+              <PropertyRef Name="Pk_Product_Extender" />
+            </Principal>
+            <Dependent Role="Special_Offers">
+              <PropertyRef Name="Fk_Product_Extender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Special_Offers_Products">
+          <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+          <End Role="Special_Offers" Type="Self.Special_Offers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="Pk_Product" />
+            </Principal>
+            <Dependent Role="Special_Offers">
+              <PropertyRef Name="Fk_Product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="a2mModelStoreContainer">
+          <EntitySet Name="Business" EntityType="Self.Business" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Business_Status" EntityType="Self.Business_Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer_Address" EntityType="Self.Customer_Address" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer_Status" EntityType="Self.Customer_Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Municipality" EntityType="Self.Municipality" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order_Details" EntityType="Self.Order_Details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order_Movements" EntityType="Self.Order_Movements" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order_Status" EntityType="Self.Order_Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product_Extender" EntityType="Self.Product_Extender" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product_Extender_Group" EntityType="Self.Product_Extender_Group" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Products_Product_Extender_Group" EntityType="Self.Products_Product_Extender_Group" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Products_Special_Food_Categories" EntityType="Self.Products_Special_Food_Categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Schedule" EntityType="Self.Schedule" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Special_Food_Categories" EntityType="Self.Special_Food_Categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Special_Offers" EntityType="Self.Special_Offers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Business_Business_Status" Association="Self.FK_Business_Business_Status">
+            <End Role="Business_Status" EntitySet="Business_Status" />
+            <End Role="Business" EntitySet="Business" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Business_Municipality" Association="Self.FK_Business_Municipality">
+            <End Role="Municipality" EntitySet="Municipality" />
+            <End Role="Business" EntitySet="Business" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Business_Schedule" Association="Self.FK_Business_Schedule">
+            <End Role="Schedule" EntitySet="Schedule" />
+            <End Role="Business" EntitySet="Business" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Categories_Business" Association="Self.FK_Categories_Business">
+            <End Role="Business" EntitySet="Business" />
+            <End Role="Categories" EntitySet="Categories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_Address_Customer" Association="Self.FK_Customer_Address_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Customer_Address" EntitySet="Customer_Address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_Customer_Status" Association="Self.FK_Customer_Customer_Status">
+            <End Role="Customer_Status" EntitySet="Customer_Status" />
+            <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Details_Orders" Association="Self.FK_Order_Details_Orders">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Order_Details" EntitySet="Order_Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Details_Product_Extender" Association="Self.FK_Order_Details_Product_Extender">
+            <End Role="Product_Extender" EntitySet="Product_Extender" />
+            <End Role="Order_Details" EntitySet="Order_Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Details_Products" Association="Self.FK_Order_Details_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Order_Details" EntitySet="Order_Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Movements_Order_Status" Association="Self.FK_Order_Movements_Order_Status">
+            <End Role="Order_Status" EntitySet="Order_Status" />
+            <End Role="Order_Movements" EntitySet="Order_Movements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Movements_Orders" Association="Self.FK_Order_Movements_Orders">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Order_Movements" EntitySet="Order_Movements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Business" Association="Self.FK_Orders_Business">
+            <End Role="Business" EntitySet="Business" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Customer" Association="Self.FK_Orders_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Order_Status" Association="Self.FK_Orders_Order_Status">
+            <End Role="Order_Status" EntitySet="Order_Status" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Extender_Product_Extender_Group" Association="Self.FK_Product_Extender_Product_Extender_Group">
+            <End Role="Product_Extender_Group" EntitySet="Product_Extender_Group" />
+            <End Role="Product_Extender" EntitySet="Product_Extender" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_Categories" Association="Self.FK_Products_Categories">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_Product_Extender_Group_Product_Extender_Group" Association="Self.FK_Products_Product_Extender_Group_Product_Extender_Group">
+            <End Role="Product_Extender_Group" EntitySet="Product_Extender_Group" />
+            <End Role="Products_Product_Extender_Group" EntitySet="Products_Product_Extender_Group" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_Product_Extender_Group_Products" Association="Self.FK_Products_Product_Extender_Group_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Products_Product_Extender_Group" EntitySet="Products_Product_Extender_Group" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_Special_Food_Categories_Products" Association="Self.FK_Products_Special_Food_Categories_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Products_Special_Food_Categories" EntitySet="Products_Special_Food_Categories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_Special_Food_Categories_Special_Food_Categories" Association="Self.FK_Products_Special_Food_Categories_Special_Food_Categories">
+            <End Role="Special_Food_Categories" EntitySet="Special_Food_Categories" />
+            <End Role="Products_Special_Food_Categories" EntitySet="Products_Special_Food_Categories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Special_Offers_Business" Association="Self.FK_Special_Offers_Business">
+            <End Role="Business" EntitySet="Business" />
+            <End Role="Special_Offers" EntitySet="Special_Offers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Special_Offers_Product_Extender" Association="Self.FK_Special_Offers_Product_Extender">
+            <End Role="Product_Extender" EntitySet="Product_Extender" />
+            <End Role="Special_Offers" EntitySet="Special_Offers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Special_Offers_Products" Association="Self.FK_Special_Offers_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Special_Offers" EntitySet="Special_Offers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="a2mModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Business">
+          <Key>
+            <PropertyRef Name="Pk_Business" />
+          </Key>
+          <Property Name="Pk_Business" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="12" FixedLength="true" Unicode="true" />
+          <Property Name="Alternate_Phone" Type="String" MaxLength="12" FixedLength="true" Unicode="true" />
+          <Property Name="Fk_Schedule" Type="Int32" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+          <Property Name="Fk_Municipality" Type="Int32" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Webpage" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Min_Price_For_Shipping" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Allow_Shipping" Type="Boolean" Nullable="false" />
+          <Property Name="Allow_PickUp" Type="Boolean" Nullable="false" />
+          <Property Name="Shipping_Cost_If_Not_Min_Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Allow_Shipping_Not_Enougth_Amount" Type="Boolean" Nullable="false" />
+          <Property Name="Fk_Business_Status" Type="Int32" Nullable="false" />
+          <Property Name="Max_Order_Price_Allowed" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Creation_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Business_Status" Relationship="Self.FK_Business_Business_Status" FromRole="Business" ToRole="Business_Status" />
+          <NavigationProperty Name="Municipality" Relationship="Self.FK_Business_Municipality" FromRole="Business" ToRole="Municipality" />
+          <NavigationProperty Name="Schedule" Relationship="Self.FK_Business_Schedule" FromRole="Business" ToRole="Schedule" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Business" FromRole="Business" ToRole="Orders" />
+          <NavigationProperty Name="Special_Offers" Relationship="Self.FK_Special_Offers_Business" FromRole="Business" ToRole="Special_Offers" />
+          <NavigationProperty Name="Categories" Relationship="a2mModel.FK_Categories_Business" FromRole="Business" ToRole="Categories" />
+        </EntityType>
+        <EntityType Name="Business_Status">
+          <Key>
+            <PropertyRef Name="Pk_Business_Status" />
+          </Key>
+          <Property Name="Pk_Business_Status" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Business" Relationship="Self.FK_Business_Business_Status" FromRole="Business_Status" ToRole="Business" />
+        </EntityType>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="Pk_Product_Category" />
+          </Key>
+          <Property Name="Pk_Product_Category" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Fk_Business" Type="Int32" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Products_Categories" FromRole="Categories" ToRole="Products" />
+          <NavigationProperty Name="Business" Relationship="a2mModel.FK_Categories_Business" FromRole="Categories" ToRole="Business" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Pk_Customer" />
+          </Key>
+          <Property Name="Pk_Customer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Second_Surname" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Alternate_Phone" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Fk_Customer_Status" Type="Int32" Nullable="false" />
+          <Property Name="Creation_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Customer_Address" Relationship="Self.FK_Customer_Address_Customer" FromRole="Customer" ToRole="Customer_Address" />
+          <NavigationProperty Name="Customer_Status" Relationship="Self.FK_Customer_Customer_Status" FromRole="Customer" ToRole="Customer_Status" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Customer" FromRole="Customer" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Customer_Address">
+          <Key>
+            <PropertyRef Name="Fk_Address" />
+          </Key>
+          <Property Name="Fk_Address" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fk_Customer" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Is_Default" Type="Boolean" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Number" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Floor" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Stairs" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Letter" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Aditional_Data" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_Customer_Address_Customer" FromRole="Customer_Address" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="Customer_Status">
+          <Key>
+            <PropertyRef Name="Pk_Status" />
+          </Key>
+          <Property Name="Pk_Status" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_Customer_Customer_Status" FromRole="Customer_Status" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="Municipality">
+          <Key>
+            <PropertyRef Name="Pk_Municipality" />
+          </Key>
+          <Property Name="Pk_Municipality" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Postal_Code" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Business" Relationship="Self.FK_Business_Municipality" FromRole="Municipality" ToRole="Business" />
+        </EntityType>
+        <EntityType Name="Order_Details">
+          <Key>
+            <PropertyRef Name="Pk_Order_Detail" />
+          </Key>
+          <Property Name="Pk_Order_Detail" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fk_Order_Product" Type="Int32" Nullable="false" />
+          <Property Name="Fk_Order_Extender" Type="Int32" />
+          <Property Name="Fk_Order" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Order_Details_Orders" FromRole="Order_Details" ToRole="Orders" />
+          <NavigationProperty Name="Product_Extender" Relationship="Self.FK_Order_Details_Product_Extender" FromRole="Order_Details" ToRole="Product_Extender" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Order_Details_Products" FromRole="Order_Details" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Order_Movements">
+          <Key>
+            <PropertyRef Name="Pk_Order_Movement" />
+          </Key>
+          <Property Name="Pk_Order_Movement" Type="Int32" Nullable="false" />
+          <Property Name="Fk_Order" Type="Int32" Nullable="false" />
+          <Property Name="Datetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Fk_Order_Status" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Order_Status" Relationship="Self.FK_Order_Movements_Order_Status" FromRole="Order_Movements" ToRole="Order_Status" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Order_Movements_Orders" FromRole="Order_Movements" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Order_Status">
+          <Key>
+            <PropertyRef Name="Pk_Order_Status" />
+          </Key>
+          <Property Name="Pk_Order_Status" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Order_Movements" Relationship="Self.FK_Order_Movements_Order_Status" FromRole="Order_Status" ToRole="Order_Movements" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Order_Status" FromRole="Order_Status" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="Pk_Order" />
+          </Key>
+          <Property Name="Pk_Order" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fk_Customer" Type="Int32" Nullable="false" />
+          <Property Name="Fk_Bussiness" Type="Int32" Nullable="false" />
+          <Property Name="Fk_Order_Status" Type="Int32" Nullable="false" />
+          <Property Name="Total_Amount" Type="Int32" Nullable="false" />
+          <Property Name="Discount" Type="Int32" />
+          <Property Name="Need_Money_Change" Type="Int32" />
+          <Property Name="What_Change" Type="Int32" />
+          <Property Name="Vat" Type="Int32" />
+          <NavigationProperty Name="Business" Relationship="Self.FK_Orders_Business" FromRole="Orders" ToRole="Business" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_Orders_Customer" FromRole="Orders" ToRole="Customer" />
+          <NavigationProperty Name="Order_Details" Relationship="Self.FK_Order_Details_Orders" FromRole="Orders" ToRole="Order_Details" />
+          <NavigationProperty Name="Order_Movements" Relationship="Self.FK_Order_Movements_Orders" FromRole="Orders" ToRole="Order_Movements" />
+          <NavigationProperty Name="Order_Status" Relationship="Self.FK_Orders_Order_Status" FromRole="Orders" ToRole="Order_Status" />
+        </EntityType>
+        <EntityType Name="Product_Extender">
+          <Key>
+            <PropertyRef Name="Pk_Product_Extender" />
+          </Key>
+          <Property Name="Pk_Product_Extender" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Fk_Product_Extender_Group" Type="Int32" Nullable="false" />
+          <Property Name="Total_Price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Add_Price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Is_Default" Type="Boolean" />
+          <NavigationProperty Name="Order_Details" Relationship="Self.FK_Order_Details_Product_Extender" FromRole="Product_Extender" ToRole="Order_Details" />
+          <NavigationProperty Name="Product_Extender_Group" Relationship="Self.FK_Product_Extender_Product_Extender_Group" FromRole="Product_Extender" ToRole="Product_Extender_Group" />
+          <NavigationProperty Name="Special_Offers" Relationship="Self.FK_Special_Offers_Product_Extender" FromRole="Product_Extender" ToRole="Special_Offers" />
+        </EntityType>
+        <EntityType Name="Product_Extender_Group">
+          <Key>
+            <PropertyRef Name="Pk_Product_Extender_Group" />
+          </Key>
+          <Property Name="Pk_Product_Extender_Group" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Fk_Product" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Product_Extender" Relationship="Self.FK_Product_Extender_Product_Extender_Group" FromRole="Product_Extender_Group" ToRole="Product_Extender" />
+          <NavigationProperty Name="Products" Relationship="Self.Products_Product_Extender_Group" FromRole="Product_Extender_Group" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="Pk_Product" />
+          </Key>
+          <Property Name="Pk_Product" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Unit_Price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Fk_Category" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Categories" Relationship="Self.FK_Products_Categories" FromRole="Products" ToRole="Categories" />
+          <NavigationProperty Name="Order_Details" Relationship="Self.FK_Order_Details_Products" FromRole="Products" ToRole="Order_Details" />
+          <NavigationProperty Name="Special_Offers" Relationship="Self.FK_Special_Offers_Products" FromRole="Products" ToRole="Special_Offers" />
+          <NavigationProperty Name="Product_Extender_Group" Relationship="Self.Products_Product_Extender_Group" FromRole="Products" ToRole="Product_Extender_Group" />
+          <NavigationProperty Name="Special_Food_Categories" Relationship="Self.Products_Special_Food_Categories" FromRole="Products" ToRole="Special_Food_Categories" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="500" FixedLength="true" Unicode="true" />
+          <Property Name="Icon" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+          <Property Name="Custom_Image" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Schedule">
+          <Key>
+            <PropertyRef Name="Pk_Schedule" />
+          </Key>
+          <Property Name="Pk_Schedule" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Day_Week" Type="Int16" Nullable="false" />
+          <Property Name="Time_Mask" Type="String" MaxLength="48" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Fk_Business" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Business" Relationship="Self.FK_Business_Schedule" FromRole="Schedule" ToRole="Business" />
+        </EntityType>
+        <EntityType Name="Special_Food_Categories">
+          <Key>
+            <PropertyRef Name="Pk_Special_Food" />
+          </Key>
+          <Property Name="Pk_Special_Food" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Products" Relationship="Self.Products_Special_Food_Categories" FromRole="Special_Food_Categories" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Special_Offers">
+          <Key>
+            <PropertyRef Name="Pk_Special_Offer" />
+          </Key>
+          <Property Name="Pk_Special_Offer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="400" FixedLength="true" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Start_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="End_Date" Type="DateTime" Precision="3" />
+          <Property Name="Min_Total_Amount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Discount" Type="Int32" />
+          <Property Name="Fixed_Price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Promotional_Code" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="Fk_Business" Type="Int32" />
+          <Property Name="Fk_Product" Type="Int32" />
+          <Property Name="Fk_Product_Extender" Type="Int32" />
+          <NavigationProperty Name="Business" Relationship="Self.FK_Special_Offers_Business" FromRole="Special_Offers" ToRole="Business" />
+          <NavigationProperty Name="Product_Extender" Relationship="Self.FK_Special_Offers_Product_Extender" FromRole="Special_Offers" ToRole="Product_Extender" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Special_Offers_Products" FromRole="Special_Offers" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Business_Business_Status">
+          <End Role="Business_Status" Type="Self.Business_Status" Multiplicity="1" />
+          <End Role="Business" Type="Self.Business" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Business_Status">
+              <PropertyRef Name="Pk_Business_Status" />
+            </Principal>
+            <Dependent Role="Business">
+              <PropertyRef Name="Fk_Business_Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Business_Municipality">
+          <End Role="Municipality" Type="Self.Municipality" Multiplicity="1" />
+          <End Role="Business" Type="Self.Business" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Municipality">
+              <PropertyRef Name="Pk_Municipality" />
+            </Principal>
+            <Dependent Role="Business">
+              <PropertyRef Name="Fk_Municipality" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Business_Schedule">
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="1" />
+          <End Role="Business" Type="Self.Business" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schedule">
+              <PropertyRef Name="Pk_Schedule" />
+            </Principal>
+            <Dependent Role="Business">
+              <PropertyRef Name="Fk_Schedule" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Business">
+          <End Role="Business" Type="Self.Business" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Business">
+              <PropertyRef Name="Pk_Business" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="Fk_Bussiness" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Special_Offers_Business">
+          <End Role="Business" Type="Self.Business" Multiplicity="0..1" />
+          <End Role="Special_Offers" Type="Self.Special_Offers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Business">
+              <PropertyRef Name="Pk_Business" />
+            </Principal>
+            <Dependent Role="Special_Offers">
+              <PropertyRef Name="Fk_Business" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_Categories">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="Pk_Product_Category" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="Fk_Category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_Address_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Customer_Address" Type="Self.Customer_Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Pk_Customer" />
+            </Principal>
+            <Dependent Role="Customer_Address">
+              <PropertyRef Name="Fk_Customer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_Customer_Status">
+          <End Role="Customer_Status" Type="Self.Customer_Status" Multiplicity="1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer_Status">
+              <PropertyRef Name="Pk_Status" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="Fk_Customer_Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Pk_Customer" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="Fk_Customer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Details_Orders">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="Order_Details" Type="Self.Order_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="Pk_Order" />
+            </Principal>
+            <Dependent Role="Order_Details">
+              <PropertyRef Name="Fk_Order" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Details_Product_Extender">
+          <End Role="Product_Extender" Type="Self.Product_Extender" Multiplicity="0..1" />
+          <End Role="Order_Details" Type="Self.Order_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product_Extender">
+              <PropertyRef Name="Pk_Product_Extender" />
+            </Principal>
+            <Dependent Role="Order_Details">
+              <PropertyRef Name="Fk_Order_Extender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Details_Products">
+          <End Role="Products" Type="Self.Products" Multiplicity="1" />
+          <End Role="Order_Details" Type="Self.Order_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="Pk_Product" />
+            </Principal>
+            <Dependent Role="Order_Details">
+              <PropertyRef Name="Fk_Order_Product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Movements_Order_Status">
+          <End Role="Order_Status" Type="Self.Order_Status" Multiplicity="1" />
+          <End Role="Order_Movements" Type="Self.Order_Movements" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order_Status">
+              <PropertyRef Name="Pk_Order_Status" />
+            </Principal>
+            <Dependent Role="Order_Movements">
+              <PropertyRef Name="Fk_Order_Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Movements_Orders">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="Order_Movements" Type="Self.Order_Movements" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="Pk_Order" />
+            </Principal>
+            <Dependent Role="Order_Movements">
+              <PropertyRef Name="Fk_Order" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Order_Status">
+          <End Role="Order_Status" Type="Self.Order_Status" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order_Status">
+              <PropertyRef Name="Pk_Order_Status" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="Fk_Order_Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Extender_Product_Extender_Group">
+          <End Role="Product_Extender_Group" Type="Self.Product_Extender_Group" Multiplicity="1" />
+          <End Role="Product_Extender" Type="Self.Product_Extender" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product_Extender_Group">
+              <PropertyRef Name="Pk_Product_Extender_Group" />
+            </Principal>
+            <Dependent Role="Product_Extender">
+              <PropertyRef Name="Fk_Product_Extender_Group" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Special_Offers_Product_Extender">
+          <End Role="Product_Extender" Type="Self.Product_Extender" Multiplicity="0..1" />
+          <End Role="Special_Offers" Type="Self.Special_Offers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product_Extender">
+              <PropertyRef Name="Pk_Product_Extender" />
+            </Principal>
+            <Dependent Role="Special_Offers">
+              <PropertyRef Name="Fk_Product_Extender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Special_Offers_Products">
+          <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+          <End Role="Special_Offers" Type="Self.Special_Offers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="Pk_Product" />
+            </Principal>
+            <Dependent Role="Special_Offers">
+              <PropertyRef Name="Fk_Product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Products_Product_Extender_Group">
+          <End Role="Product_Extender_Group" Type="Self.Product_Extender_Group" Multiplicity="*" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+        </Association>
+        <Association Name="Products_Special_Food_Categories">
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <End Role="Special_Food_Categories" Type="Self.Special_Food_Categories" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="a2mConnection" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Business" EntityType="Self.Business" />
+          <EntitySet Name="Business_Status" EntityType="Self.Business_Status" />
+          <EntitySet Name="Categories" EntityType="Self.Categories" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" />
+          <EntitySet Name="Customer_Address" EntityType="Self.Customer_Address" />
+          <EntitySet Name="Customer_Status" EntityType="Self.Customer_Status" />
+          <EntitySet Name="Municipality" EntityType="Self.Municipality" />
+          <EntitySet Name="Order_Details" EntityType="Self.Order_Details" />
+          <EntitySet Name="Order_Movements" EntityType="Self.Order_Movements" />
+          <EntitySet Name="Order_Status" EntityType="Self.Order_Status" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" />
+          <EntitySet Name="Product_Extender" EntityType="Self.Product_Extender" />
+          <EntitySet Name="Product_Extender_Group" EntityType="Self.Product_Extender_Group" />
+          <EntitySet Name="Products" EntityType="Self.Products" />
+          <EntitySet Name="Schedule" EntityType="Self.Schedule" />
+          <EntitySet Name="Special_Food_Categories" EntityType="Self.Special_Food_Categories" />
+          <EntitySet Name="Special_Offers" EntityType="Self.Special_Offers" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <AssociationSet Name="FK_Business_Business_Status" Association="Self.FK_Business_Business_Status">
+            <End Role="Business_Status" EntitySet="Business_Status" />
+            <End Role="Business" EntitySet="Business" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Business_Municipality" Association="Self.FK_Business_Municipality">
+            <End Role="Municipality" EntitySet="Municipality" />
+            <End Role="Business" EntitySet="Business" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Business_Schedule" Association="Self.FK_Business_Schedule">
+            <End Role="Schedule" EntitySet="Schedule" />
+            <End Role="Business" EntitySet="Business" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Business" Association="Self.FK_Orders_Business">
+            <End Role="Business" EntitySet="Business" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Special_Offers_Business" Association="Self.FK_Special_Offers_Business">
+            <End Role="Business" EntitySet="Business" />
+            <End Role="Special_Offers" EntitySet="Special_Offers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_Categories" Association="Self.FK_Products_Categories">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_Address_Customer" Association="Self.FK_Customer_Address_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Customer_Address" EntitySet="Customer_Address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_Customer_Status" Association="Self.FK_Customer_Customer_Status">
+            <End Role="Customer_Status" EntitySet="Customer_Status" />
+            <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Customer" Association="Self.FK_Orders_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Details_Orders" Association="Self.FK_Order_Details_Orders">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Order_Details" EntitySet="Order_Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Details_Product_Extender" Association="Self.FK_Order_Details_Product_Extender">
+            <End Role="Product_Extender" EntitySet="Product_Extender" />
+            <End Role="Order_Details" EntitySet="Order_Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Details_Products" Association="Self.FK_Order_Details_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Order_Details" EntitySet="Order_Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Movements_Order_Status" Association="Self.FK_Order_Movements_Order_Status">
+            <End Role="Order_Status" EntitySet="Order_Status" />
+            <End Role="Order_Movements" EntitySet="Order_Movements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Movements_Orders" Association="Self.FK_Order_Movements_Orders">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Order_Movements" EntitySet="Order_Movements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Order_Status" Association="Self.FK_Orders_Order_Status">
+            <End Role="Order_Status" EntitySet="Order_Status" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Extender_Product_Extender_Group" Association="Self.FK_Product_Extender_Product_Extender_Group">
+            <End Role="Product_Extender_Group" EntitySet="Product_Extender_Group" />
+            <End Role="Product_Extender" EntitySet="Product_Extender" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Special_Offers_Product_Extender" Association="Self.FK_Special_Offers_Product_Extender">
+            <End Role="Product_Extender" EntitySet="Product_Extender" />
+            <End Role="Special_Offers" EntitySet="Special_Offers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Special_Offers_Products" Association="Self.FK_Special_Offers_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Special_Offers" EntitySet="Special_Offers" />
+          </AssociationSet>
+          <AssociationSet Name="Products_Product_Extender_Group" Association="Self.Products_Product_Extender_Group">
+            <End Role="Product_Extender_Group" EntitySet="Product_Extender_Group" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="Products_Special_Food_Categories" Association="Self.Products_Special_Food_Categories">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Special_Food_Categories" EntitySet="Special_Food_Categories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Categories_Business" Association="a2mModel.FK_Categories_Business">
+            <End Role="Business" EntitySet="Business" />
+            <End Role="Categories" EntitySet="Categories" />
+          </AssociationSet>
+        </EntityContainer>
+        <Association Name="FK_Categories_Business">
+          <End Type="a2mModel.Business" Role="Business" Multiplicity="0..1" />
+          <End Type="a2mModel.Categories" Role="Categories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Business">
+              <PropertyRef Name="Pk_Business" />
+            </Principal>
+            <Dependent Role="Categories">
+              <PropertyRef Name="Fk_Business" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="a2mModelStoreContainer" CdmEntityContainer="a2mConnection">
+          <EntitySetMapping Name="Business">
+            <EntityTypeMapping TypeName="a2mModel.Business">
+              <MappingFragment StoreEntitySet="Business">
+                <ScalarProperty Name="Pk_Business" ColumnName="Pk_Business" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Alternate_Phone" ColumnName="Alternate_Phone" />
+                <ScalarProperty Name="Fk_Schedule" ColumnName="Fk_Schedule" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Fk_Municipality" ColumnName="Fk_Municipality" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Webpage" ColumnName="Webpage" />
+                <ScalarProperty Name="Min_Price_For_Shipping" ColumnName="Min_Price_For_Shipping" />
+                <ScalarProperty Name="Allow_Shipping" ColumnName="Allow_Shipping" />
+                <ScalarProperty Name="Allow_PickUp" ColumnName="Allow_PickUp" />
+                <ScalarProperty Name="Shipping_Cost_If_Not_Min_Price" ColumnName="Shipping_Cost_If_Not_Min_Price" />
+                <ScalarProperty Name="Allow_Shipping_Not_Enougth_Amount" ColumnName="Allow_Shipping_Not_Enougth_Amount" />
+                <ScalarProperty Name="Fk_Business_Status" ColumnName="Fk_Business_Status" />
+                <ScalarProperty Name="Max_Order_Price_Allowed" ColumnName="Max_Order_Price_Allowed" />
+                <ScalarProperty Name="Creation_Date" ColumnName="Creation_Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Business_Status">
+            <EntityTypeMapping TypeName="a2mModel.Business_Status">
+              <MappingFragment StoreEntitySet="Business_Status">
+                <ScalarProperty Name="Pk_Business_Status" ColumnName="Pk_Business_Status" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="a2mModel.Categories">
+              <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="Pk_Product_Category" ColumnName="Pk_Product_Category" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Fk_Business" ColumnName="Fk_Business" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customer">
+            <EntityTypeMapping TypeName="a2mModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="Pk_Customer" ColumnName="Pk_Customer" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Second_Surname" ColumnName="Second_Surname" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Alternate_Phone" ColumnName="Alternate_Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Fk_Customer_Status" ColumnName="Fk_Customer_Status" />
+                <ScalarProperty Name="Creation_Date" ColumnName="Creation_Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customer_Address">
+            <EntityTypeMapping TypeName="a2mModel.Customer_Address">
+              <MappingFragment StoreEntitySet="Customer_Address">
+                <ScalarProperty Name="Fk_Address" ColumnName="Fk_Address" />
+                <ScalarProperty Name="Fk_Customer" ColumnName="Fk_Customer" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Is_Default" ColumnName="Is_Default" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Floor" ColumnName="Floor" />
+                <ScalarProperty Name="Stairs" ColumnName="Stairs" />
+                <ScalarProperty Name="Letter" ColumnName="Letter" />
+                <ScalarProperty Name="Aditional_Data" ColumnName="Aditional_Data" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customer_Status">
+            <EntityTypeMapping TypeName="a2mModel.Customer_Status">
+              <MappingFragment StoreEntitySet="Customer_Status">
+                <ScalarProperty Name="Pk_Status" ColumnName="Pk_Status" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Municipality">
+            <EntityTypeMapping TypeName="a2mModel.Municipality">
+              <MappingFragment StoreEntitySet="Municipality">
+                <ScalarProperty Name="Pk_Municipality" ColumnName="Pk_Municipality" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Postal_Code" ColumnName="Postal_Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Order_Details">
+            <EntityTypeMapping TypeName="a2mModel.Order_Details">
+              <MappingFragment StoreEntitySet="Order_Details">
+                <ScalarProperty Name="Pk_Order_Detail" ColumnName="Pk_Order_Detail" />
+                <ScalarProperty Name="Fk_Order_Product" ColumnName="Fk_Order_Product" />
+                <ScalarProperty Name="Fk_Order_Extender" ColumnName="Fk_Order_Extender" />
+                <ScalarProperty Name="Fk_Order" ColumnName="Fk_Order" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Order_Movements">
+            <EntityTypeMapping TypeName="a2mModel.Order_Movements">
+              <MappingFragment StoreEntitySet="Order_Movements">
+                <ScalarProperty Name="Pk_Order_Movement" ColumnName="Pk_Order_Movement" />
+                <ScalarProperty Name="Fk_Order" ColumnName="Fk_Order" />
+                <ScalarProperty Name="Datetime" ColumnName="Datetime" />
+                <ScalarProperty Name="Fk_Order_Status" ColumnName="Fk_Order_Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Order_Status">
+            <EntityTypeMapping TypeName="a2mModel.Order_Status">
+              <MappingFragment StoreEntitySet="Order_Status">
+                <ScalarProperty Name="Pk_Order_Status" ColumnName="Pk_Order_Status" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="a2mModel.Orders">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="Pk_Order" ColumnName="Pk_Order" />
+                <ScalarProperty Name="Fk_Customer" ColumnName="Fk_Customer" />
+                <ScalarProperty Name="Fk_Bussiness" ColumnName="Fk_Bussiness" />
+                <ScalarProperty Name="Fk_Order_Status" ColumnName="Fk_Order_Status" />
+                <ScalarProperty Name="Total_Amount" ColumnName="Total_Amount" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Need_Money_Change" ColumnName="Need_Money_Change" />
+                <ScalarProperty Name="What_Change" ColumnName="What_Change" />
+                <ScalarProperty Name="Vat" ColumnName="Vat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product_Extender">
+            <EntityTypeMapping TypeName="a2mModel.Product_Extender">
+              <MappingFragment StoreEntitySet="Product_Extender">
+                <ScalarProperty Name="Pk_Product_Extender" ColumnName="Pk_Product_Extender" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Fk_Product_Extender_Group" ColumnName="Fk_Product_Extender_Group" />
+                <ScalarProperty Name="Total_Price" ColumnName="Total_Price" />
+                <ScalarProperty Name="Add_Price" ColumnName="Add_Price" />
+                <ScalarProperty Name="Is_Default" ColumnName="Is_Default" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product_Extender_Group">
+            <EntityTypeMapping TypeName="a2mModel.Product_Extender_Group">
+              <MappingFragment StoreEntitySet="Product_Extender_Group">
+                <ScalarProperty Name="Pk_Product_Extender_Group" ColumnName="Pk_Product_Extender_Group" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Fk_Product" ColumnName="Fk_Product" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="a2mModel.Products">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="Custom_Image" ColumnName="Custom_Image" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Pk_Product" ColumnName="Pk_Product" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Unit_Price" ColumnName="Unit_Price" />
+                <ScalarProperty Name="Fk_Category" ColumnName="Fk_Category" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Schedule">
+            <EntityTypeMapping TypeName="a2mModel.Schedule">
+              <MappingFragment StoreEntitySet="Schedule">
+                <ScalarProperty Name="Pk_Schedule" ColumnName="Pk_Schedule" />
+                <ScalarProperty Name="Day_Week" ColumnName="Day_Week" />
+                <ScalarProperty Name="Time_Mask" ColumnName="Time_Mask" />
+                <ScalarProperty Name="Fk_Business" ColumnName="Fk_Business" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Special_Food_Categories">
+            <EntityTypeMapping TypeName="a2mModel.Special_Food_Categories">
+              <MappingFragment StoreEntitySet="Special_Food_Categories">
+                <ScalarProperty Name="Pk_Special_Food" ColumnName="Pk_Special_Food" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Special_Offers">
+            <EntityTypeMapping TypeName="a2mModel.Special_Offers">
+              <MappingFragment StoreEntitySet="Special_Offers">
+                <ScalarProperty Name="Pk_Special_Offer" ColumnName="Pk_Special_Offer" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Start_Date" ColumnName="Start_Date" />
+                <ScalarProperty Name="End_Date" ColumnName="End_Date" />
+                <ScalarProperty Name="Min_Total_Amount" ColumnName="Min_Total_Amount" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Fixed_Price" ColumnName="Fixed_Price" />
+                <ScalarProperty Name="Promotional_Code" ColumnName="Promotional_Code" />
+                <ScalarProperty Name="Fk_Business" ColumnName="Fk_Business" />
+                <ScalarProperty Name="Fk_Product" ColumnName="Fk_Product" />
+                <ScalarProperty Name="Fk_Product_Extender" ColumnName="Fk_Product_Extender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="a2mModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Products_Product_Extender_Group" TypeName="a2mModel.Products_Product_Extender_Group" StoreEntitySet="Products_Product_Extender_Group">
+            <EndProperty Name="Product_Extender_Group">
+              <ScalarProperty Name="Pk_Product_Extender_Group" ColumnName="Fk_Product_Extender_Group" />
+            </EndProperty>
+            <EndProperty Name="Products">
+              <ScalarProperty Name="Pk_Product" ColumnName="Fk_Product" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Products_Special_Food_Categories" TypeName="a2mModel.Products_Special_Food_Categories" StoreEntitySet="Products_Special_Food_Categories">
+            <EndProperty Name="Products">
+              <ScalarProperty Name="Pk_Product" ColumnName="Fk_Product" />
+            </EndProperty>
+            <EndProperty Name="Special_Food_Categories">
+              <ScalarProperty Name="Pk_Special_Food" ColumnName="Fk_Special_Food_Categories" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

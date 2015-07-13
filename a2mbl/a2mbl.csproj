@@ -30,8 +30,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -39,8 +48,103 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="a2m_model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>a2m_model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="a2m_model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>a2m_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="a2m_model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>a2m_model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Business.cs">
+      <DependentUpon>a2m_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Business_Status.cs">
+      <DependentUpon>a2m_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Categories.cs">
+      <DependentUpon>a2m_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bussiness.cs" />
+    <Compile Include="Customer.cs">
+      <DependentUpon>a2m_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Customer_Address.cs">
+      <DependentUpon>a2m_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Customer_Status.cs">
+      <DependentUpon>a2m_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Municipality.cs">
+      <DependentUpon>a2m_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Orders.cs">
+      <DependentUpon>a2m_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Order_Details.cs">
+      <DependentUpon>a2m_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Order_Movements.cs">
+      <DependentUpon>a2m_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Order_Status.cs">
+      <DependentUpon>a2m_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Products.cs">
+      <DependentUpon>a2m_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Product_Extender.cs">
+      <DependentUpon>a2m_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Product_Extender_Group.cs">
+      <DependentUpon>a2m_model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Schedule.cs">
+      <DependentUpon>a2m_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Special_Food_Categories.cs">
+      <DependentUpon>a2m_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Special_Offers.cs">
+      <DependentUpon>a2m_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>a2m_model.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="a2m_model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>a2m_model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="a2m_model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>a2m_model.edmx</DependentUpon>
+      <LastGenOutput>a2m_model.Context.cs</LastGenOutput>
+    </None>
+    <None Include="a2m_model.edmx.diagram">
+      <DependentUpon>a2m_model.edmx</DependentUpon>
+    </None>
+    <None Include="a2m_model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>a2m_model.edmx</DependentUpon>
+      <LastGenOutput>a2m_model.cs</LastGenOutput>
+    </None>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

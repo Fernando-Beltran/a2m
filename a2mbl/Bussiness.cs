@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace a2mbl
 {
-    public class Class1
+    public class Business
     {
     }
 }

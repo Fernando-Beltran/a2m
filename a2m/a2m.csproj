@@ -175,6 +175,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\a2m\a2m.properties.js" />
+    <Content Include="Scripts\a2m\a2m.request.js" />
+    <Content Include="Scripts\a2m\a2m.storage.js" />
+    <Content Include="Scripts\a2m\a2m.utils.js" />
+    <Content Include="Scripts\a2m\a2m.cookie.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />

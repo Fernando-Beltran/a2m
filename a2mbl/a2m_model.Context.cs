@@ -14,11 +14,11 @@ namespace a2mbl
     using System.Data.Entity.Infrastructure;
     using System.Data.Entity.Core.Objects;
     using System.Linq;
-    
-    public partial class a2mEF : DbContext
+
+    public partial class a2mDbContext : DbContext
     {
-        public a2mEF()
-            : base("name=a2mEF")
+        public a2mDbContext()
+            : base("name=a2mDbContext")
         {
         }
     

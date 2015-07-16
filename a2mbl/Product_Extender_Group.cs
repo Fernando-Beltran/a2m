@@ -17,7 +17,7 @@ namespace a2mbl
         public Product_Extender_Group()
         {
             this.Product_Extender = new HashSet<Product_Extender>();
-            this.Products = new HashSet<Products>();
+            this.Products_Product_Extender_Group = new HashSet<Products_Product_Extender_Group>();
         }
     
         public int Pk_Product_Extender_Group { get; set; }
@@ -25,6 +25,6 @@ namespace a2mbl
         public int Fk_Product { get; set; }
     
         public virtual ICollection<Product_Extender> Product_Extender { get; set; }
-        public virtual ICollection<Products> Products { get; set; }
+        public virtual ICollection<Products_Product_Extender_Group> Products_Product_Extender_Group { get; set; }
     }
 }

@@ -10,16 +10,10 @@
 namespace a2mbl
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Order_Movements
+    public partial class sp_helpdiagramdefinition_Result
     {
-        public int Pk_Order_Movement { get; set; }
-        public int Fk_Order { get; set; }
-        public System.DateTime Datetime { get; set; }
-        public int Fk_Order_Status { get; set; }
-    
-        public virtual Order_Status Order_Status { get; set; }
-        public virtual Order Order { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

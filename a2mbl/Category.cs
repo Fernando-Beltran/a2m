@@ -12,14 +12,18 @@ namespace a2mbl
     using System;
     using System.Collections.Generic;
     
-    public partial class Order_Movements
+    public partial class Category
     {
-        public int Pk_Order_Movement { get; set; }
-        public int Fk_Order { get; set; }
-        public System.DateTime Datetime { get; set; }
-        public int Fk_Order_Status { get; set; }
+        public Category()
+        {
+            this.Products = new HashSet<Product>();
+        }
     
-        public virtual Order_Status Order_Status { get; set; }
-        public virtual Order Order { get; set; }
+        public int Pk_Product_Category { get; set; }
+        public string Name { get; set; }
+        public Nullable<int> Fk_Business { get; set; }
+    
+        public virtual Business Business { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
     }
 }

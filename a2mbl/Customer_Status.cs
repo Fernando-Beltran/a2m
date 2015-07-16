@@ -16,12 +16,12 @@ namespace a2mbl
     {
         public Customer_Status()
         {
-            this.Customer = new HashSet<Customer>();
+            this.Customers = new HashSet<Customer>();
         }
     
         public int Pk_Status { get; set; }
         public string Name { get; set; }
     
-        public virtual ICollection<Customer> Customer { get; set; }
+        public virtual ICollection<Customer> Customers { get; set; }
     }
 }

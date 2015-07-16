@@ -12,12 +12,13 @@ namespace a2mbl
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagrams
+    public partial class Products_Product_Extender_Group
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public int Fk_Product { get; set; }
+        public int Fk_Product_Extender_Group { get; set; }
+        public int Pk_Products_Product_Extender_Group { get; set; }
+    
+        public virtual Product_Extender_Group Product_Extender_Group { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

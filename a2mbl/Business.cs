@@ -16,9 +16,9 @@ namespace a2mbl
     {
         public Business()
         {
-            this.Orders = new HashSet<Orders>();
+            this.Categories = new HashSet<Category>();
+            this.Orders = new HashSet<Order>();
             this.Special_Offers = new HashSet<Special_Offers>();
-            this.Categories = new HashSet<Categories>();
         }
     
         public int Pk_Business { get; set; }
@@ -38,12 +38,13 @@ namespace a2mbl
         public int Fk_Business_Status { get; set; }
         public Nullable<decimal> Max_Order_Price_Allowed { get; set; }
         public System.DateTime Creation_Date { get; set; }
+        public string Password { get; set; }
     
         public virtual Business_Status Business_Status { get; set; }
         public virtual Municipality Municipality { get; set; }
         public virtual Schedule Schedule { get; set; }
-        public virtual ICollection<Orders> Orders { get; set; }
+        public virtual ICollection<Category> Categories { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
         public virtual ICollection<Special_Offers> Special_Offers { get; set; }
-        public virtual ICollection<Categories> Categories { get; set; }
     }
 }

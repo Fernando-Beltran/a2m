@@ -17,7 +17,7 @@ namespace a2mbl
         public Customer()
         {
             this.Customer_Address = new HashSet<Customer_Address>();
-            this.Orders = new HashSet<Orders>();
+            this.Orders = new HashSet<Order>();
         }
     
         public int Pk_Customer { get; set; }
@@ -33,6 +33,6 @@ namespace a2mbl
     
         public virtual ICollection<Customer_Address> Customer_Address { get; set; }
         public virtual Customer_Status Customer_Status { get; set; }
-        public virtual ICollection<Orders> Orders { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

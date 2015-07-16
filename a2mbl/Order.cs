@@ -12,9 +12,9 @@ namespace a2mbl
     using System;
     using System.Collections.Generic;
     
-    public partial class Orders
+    public partial class Order
     {
-        public Orders()
+        public Order()
         {
             this.Order_Details = new HashSet<Order_Details>();
             this.Order_Movements = new HashSet<Order_Movements>();

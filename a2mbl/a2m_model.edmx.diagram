@@ -4,46 +4,50 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="854bf27736e8451390039466b7f20ce9" Name="Diagram1" ZoomLevel="25">
-        <EntityTypeShape EntityType="a2mModel.Business" Width="1.5" PointX="0.75" PointY="12.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="a2mModel.Business_Status" Width="1.5" PointX="1.5" PointY="9.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="a2mModel.Categories" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="a2mModel.Customer" Width="1.5" PointX="0.75" PointY="26.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="a2mModel.Customer_Address" Width="1.5" PointX="3" PointY="27.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="a2mModel.Customer_Status" Width="1.5" PointX="1.5" PointY="31.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="a2mModel.Municipality" Width="1.5" PointX="1.5" PointY="21.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="a2mModel.Order_Details" Width="1.5" PointX="5.25" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="a2mModel.Order_Movements" Width="1.5" PointX="5.25" PointY="17" IsExpanded="true" />
-        <EntityTypeShape EntityType="a2mModel.Order_Status" Width="1.5" PointX="0.75" PointY="18.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="a2mModel.Orders" Width="1.5" PointX="3" PointY="16.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="a2mModel.Product_Extender" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="a2mModel.Product_Extender_Group" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="a2mModel.Products" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="a2mModel.Schedule" Width="1.5" PointX="1.5" PointY="24.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="a2mModel.Special_Food_Categories" Width="1.5" PointX="5.25" PointY="2" IsExpanded="true" />
-        <EntityTypeShape EntityType="a2mModel.Special_Offers" Width="1.5" PointX="8.25" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="a2mModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
-        <AssociationConnector Association="a2mModel.FK_Business_Business_Status" ManuallyRouted="false" />
-        <AssociationConnector Association="a2mModel.FK_Business_Municipality" ManuallyRouted="false" />
-        <AssociationConnector Association="a2mModel.FK_Business_Schedule" ManuallyRouted="false" />
-        <AssociationConnector Association="a2mModel.FK_Orders_Business" ManuallyRouted="false" />
-        <AssociationConnector Association="a2mModel.FK_Special_Offers_Business" ManuallyRouted="false" />
-        <AssociationConnector Association="a2mModel.FK_Products_Categories" ManuallyRouted="false" />
-        <AssociationConnector Association="a2mModel.FK_Customer_Address_Customer" ManuallyRouted="false" />
-        <AssociationConnector Association="a2mModel.FK_Customer_Customer_Status" ManuallyRouted="false" />
-        <AssociationConnector Association="a2mModel.FK_Orders_Customer" ManuallyRouted="false" />
-        <AssociationConnector Association="a2mModel.FK_Order_Details_Orders" ManuallyRouted="false" />
-        <AssociationConnector Association="a2mModel.FK_Order_Details_Product_Extender" ManuallyRouted="false" />
-        <AssociationConnector Association="a2mModel.FK_Order_Details_Products" ManuallyRouted="false" />
-        <AssociationConnector Association="a2mModel.FK_Order_Movements_Order_Status" ManuallyRouted="false" />
-        <AssociationConnector Association="a2mModel.FK_Order_Movements_Orders" ManuallyRouted="false" />
-        <AssociationConnector Association="a2mModel.FK_Orders_Order_Status" ManuallyRouted="false" />
-        <AssociationConnector Association="a2mModel.FK_Product_Extender_Product_Extender_Group" ManuallyRouted="false" />
-        <AssociationConnector Association="a2mModel.FK_Special_Offers_Product_Extender" ManuallyRouted="false" />
-        <AssociationConnector Association="a2mModel.FK_Special_Offers_Products" ManuallyRouted="false" />
-        <AssociationConnector Association="a2mModel.Products_Product_Extender_Group" ManuallyRouted="false" />
-        <AssociationConnector Association="a2mModel.Products_Special_Food_Categories" ManuallyRouted="false" />
+      <Diagram DiagramId="854bf27736e8451390039466b7f20ce9" Name="Diagram1" ZoomLevel="18">
+        <EntityTypeShape EntityType="a2mModel.Business" Width="1.5" PointX="3" PointY="7.75" />
+        <EntityTypeShape EntityType="a2mModel.Business_Status" Width="1.5" PointX="0.75" PointY="6.5" />
+        <EntityTypeShape EntityType="a2mModel.Category" Width="1.5" PointX="5.25" PointY="14" />
+        <EntityTypeShape EntityType="a2mModel.Customer" Width="1.5" PointX="3" PointY="1.5" />
+        <EntityTypeShape EntityType="a2mModel.Customer_Address" Width="1.5" PointX="5.25" PointY="0.75" />
+        <EntityTypeShape EntityType="a2mModel.Customer_Status" Width="1.5" PointX="0.75" PointY="2.5" />
+        <EntityTypeShape EntityType="a2mModel.Municipality" Width="1.5" PointX="0.75" PointY="12.875" />
+        <EntityTypeShape EntityType="a2mModel.Order_Details" Width="1.5" PointX="12.75" PointY="11.5" />
+        <EntityTypeShape EntityType="a2mModel.Order_Movements" Width="1.5" PointX="7.5" PointY="9.5" />
+        <EntityTypeShape EntityType="a2mModel.Order_Status" Width="1.5" PointX="3" PointY="14.875" />
+        <EntityTypeShape EntityType="a2mModel.Order" Width="1.5" PointX="5.25" PointY="8.75" />
+        <EntityTypeShape EntityType="a2mModel.Product_Extender" Width="1.5" PointX="7.5" PointY="4.875" />
+        <EntityTypeShape EntityType="a2mModel.Product_Extender_Group" Width="1.5" PointX="5.25" PointY="5.25" />
+        <EntityTypeShape EntityType="a2mModel.Product" Width="1.5" PointX="7.5" PointY="13.375" />
+        <EntityTypeShape EntityType="a2mModel.Products_Product_Extender_Group" Width="1.5" PointX="9.75" PointY="15" />
+        <EntityTypeShape EntityType="a2mModel.Products_Special_Food_Categories" Width="1.5" PointX="12.75" PointY="15" />
+        <EntityTypeShape EntityType="a2mModel.Schedule" Width="1.5" PointX="0.75" PointY="9.625" />
+        <EntityTypeShape EntityType="a2mModel.Special_Food_Categories" Width="1.5" PointX="10.5" PointY="18.25" />
+        <EntityTypeShape EntityType="a2mModel.Special_Offers" Width="1.5" PointX="9.75" PointY="10.25" />
+        <EntityTypeShape EntityType="a2mModel.sysdiagram" Width="1.5" PointX="7.75" PointY="1" />
+        <AssociationConnector Association="a2mModel.FK_Business_Business_Status" />
+        <AssociationConnector Association="a2mModel.FK_Business_Municipality" />
+        <AssociationConnector Association="a2mModel.FK_Business_Schedule" />
         <AssociationConnector Association="a2mModel.FK_Categories_Business" />
+        <AssociationConnector Association="a2mModel.FK_Orders_Business" />
+        <AssociationConnector Association="a2mModel.FK_Special_Offers_Business" />
+        <AssociationConnector Association="a2mModel.FK_Products_Categories" />
+        <AssociationConnector Association="a2mModel.FK_Customer_Address_Customer" />
+        <AssociationConnector Association="a2mModel.FK_Customer_Customer_Status" />
+        <AssociationConnector Association="a2mModel.FK_Orders_Customer" />
+        <AssociationConnector Association="a2mModel.FK_Order_Details_Orders" />
+        <AssociationConnector Association="a2mModel.FK_Order_Details_Product_Extender" />
+        <AssociationConnector Association="a2mModel.FK_Order_Details_Products" />
+        <AssociationConnector Association="a2mModel.FK_Order_Movements_Order_Status" />
+        <AssociationConnector Association="a2mModel.FK_Order_Movements_Orders" />
+        <AssociationConnector Association="a2mModel.FK_Orders_Order_Status" />
+        <AssociationConnector Association="a2mModel.FK_Product_Extender_Product_Extender_Group" />
+        <AssociationConnector Association="a2mModel.FK_Special_Offers_Product_Extender" />
+        <AssociationConnector Association="a2mModel.FK_Products_Product_Extender_Group_Product_Extender_Group" />
+        <AssociationConnector Association="a2mModel.FK_Products_Product_Extender_Group_Products" />
+        <AssociationConnector Association="a2mModel.FK_Products_Special_Food_Categories_Products" />
+        <AssociationConnector Association="a2mModel.FK_Special_Offers_Products" />
+        <AssociationConnector Association="a2mModel.FK_Products_Special_Food_Categories_Special_Food_Categories" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

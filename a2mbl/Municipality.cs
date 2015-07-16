@@ -16,13 +16,13 @@ namespace a2mbl
     {
         public Municipality()
         {
-            this.Business = new HashSet<Business>();
+            this.Businesses = new HashSet<Business>();
         }
     
         public int Pk_Municipality { get; set; }
         public string Name { get; set; }
         public string Postal_Code { get; set; }
     
-        public virtual ICollection<Business> Business { get; set; }
+        public virtual ICollection<Business> Businesses { get; set; }
     }
 }

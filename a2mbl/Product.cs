@@ -12,14 +12,14 @@ namespace a2mbl
     using System;
     using System.Collections.Generic;
     
-    public partial class Products
+    public partial class Product
     {
-        public Products()
+        public Product()
         {
             this.Order_Details = new HashSet<Order_Details>();
+            this.Products_Product_Extender_Group = new HashSet<Products_Product_Extender_Group>();
+            this.Products_Special_Food_Categories = new HashSet<Products_Special_Food_Categories>();
             this.Special_Offers = new HashSet<Special_Offers>();
-            this.Product_Extender_Group = new HashSet<Product_Extender_Group>();
-            this.Special_Food_Categories = new HashSet<Special_Food_Categories>();
         }
     
         public int Pk_Product { get; set; }
@@ -30,10 +30,10 @@ namespace a2mbl
         public string Icon { get; set; }
         public string Custom_Image { get; set; }
     
-        public virtual Categories Categories { get; set; }
+        public virtual Category Category { get; set; }
         public virtual ICollection<Order_Details> Order_Details { get; set; }
+        public virtual ICollection<Products_Product_Extender_Group> Products_Product_Extender_Group { get; set; }
+        public virtual ICollection<Products_Special_Food_Categories> Products_Special_Food_Categories { get; set; }
         public virtual ICollection<Special_Offers> Special_Offers { get; set; }
-        public virtual ICollection<Product_Extender_Group> Product_Extender_Group { get; set; }
-        public virtual ICollection<Special_Food_Categories> Special_Food_Categories { get; set; }
     }
 }

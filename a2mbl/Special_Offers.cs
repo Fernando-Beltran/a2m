@@ -30,6 +30,6 @@ namespace a2mbl
     
         public virtual Business Business { get; set; }
         public virtual Product_Extender Product_Extender { get; set; }
-        public virtual Products Products { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

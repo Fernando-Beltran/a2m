@@ -20,8 +20,8 @@ namespace a2mbl
         public int Fk_Order { get; set; }
         public int Quantity { get; set; }
     
-        public virtual Orders Orders { get; set; }
+        public virtual Order Order { get; set; }
         public virtual Product_Extender Product_Extender { get; set; }
-        public virtual Products Products { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

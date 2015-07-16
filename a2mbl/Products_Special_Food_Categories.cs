@@ -12,18 +12,13 @@ namespace a2mbl
     using System;
     using System.Collections.Generic;
     
-    public partial class Categories
+    public partial class Products_Special_Food_Categories
     {
-        public Categories()
-        {
-            this.Products = new HashSet<Products>();
-        }
+        public int Fk_Product { get; set; }
+        public int Fk_Special_Food_Categories { get; set; }
+        public int Pk_Products_Special_Food_Categories { get; set; }
     
-        public int Pk_Product_Category { get; set; }
-        public string Name { get; set; }
-        public Nullable<int> Fk_Business { get; set; }
-    
-        public virtual ICollection<Products> Products { get; set; }
-        public virtual Business Business { get; set; }
+        public virtual Product Product { get; set; }
+        public virtual Special_Food_Categories Special_Food_Categories { get; set; }
     }
 }

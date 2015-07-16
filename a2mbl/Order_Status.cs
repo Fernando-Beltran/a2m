@@ -17,13 +17,13 @@ namespace a2mbl
         public Order_Status()
         {
             this.Order_Movements = new HashSet<Order_Movements>();
-            this.Orders = new HashSet<Orders>();
+            this.Orders = new HashSet<Order>();
         }
     
         public int Pk_Order_Status { get; set; }
         public string Name { get; set; }
     
         public virtual ICollection<Order_Movements> Order_Movements { get; set; }
-        public virtual ICollection<Orders> Orders { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

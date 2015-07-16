@@ -66,13 +66,14 @@
     <Compile Include="Business.cs">
       <DependentUpon>a2m_model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Business\BussinesContext.cs" />
+    <Compile Include="Business\BussinessManager.cs" />
     <Compile Include="Business_Status.cs">
       <DependentUpon>a2m_model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Categories.cs">
+    <Compile Include="Category.cs">
       <DependentUpon>a2m_model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Bussiness.cs" />
     <Compile Include="Customer.cs">
       <DependentUpon>a2m_model.tt</DependentUpon>
     </Compile>
@@ -85,7 +86,7 @@
     <Compile Include="Municipality.cs">
       <DependentUpon>a2m_model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Orders.cs">
+    <Compile Include="Order.cs">
       <DependentUpon>a2m_model.tt</DependentUpon>
     </Compile>
     <Compile Include="Order_Details.cs">
@@ -97,7 +98,13 @@
     <Compile Include="Order_Status.cs">
       <DependentUpon>a2m_model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Products.cs">
+    <Compile Include="Product.cs">
+      <DependentUpon>a2m_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Products_Product_Extender_Group.cs">
+      <DependentUpon>a2m_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Products_Special_Food_Categories.cs">
       <DependentUpon>a2m_model.tt</DependentUpon>
     </Compile>
     <Compile Include="Product_Extender.cs">
@@ -116,7 +123,13 @@
     <Compile Include="Special_Offers.cs">
       <DependentUpon>a2m_model.tt</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagrams.cs">
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>a2m_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>a2m_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
       <DependentUpon>a2m_model.tt</DependentUpon>
     </Compile>
   </ItemGroup>

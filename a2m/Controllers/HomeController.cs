@@ -1,4 +1,5 @@
-﻿using System;
+﻿using a2mbl.bl.Business;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +11,7 @@ namespace a2m.Controllers
     {
         public ActionResult Index()
         {
+            BussinessManager.ValidateLogin("aaa", "aaa");
             return View();
         }
 

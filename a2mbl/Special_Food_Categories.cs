@@ -16,12 +16,12 @@ namespace a2mbl
     {
         public Special_Food_Categories()
         {
-            this.Products = new HashSet<Products>();
+            this.Products_Special_Food_Categories = new HashSet<Products_Special_Food_Categories>();
         }
     
         public int Pk_Special_Food { get; set; }
         public string Name { get; set; }
     
-        public virtual ICollection<Products> Products { get; set; }
+        public virtual ICollection<Products_Special_Food_Categories> Products_Special_Food_Categories { get; set; }
     }
 }

@@ -16,14 +16,14 @@ namespace a2mbl
     {
         public Schedule()
         {
-            this.Business = new HashSet<Business>();
+            this.Businesses = new HashSet<Business>();
         }
     
         public int Pk_Schedule { get; set; }
-        public short Day_Week { get; set; }
+        public string Day_Week { get; set; }
         public string Time_Mask { get; set; }
         public int Fk_Business { get; set; }
     
-        public virtual ICollection<Business> Business { get; set; }
+        public virtual ICollection<Business> Businesses { get; set; }
     }
 }

@@ -12,19 +12,13 @@ namespace a2mbl
     using System;
     using System.Collections.Generic;
     
-    public partial class Municipality
+    public partial class Admin
     {
-        public Municipality()
-        {
-            this.Businesses = new HashSet<Business>();
-            this.Admins = new HashSet<Admin>();
-        }
+        public int Pk_Admin { get; set; }
+        public string User_Name { get; set; }
+        public string Password { get; set; }
+        public Nullable<int> Fk_Municipality { get; set; }
     
-        public int Pk_Municipality { get; set; }
-        public string Name { get; set; }
-        public string Postal_Code { get; set; }
-    
-        public virtual ICollection<Business> Businesses { get; set; }
-        public virtual ICollection<Admin> Admins { get; set; }
+        public virtual Municipality Municipality { get; set; }
     }
 }

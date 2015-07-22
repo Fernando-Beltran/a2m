@@ -48,6 +48,10 @@
         <AssociationConnector Association="a2mModel.FK_Products_Special_Food_Categories_Products" />
         <AssociationConnector Association="a2mModel.FK_Special_Offers_Products" />
         <AssociationConnector Association="a2mModel.FK_Products_Special_Food_Categories_Special_Food_Categories" />
+        <EntityTypeShape EntityType="a2mModel.Admin" Width="1.5" PointX="3" PointY="17.875" />
+        <EntityTypeShape EntityType="a2mModel.Business_Images" Width="1.5" PointX="5.25" PointY="17.375" />
+        <AssociationConnector Association="a2mModel.FK_Admin_Municipality" />
+        <AssociationConnector Association="a2mModel.FK_Business_Images_Business" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

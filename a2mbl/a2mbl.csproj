@@ -66,10 +66,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>a2m_model.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Admin.cs">
+      <DependentUpon>a2m_model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Business.cs">
       <DependentUpon>a2m_model.tt</DependentUpon>
     </Compile>
     <Compile Include="Business\BussinessManager.cs" />
+    <Compile Include="Business_Images.cs">
+      <DependentUpon>a2m_model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Business_Status.cs">
       <DependentUpon>a2m_model.tt</DependentUpon>
     </Compile>

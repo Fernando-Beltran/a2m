@@ -19,6 +19,7 @@ namespace a2mbl
             this.Categories = new HashSet<Category>();
             this.Orders = new HashSet<Order>();
             this.Special_Offers = new HashSet<Special_Offers>();
+            this.Business_Images = new HashSet<Business_Images>();
         }
     
         public int Pk_Business { get; set; }
@@ -39,6 +40,12 @@ namespace a2mbl
         public Nullable<decimal> Max_Order_Price_Allowed { get; set; }
         public System.DateTime Creation_Date { get; set; }
         public string Password { get; set; }
+        public bool Is_A2M { get; set; }
+        public bool Has_Pdf { get; set; }
+        public Nullable<System.DateTime> Pdf_Last_Update { get; set; }
+        public Nullable<double> Lat { get; set; }
+        public Nullable<double> Lon { get; set; }
+        public string Description { get; set; }
     
         public virtual Business_Status Business_Status { get; set; }
         public virtual Municipality Municipality { get; set; }
@@ -46,5 +53,6 @@ namespace a2mbl
         public virtual ICollection<Category> Categories { get; set; }
         public virtual ICollection<Order> Orders { get; set; }
         public virtual ICollection<Special_Offers> Special_Offers { get; set; }
+        public virtual ICollection<Business_Images> Business_Images { get; set; }
     }
 }

@@ -5,6 +5,15 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="a2mModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Pk_Admin" />
+          </Key>
+          <Property Name="Pk_Admin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_Name" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="Password" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="Fk_Municipality" Type="int" />
+        </EntityType>
         <EntityType Name="Business">
           <Key>
             <PropertyRef Name="Pk_Business" />
@@ -27,6 +36,20 @@
           <Property Name="Max_Order_Price_Allowed" Type="money" />
           <Property Name="Creation_Date" Type="datetime" Nullable="false" />
           <Property Name="Password" Type="char" MaxLength="40" Nullable="false" />
+          <Property Name="Is_A2M" Type="bit" Nullable="false" />
+          <Property Name="Has_Pdf" Type="bit" Nullable="false" />
+          <Property Name="Pdf_Last_Update" Type="datetime" />
+          <Property Name="Lat" Type="float" />
+          <Property Name="Lon" Type="float" />
+          <Property Name="Description" Type="nchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Business_Images">
+          <Key>
+            <PropertyRef Name="Pk_Image" />
+          </Key>
+          <Property Name="Fk_Business" Type="int" Nullable="false" />
+          <Property Name="Image_Name" Type="nchar" MaxLength="255" Nullable="false" />
+          <Property Name="Pk_Image" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="Business_Status">
           <Key>
@@ -158,6 +181,8 @@
           <Property Name="Description" Type="nchar" MaxLength="500" Nullable="false" />
           <Property Name="Icon" Type="nchar" MaxLength="255" />
           <Property Name="Custom_Image" Type="nchar" MaxLength="255" />
+          <Property Name="Unit_Price_Second_Item" Type="money" />
+          <Property Name="Unit_Price_Third_Item" Type="money" />
         </EntityType>
         <EntityType Name="Products_Product_Extender_Group">
           <Key>
@@ -219,6 +244,18 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
+        <Association Name="FK_Admin_Municipality">
+          <End Role="Municipality" Type="Self.Municipality" Multiplicity="0..1" />
+          <End Role="Admin" Type="Self.Admin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Municipality">
+              <PropertyRef Name="Pk_Municipality" />
+            </Principal>
+            <Dependent Role="Admin">
+              <PropertyRef Name="Fk_Municipality" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Business_Business_Status">
           <End Role="Business_Status" Type="Self.Business_Status" Multiplicity="1" />
           <End Role="Business" Type="Self.Business" Multiplicity="*" />
@@ -228,6 +265,18 @@
             </Principal>
             <Dependent Role="Business">
               <PropertyRef Name="Fk_Business_Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Business_Images_Business">
+          <End Role="Business" Type="Self.Business" Multiplicity="1" />
+          <End Role="Business_Images" Type="Self.Business_Images" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Business">
+              <PropertyRef Name="Pk_Business" />
+            </Principal>
+            <Dependent Role="Business_Images">
+              <PropertyRef Name="Fk_Business" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -527,7 +576,9 @@
         </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="a2mModelStoreContainer">
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Business" EntityType="Self.Business" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Business_Images" EntityType="Self.Business_Images" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Business_Status" EntityType="Self.Business_Status" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
@@ -547,9 +598,17 @@
           <EntitySet Name="Special_Food_Categories" EntityType="Self.Special_Food_Categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Special_Offers" EntityType="Self.Special_Offers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Admin_Municipality" Association="Self.FK_Admin_Municipality">
+            <End Role="Municipality" EntitySet="Municipality" />
+            <End Role="Admin" EntitySet="Admin" />
+          </AssociationSet>
           <AssociationSet Name="FK_Business_Business_Status" Association="Self.FK_Business_Business_Status">
             <End Role="Business_Status" EntitySet="Business_Status" />
             <End Role="Business" EntitySet="Business" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Business_Images_Business" Association="Self.FK_Business_Images_Business">
+            <End Role="Business" EntitySet="Business" />
+            <End Role="Business_Images" EntitySet="Business_Images" />
           </AssociationSet>
           <AssociationSet Name="FK_Business_Municipality" Association="Self.FK_Business_Municipality">
             <End Role="Municipality" EntitySet="Municipality" />
@@ -644,7 +703,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="a2mModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="a2mEF" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="a2mContext" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Businesses" EntityType="a2mModel.Business" />
           <EntitySet Name="Business_Status" EntityType="a2mModel.Business_Status" />
           <EntitySet Name="Categories" EntityType="a2mModel.Category" />
@@ -787,6 +846,16 @@
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
+          <EntitySet Name="Admins" EntityType="a2mModel.Admin" />
+          <EntitySet Name="Business_Images" EntityType="a2mModel.Business_Images" />
+          <AssociationSet Name="FK_Admin_Municipality" Association="a2mModel.FK_Admin_Municipality">
+            <End Role="Municipality" EntitySet="Municipalities" />
+            <End Role="Admin" EntitySet="Admins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Business_Images_Business" Association="a2mModel.FK_Business_Images_Business">
+            <End Role="Business" EntitySet="Businesses" />
+            <End Role="Business_Images" EntitySet="Business_Images" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Business">
           <Key>
@@ -816,6 +885,13 @@
           <NavigationProperty Name="Categories" Relationship="a2mModel.FK_Categories_Business" FromRole="Business" ToRole="Category" />
           <NavigationProperty Name="Orders" Relationship="a2mModel.FK_Orders_Business" FromRole="Business" ToRole="Order" />
           <NavigationProperty Name="Special_Offers" Relationship="a2mModel.FK_Special_Offers_Business" FromRole="Business" ToRole="Special_Offers" />
+          <Property Name="Is_A2M" Type="Boolean" Nullable="false" />
+          <Property Name="Has_Pdf" Type="Boolean" Nullable="false" />
+          <Property Name="Pdf_Last_Update" Type="DateTime" Precision="3" />
+          <Property Name="Lat" Type="Double" />
+          <Property Name="Lon" Type="Double" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Business_Images" Relationship="a2mModel.FK_Business_Images_Business" FromRole="Business" ToRole="Business_Images" />
         </EntityType>
         <EntityType Name="Business_Status">
           <Key>
@@ -885,6 +961,7 @@
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
           <Property Name="Postal_Code" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="Businesses" Relationship="a2mModel.FK_Business_Municipality" FromRole="Municipality" ToRole="Business" />
+          <NavigationProperty Name="Admins" Relationship="a2mModel.FK_Admin_Municipality" FromRole="Municipality" ToRole="Admin" />
         </EntityType>
         <EntityType Name="Order_Details">
           <Key>
@@ -978,6 +1055,8 @@
           <NavigationProperty Name="Products_Product_Extender_Group" Relationship="a2mModel.FK_Products_Product_Extender_Group_Products" FromRole="Product" ToRole="Products_Product_Extender_Group" />
           <NavigationProperty Name="Products_Special_Food_Categories" Relationship="a2mModel.FK_Products_Special_Food_Categories_Products" FromRole="Product" ToRole="Products_Special_Food_Categories" />
           <NavigationProperty Name="Special_Offers" Relationship="a2mModel.FK_Special_Offers_Products" FromRole="Product" ToRole="Special_Offers" />
+          <Property Name="Unit_Price_Second_Item" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Unit_Price_Third_Item" Type="Decimal" Precision="19" Scale="4" />
         </EntityType>
         <EntityType Name="Products_Product_Extender_Group">
           <Key>
@@ -1335,15 +1414,64 @@
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Pk_Admin" />
+          </Key>
+          <Property Name="Pk_Admin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_Name" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="Fk_Municipality" Type="Int32" />
+          <NavigationProperty Name="Municipality" Relationship="a2mModel.FK_Admin_Municipality" FromRole="Admin" ToRole="Municipality" />
+        </EntityType>
+        <EntityType Name="Business_Images">
+          <Key>
+            <PropertyRef Name="Pk_Image" />
+          </Key>
+          <Property Name="Fk_Business" Type="Int32" Nullable="false" />
+          <Property Name="Image_Name" Type="String" Nullable="false" MaxLength="255" FixedLength="true" Unicode="true" />
+          <Property Name="Pk_Image" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Business" Relationship="a2mModel.FK_Business_Images_Business" FromRole="Business_Images" ToRole="Business" />
+        </EntityType>
+        <Association Name="FK_Admin_Municipality">
+          <End Type="a2mModel.Municipality" Role="Municipality" Multiplicity="0..1" />
+          <End Type="a2mModel.Admin" Role="Admin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Municipality">
+              <PropertyRef Name="Pk_Municipality" />
+            </Principal>
+            <Dependent Role="Admin">
+              <PropertyRef Name="Fk_Municipality" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Business_Images_Business">
+          <End Type="a2mModel.Business" Role="Business" Multiplicity="1" />
+          <End Type="a2mModel.Business_Images" Role="Business_Images" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Business">
+              <PropertyRef Name="Pk_Business" />
+            </Principal>
+            <Dependent Role="Business_Images">
+              <PropertyRef Name="Fk_Business" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="a2mModelStoreContainer" CdmEntityContainer="a2mEF">
+        <EntityContainerMapping StorageEntityContainer="a2mModelStoreContainer" CdmEntityContainer="a2mContext">
           <EntitySetMapping Name="Businesses">
             <EntityTypeMapping TypeName="a2mModel.Business">
               <MappingFragment StoreEntitySet="Business">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Lon" ColumnName="Lon" />
+                <ScalarProperty Name="Lat" ColumnName="Lat" />
+                <ScalarProperty Name="Pdf_Last_Update" ColumnName="Pdf_Last_Update" />
+                <ScalarProperty Name="Has_Pdf" ColumnName="Has_Pdf" />
+                <ScalarProperty Name="Is_A2M" ColumnName="Is_A2M" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Creation_Date" ColumnName="Creation_Date" />
                 <ScalarProperty Name="Max_Order_Price_Allowed" ColumnName="Max_Order_Price_Allowed" />
@@ -1499,6 +1627,8 @@
           <EntitySetMapping Name="Products">
             <EntityTypeMapping TypeName="a2mModel.Product">
               <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="Unit_Price_Third_Item" ColumnName="Unit_Price_Third_Item" />
+                <ScalarProperty Name="Unit_Price_Second_Item" ColumnName="Unit_Price_Second_Item" />
                 <ScalarProperty Name="Custom_Image" ColumnName="Custom_Image" />
                 <ScalarProperty Name="Icon" ColumnName="Icon" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
@@ -1599,6 +1729,25 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="a2mModel.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="a2mModel.Store.sp_upgraddiagrams" />
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="a2mModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="Fk_Municipality" ColumnName="Fk_Municipality" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+                <ScalarProperty Name="Pk_Admin" ColumnName="Pk_Admin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Business_Images">
+            <EntityTypeMapping TypeName="a2mModel.Business_Images">
+              <MappingFragment StoreEntitySet="Business_Images">
+                <ScalarProperty Name="Pk_Image" ColumnName="Pk_Image" />
+                <ScalarProperty Name="Image_Name" ColumnName="Image_Name" />
+                <ScalarProperty Name="Fk_Business" ColumnName="Fk_Business" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -29,6 +29,8 @@ namespace a2mbl
         public string Description { get; set; }
         public string Icon { get; set; }
         public string Custom_Image { get; set; }
+        public Nullable<decimal> Unit_Price_Second_Item { get; set; }
+        public Nullable<decimal> Unit_Price_Third_Item { get; set; }
     
         public virtual Category Category { get; set; }
         public virtual ICollection<Order_Details> Order_Details { get; set; }

@@ -12,12 +12,20 @@ namespace a2m
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
+            routes.IgnoreRoute("Content/{resource}");
+            routes.IgnoreRoute("Content/{*pathInfo}");
+            routes.IgnoreRoute("Static/{*pathInfo}");
             routes.MapRoute(
-                name: "Default",
+                name: "Controllers",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+
+            routes.MapRoute(
+            name: "Default",
+            url: "",
+            defaults: new { controller = "Home", action = "Index" });
         }
     }
 }

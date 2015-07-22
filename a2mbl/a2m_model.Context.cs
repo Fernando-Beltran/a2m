@@ -14,7 +14,7 @@ namespace a2mbl
     using System.Data.Entity.Infrastructure;
     using System.Data.Entity.Core.Objects;
     using System.Linq;
-
+    
     public partial class a2mDbContext : DbContext
     {
         public a2mDbContext()

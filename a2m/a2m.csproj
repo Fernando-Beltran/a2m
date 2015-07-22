@@ -15,7 +15,7 @@
     <AssemblyName>a2m</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -161,7 +161,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -172,31 +171,29 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\external\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
-    <Content Include="Scripts\a2m\a2m.properties.js" />
-    <Content Include="Scripts\a2m\a2m.request.js" />
-    <Content Include="Scripts\a2m\a2m.storage.js" />
-    <Content Include="Scripts\a2m\a2m.utils.js" />
-    <Content Include="Scripts\a2m\a2m.cookie.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\respond.js" />
-    <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\_references.js" />
+    <Content Include="Content\a2m\js\a2m.properties.js" />
+    <Content Include="Content\a2m\js\a2m.request.js" />
+    <Content Include="Content\a2m\js\a2m.storage.js" />
+    <Content Include="Content\a2m\js\a2m.utils.js" />
+    <Content Include="Content\a2m\js\a2m.cookie.js" />
+    <Content Include="Content\external\js\bootstrap.js" />
+    <Content Include="Content\external\js\bootstrap.min.js" />
+    <None Include="Content\external\js\jquery-1.10.2.intellisense.js" />
+    <Content Include="Content\external\js\jquery-1.10.2.js" />
+    <Content Include="Content\external\js\jquery-1.10.2.min.js" />
+    <None Include="Content\external\js\jquery.validate-vsdoc.js" />
+    <Content Include="Content\external\js\jquery.validate.js" />
+    <Content Include="Content\external\js\jquery.validate.min.js" />
+    <Content Include="Content\external\js\jquery.validate.unobtrusive.js" />
+    <Content Include="Content\external\js\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Content\external\js\modernizr-2.6.2.js" />
+    <Content Include="Content\external\js\respond.js" />
+    <Content Include="Content\external\js\respond.min.js" />
+    <Content Include="Content\external\js\_references.js" />
+    <Content Include="Static\index.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -208,28 +205,19 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\_RemoveAccountPartial.cshtml" />
-    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Manage.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Content\external\js\jquery-1.10.2.min.map" />
+    <Content Include="Views\Municipality\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\a2m\css\" />
+    <Folder Include="Content\external\css\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\external\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\external\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\external\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
@@ -257,7 +245,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>18237</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:18237/</IISUrl>
+          <IISUrl>http://localhost/a2m</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

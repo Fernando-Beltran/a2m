@@ -11,7 +11,6 @@
         <EntityTypeShape EntityType="a2mModel.Customer" Width="1.5" PointX="3" PointY="1.5" />
         <EntityTypeShape EntityType="a2mModel.Customer_Address" Width="1.5" PointX="5.25" PointY="0.75" />
         <EntityTypeShape EntityType="a2mModel.Customer_Status" Width="1.5" PointX="0.75" PointY="2.5" />
-        <EntityTypeShape EntityType="a2mModel.Municipality" Width="1.5" PointX="0.75" PointY="12.875" />
         <EntityTypeShape EntityType="a2mModel.Order_Details" Width="1.5" PointX="12.75" PointY="11.5" />
         <EntityTypeShape EntityType="a2mModel.Order_Movements" Width="1.5" PointX="7.5" PointY="9.5" />
         <EntityTypeShape EntityType="a2mModel.Order_Status" Width="1.5" PointX="3" PointY="14.875" />
@@ -26,7 +25,6 @@
         <EntityTypeShape EntityType="a2mModel.Special_Offers" Width="1.5" PointX="9.75" PointY="10.25" />
         <EntityTypeShape EntityType="a2mModel.sysdiagram" Width="1.5" PointX="7.75" PointY="1" />
         <AssociationConnector Association="a2mModel.FK_Business_Business_Status" />
-        <AssociationConnector Association="a2mModel.FK_Business_Municipality" />
         <AssociationConnector Association="a2mModel.FK_Business_Schedule" />
         <AssociationConnector Association="a2mModel.FK_Categories_Business" />
         <AssociationConnector Association="a2mModel.FK_Orders_Business" />
@@ -50,8 +48,13 @@
         <AssociationConnector Association="a2mModel.FK_Products_Special_Food_Categories_Special_Food_Categories" />
         <EntityTypeShape EntityType="a2mModel.Admin" Width="1.5" PointX="3" PointY="17.875" />
         <EntityTypeShape EntityType="a2mModel.Business_Images" Width="1.5" PointX="5.25" PointY="17.375" />
-        <AssociationConnector Association="a2mModel.FK_Admin_Municipality" />
         <AssociationConnector Association="a2mModel.FK_Business_Images_Business" />
+        <EntityTypeShape EntityType="a2mModel.Municipality" Width="1.5" PointX="0.75" PointY="12.625" />
+        <EntityTypeShape EntityType="a2mModel.Municipality_Status" Width="2.375" PointX="0.5" PointY="16" />
+        <AssociationConnector Association="a2mModel.FK_Admin_Municipality" />
+        <AssociationConnector Association="a2mModel.FK_Business_Municipality" />
+        <AssociationConnector Association="a2mModel.FK_Municipality_Municipality_Status" />
+        <AssociationConnector Association="a2mModel.FK_Business_Business_Status1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -108,8 +108,16 @@
             <PropertyRef Name="Pk_Municipality" />
           </Key>
           <Property Name="Pk_Municipality" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nchar" MaxLength="50" />
-          <Property Name="Postal_Code" Type="nchar" MaxLength="5" />
+          <Property Name="Name" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="Postal_Code" Type="nchar" MaxLength="5" Nullable="false" />
+          <Property Name="Fk_Municipality_Status" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Municipality_Status">
+          <Key>
+            <PropertyRef Name="Pk_Municipality_Status" />
+          </Key>
+          <Property Name="Pk_Municipality_Status" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <EntityType Name="Order_Details">
           <Key>
@@ -264,7 +272,7 @@
               <PropertyRef Name="Pk_Business_Status" />
             </Principal>
             <Dependent Role="Business">
-              <PropertyRef Name="Fk_Business_Status" />
+              <PropertyRef Name="Fk_Municipality" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -337,6 +345,18 @@
             </Principal>
             <Dependent Role="Customer">
               <PropertyRef Name="Fk_Customer_Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Municipality_Municipality_Status">
+          <End Role="Municipality_Status" Type="Self.Municipality_Status" Multiplicity="1" />
+          <End Role="Municipality" Type="Self.Municipality" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Municipality_Status">
+              <PropertyRef Name="Pk_Municipality_Status" />
+            </Principal>
+            <Dependent Role="Municipality">
+              <PropertyRef Name="Fk_Municipality_Status" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -585,6 +605,7 @@
           <EntitySet Name="Customer_Address" EntityType="Self.Customer_Address" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customer_Status" EntityType="Self.Customer_Status" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Municipality" EntityType="Self.Municipality" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Municipality_Status" EntityType="Self.Municipality_Status" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Order_Details" EntityType="Self.Order_Details" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Order_Movements" EntityType="Self.Order_Movements" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Order_Status" EntityType="Self.Order_Status" Schema="dbo" store:Type="Tables" />
@@ -629,6 +650,10 @@
           <AssociationSet Name="FK_Customer_Customer_Status" Association="Self.FK_Customer_Customer_Status">
             <End Role="Customer_Status" EntitySet="Customer_Status" />
             <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Municipality_Municipality_Status" Association="Self.FK_Municipality_Municipality_Status">
+            <End Role="Municipality_Status" EntitySet="Municipality_Status" />
+            <End Role="Municipality" EntitySet="Municipality" />
           </AssociationSet>
           <AssociationSet Name="FK_Order_Details_Orders" Association="Self.FK_Order_Details_Orders">
             <End Role="Orders" EntitySet="Orders" />
@@ -710,7 +735,6 @@
           <EntitySet Name="Customers" EntityType="a2mModel.Customer" />
           <EntitySet Name="Customer_Address" EntityType="a2mModel.Customer_Address" />
           <EntitySet Name="Customer_Status" EntityType="a2mModel.Customer_Status" />
-          <EntitySet Name="Municipalities" EntityType="a2mModel.Municipality" />
           <EntitySet Name="Order_Details" EntityType="a2mModel.Order_Details" />
           <EntitySet Name="Order_Movements" EntityType="a2mModel.Order_Movements" />
           <EntitySet Name="Order_Status" EntityType="a2mModel.Order_Status" />
@@ -726,10 +750,6 @@
           <EntitySet Name="sysdiagrams" EntityType="a2mModel.sysdiagram" />
           <AssociationSet Name="FK_Business_Business_Status" Association="a2mModel.FK_Business_Business_Status">
             <End Role="Business_Status" EntitySet="Business_Status" />
-            <End Role="Business" EntitySet="Businesses" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Business_Municipality" Association="a2mModel.FK_Business_Municipality">
-            <End Role="Municipality" EntitySet="Municipalities" />
             <End Role="Business" EntitySet="Businesses" />
           </AssociationSet>
           <AssociationSet Name="FK_Business_Schedule" Association="a2mModel.FK_Business_Schedule">
@@ -848,13 +868,27 @@
           <FunctionImport Name="sp_upgraddiagrams" />
           <EntitySet Name="Admins" EntityType="a2mModel.Admin" />
           <EntitySet Name="Business_Images" EntityType="a2mModel.Business_Images" />
+          <AssociationSet Name="FK_Business_Images_Business" Association="a2mModel.FK_Business_Images_Business">
+            <End Role="Business" EntitySet="Businesses" />
+            <End Role="Business_Images" EntitySet="Business_Images" />
+          </AssociationSet>
+          <EntitySet Name="Municipalities" EntityType="a2mModel.Municipality" />
+          <EntitySet Name="Municipality_Status" EntityType="a2mModel.Municipality_Status" />
           <AssociationSet Name="FK_Admin_Municipality" Association="a2mModel.FK_Admin_Municipality">
             <End Role="Municipality" EntitySet="Municipalities" />
             <End Role="Admin" EntitySet="Admins" />
           </AssociationSet>
-          <AssociationSet Name="FK_Business_Images_Business" Association="a2mModel.FK_Business_Images_Business">
+          <AssociationSet Name="FK_Business_Municipality" Association="a2mModel.FK_Business_Municipality">
+            <End Role="Municipality" EntitySet="Municipalities" />
             <End Role="Business" EntitySet="Businesses" />
-            <End Role="Business_Images" EntitySet="Business_Images" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Municipality_Municipality_Status" Association="a2mModel.FK_Municipality_Municipality_Status">
+            <End Role="Municipality_Status" EntitySet="Municipality_Status" />
+            <End Role="Municipality" EntitySet="Municipalities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Business_Business_Status1" Association="a2mModel.FK_Business_Business_Status1">
+            <End Role="Business_Status" EntitySet="Business_Status" />
+            <End Role="Business" EntitySet="Businesses" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Business">
@@ -880,7 +914,6 @@
           <Property Name="Creation_Date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Password" Type="String" Nullable="false" MaxLength="40" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="Business_Status" Relationship="a2mModel.FK_Business_Business_Status" FromRole="Business" ToRole="Business_Status" />
-          <NavigationProperty Name="Municipality" Relationship="a2mModel.FK_Business_Municipality" FromRole="Business" ToRole="Municipality" />
           <NavigationProperty Name="Schedule" Relationship="a2mModel.FK_Business_Schedule" FromRole="Business" ToRole="Schedule" />
           <NavigationProperty Name="Categories" Relationship="a2mModel.FK_Categories_Business" FromRole="Business" ToRole="Category" />
           <NavigationProperty Name="Orders" Relationship="a2mModel.FK_Orders_Business" FromRole="Business" ToRole="Order" />
@@ -892,6 +925,8 @@
           <Property Name="Lon" Type="Double" />
           <Property Name="Description" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="Business_Images" Relationship="a2mModel.FK_Business_Images_Business" FromRole="Business" ToRole="Business_Images" />
+          <NavigationProperty Name="Municipality" Relationship="a2mModel.FK_Business_Municipality" FromRole="Business" ToRole="Municipality" />
+          <NavigationProperty Name="Business_Status1" Relationship="a2mModel.FK_Business_Business_Status1" FromRole="Business" ToRole="Business_Status" />
         </EntityType>
         <EntityType Name="Business_Status">
           <Key>
@@ -900,6 +935,7 @@
           <Property Name="Pk_Business_Status" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="Businesses" Relationship="a2mModel.FK_Business_Business_Status" FromRole="Business_Status" ToRole="Business" />
+          <NavigationProperty Name="Businesses1" Relationship="a2mModel.FK_Business_Business_Status1" FromRole="Business_Status" ToRole="Business" />
         </EntityType>
         <EntityType Name="Category">
           <Key>
@@ -952,16 +988,6 @@
           <Property Name="Pk_Status" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="Customers" Relationship="a2mModel.FK_Customer_Customer_Status" FromRole="Customer_Status" ToRole="Customer" />
-        </EntityType>
-        <EntityType Name="Municipality">
-          <Key>
-            <PropertyRef Name="Pk_Municipality" />
-          </Key>
-          <Property Name="Pk_Municipality" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
-          <Property Name="Postal_Code" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="Businesses" Relationship="a2mModel.FK_Business_Municipality" FromRole="Municipality" ToRole="Business" />
-          <NavigationProperty Name="Admins" Relationship="a2mModel.FK_Admin_Municipality" FromRole="Municipality" ToRole="Admin" />
         </EntityType>
         <EntityType Name="Order_Details">
           <Key>
@@ -1136,18 +1162,6 @@
             </Principal>
             <Dependent Role="Business">
               <PropertyRef Name="Fk_Business_Status" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Business_Municipality">
-          <End Type="a2mModel.Municipality" Role="Municipality" Multiplicity="1" />
-          <End Type="a2mModel.Business" Role="Business" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Municipality">
-              <PropertyRef Name="Pk_Municipality" />
-            </Principal>
-            <Dependent Role="Business">
-              <PropertyRef Name="Fk_Municipality" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1433,6 +1447,38 @@
           <Property Name="Pk_Image" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Business" Relationship="a2mModel.FK_Business_Images_Business" FromRole="Business_Images" ToRole="Business" />
         </EntityType>
+        <Association Name="FK_Business_Images_Business">
+          <End Type="a2mModel.Business" Role="Business" Multiplicity="1" />
+          <End Type="a2mModel.Business_Images" Role="Business_Images" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Business">
+              <PropertyRef Name="Pk_Business" />
+            </Principal>
+            <Dependent Role="Business_Images">
+              <PropertyRef Name="Fk_Business" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Municipality">
+          <Key>
+            <PropertyRef Name="Pk_Municipality" />
+          </Key>
+          <Property Name="Pk_Municipality" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Postal_Code" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="true" />
+          <Property Name="Fk_Municipality_Status" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Admins" Relationship="a2mModel.FK_Admin_Municipality" FromRole="Municipality" ToRole="Admin" />
+          <NavigationProperty Name="Businesses" Relationship="a2mModel.FK_Business_Municipality" FromRole="Municipality" ToRole="Business" />
+          <NavigationProperty Name="Municipality_Status" Relationship="a2mModel.FK_Municipality_Municipality_Status" FromRole="Municipality" ToRole="Municipality_Status" />
+        </EntityType>
+        <EntityType Name="Municipality_Status">
+          <Key>
+            <PropertyRef Name="Pk_Municipality_Status" />
+          </Key>
+          <Property Name="Pk_Municipality_Status" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Municipalities" Relationship="a2mModel.FK_Municipality_Municipality_Status" FromRole="Municipality_Status" ToRole="Municipality" />
+        </EntityType>
         <Association Name="FK_Admin_Municipality">
           <End Type="a2mModel.Municipality" Role="Municipality" Multiplicity="0..1" />
           <End Type="a2mModel.Admin" Role="Admin" Multiplicity="*" />
@@ -1445,15 +1491,39 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Business_Images_Business">
-          <End Type="a2mModel.Business" Role="Business" Multiplicity="1" />
-          <End Type="a2mModel.Business_Images" Role="Business_Images" Multiplicity="*" />
+        <Association Name="FK_Business_Municipality">
+          <End Type="a2mModel.Municipality" Role="Municipality" Multiplicity="1" />
+          <End Type="a2mModel.Business" Role="Business" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Business">
-              <PropertyRef Name="Pk_Business" />
+            <Principal Role="Municipality">
+              <PropertyRef Name="Pk_Municipality" />
             </Principal>
-            <Dependent Role="Business_Images">
-              <PropertyRef Name="Fk_Business" />
+            <Dependent Role="Business">
+              <PropertyRef Name="Fk_Municipality" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Municipality_Municipality_Status">
+          <End Type="a2mModel.Municipality_Status" Role="Municipality_Status" Multiplicity="1" />
+          <End Type="a2mModel.Municipality" Role="Municipality" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Municipality_Status">
+              <PropertyRef Name="Pk_Municipality_Status" />
+            </Principal>
+            <Dependent Role="Municipality">
+              <PropertyRef Name="Fk_Municipality_Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Business_Business_Status1">
+          <End Type="a2mModel.Business_Status" Role="Business_Status" Multiplicity="1" />
+          <End Type="a2mModel.Business" Role="Business" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Business_Status">
+              <PropertyRef Name="Pk_Business_Status" />
+            </Principal>
+            <Dependent Role="Business">
+              <PropertyRef Name="Fk_Municipality" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1547,15 +1617,6 @@
               <MappingFragment StoreEntitySet="Customer_Status">
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Pk_Status" ColumnName="Pk_Status" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Municipalities">
-            <EntityTypeMapping TypeName="a2mModel.Municipality">
-              <MappingFragment StoreEntitySet="Municipality">
-                <ScalarProperty Name="Postal_Code" ColumnName="Postal_Code" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Pk_Municipality" ColumnName="Pk_Municipality" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1745,6 +1806,24 @@
                 <ScalarProperty Name="Pk_Image" ColumnName="Pk_Image" />
                 <ScalarProperty Name="Image_Name" ColumnName="Image_Name" />
                 <ScalarProperty Name="Fk_Business" ColumnName="Fk_Business" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Municipalities">
+            <EntityTypeMapping TypeName="a2mModel.Municipality">
+              <MappingFragment StoreEntitySet="Municipality">
+                <ScalarProperty Name="Fk_Municipality_Status" ColumnName="Fk_Municipality_Status" />
+                <ScalarProperty Name="Postal_Code" ColumnName="Postal_Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Pk_Municipality" ColumnName="Pk_Municipality" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Municipality_Status">
+            <EntityTypeMapping TypeName="a2mModel.Municipality_Status">
+              <MappingFragment StoreEntitySet="Municipality_Status">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Pk_Municipality_Status" ColumnName="Pk_Municipality_Status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

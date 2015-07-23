@@ -33,7 +33,6 @@ namespace a2mbl
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Customer_Address> Customer_Address { get; set; }
         public virtual DbSet<Customer_Status> Customer_Status { get; set; }
-        public virtual DbSet<Municipality> Municipalities { get; set; }
         public virtual DbSet<Order_Details> Order_Details { get; set; }
         public virtual DbSet<Order_Movements> Order_Movements { get; set; }
         public virtual DbSet<Order_Status> Order_Status { get; set; }
@@ -49,6 +48,8 @@ namespace a2mbl
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Admin> Admins { get; set; }
         public virtual DbSet<Business_Images> Business_Images { get; set; }
+        public virtual DbSet<Municipality> Municipalities { get; set; }
+        public virtual DbSet<Municipality_Status> Municipality_Status { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

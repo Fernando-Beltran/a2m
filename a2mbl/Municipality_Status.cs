@@ -12,18 +12,16 @@ namespace a2mbl
     using System;
     using System.Collections.Generic;
     
-    public partial class Business_Status
+    public partial class Municipality_Status
     {
-        public Business_Status()
+        public Municipality_Status()
         {
-            this.Businesses = new HashSet<Business>();
-            this.Businesses1 = new HashSet<Business>();
+            this.Municipalities = new HashSet<Municipality>();
         }
     
-        public int Pk_Business_Status { get; set; }
+        public int Pk_Municipality_Status { get; set; }
         public string Name { get; set; }
     
-        public virtual ICollection<Business> Businesses { get; set; }
-        public virtual ICollection<Business> Businesses1 { get; set; }
+        public virtual ICollection<Municipality> Municipalities { get; set; }
     }
 }

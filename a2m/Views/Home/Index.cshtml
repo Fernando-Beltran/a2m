@@ -1,4 +1,15 @@
-﻿@{
+﻿@using a2m.Models
+@model HomeModel
+@{
     ViewBag.Title = "Home Page";
+    
+    
 }
+<br />
 HOME
+<br />
+
+@foreach (var municipality in Model.Municipalities)
+{
+    <div>@municipality.Name - @municipality.Postal_Code</div>
+}

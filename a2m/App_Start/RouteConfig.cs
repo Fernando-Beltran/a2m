@@ -15,17 +15,21 @@ namespace a2m
             routes.IgnoreRoute("Content/{resource}");
             routes.IgnoreRoute("Content/{*pathInfo}");
             routes.IgnoreRoute("Static/{*pathInfo}");
-            routes.MapRoute(
-                name: "Controllers",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
+            
 
+           /* RUTAS HOME */
+           routes.MapRoute(name: "Inicio", url: "", defaults: new { controller = "Home", action = "Index" });
+           routes.MapRoute(name: "Inicio - Ayuda", url: "ayuda", defaults: new { controller = "Home", action = "Help" });
+           routes.MapRoute(name: "Inicio - Contacto", url: "contacto", defaults: new { controller = "Home", action = "Contact" });
+           routes.MapRoute(name: "Inicio - Acerca de", url: "acerca-de-a2m", defaults: new { controller = "Home", action = "About" });
 
-            routes.MapRoute(
-            name: "Default",
-            url: "",
-            defaults: new { controller = "Home", action = "Index" });
+           
+
+            /* RUTAS HOME */
+
+           routes.MapRoute(name: "Controllers",url: "{controller}/{action}/{id}", defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+           );
+
         }
     }
 }

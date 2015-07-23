@@ -11,6 +11,7 @@ namespace a2m
 {
     public class MvcApplication : System.Web.HttpApplication
     {
+        public static ILog log;
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
@@ -18,7 +19,7 @@ namespace a2m
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             log4net.Config.XmlConfigurator.Configure();
-            ILog log = LogManager.GetLogger(typeof(MvcApplication));
+            log = LogManager.GetLogger(typeof(MvcApplication));
             log.Debug("Application_Start");
         }
     }

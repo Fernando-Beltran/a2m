@@ -10,9 +10,12 @@
     @Scripts.Render("~/bundles/bootstrap")
 </head>
 <body>
-    @Html.ActionLink("Municipios", "Index", "Home", null, new { @class = "navbar-brand" })
+    
 
+    @Html.RouteLink("Ayuda", "Inicio - Ayuda")
+    @Html.RouteLink("Quienes somos", "Inicio - Acerca de")
+    @Html.RouteLink("Contacto", "Inicio - Contacto")
    
-   @RenderBody();
+   @RenderBody()
 </body>
 </html>

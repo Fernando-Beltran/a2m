@@ -48,11 +48,12 @@ namespace a2mbl
         public string Description { get; set; }
     
         public virtual Business_Status Business_Status { get; set; }
-        public virtual Municipality Municipality { get; set; }
         public virtual Schedule Schedule { get; set; }
         public virtual ICollection<Category> Categories { get; set; }
         public virtual ICollection<Order> Orders { get; set; }
         public virtual ICollection<Special_Offers> Special_Offers { get; set; }
         public virtual ICollection<Business_Images> Business_Images { get; set; }
+        public virtual Municipality Municipality { get; set; }
+        public virtual Business_Status Business_Status1 { get; set; }
     }
 }

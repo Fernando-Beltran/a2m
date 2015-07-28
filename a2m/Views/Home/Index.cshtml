@@ -1,4 +1,6 @@
 ﻿@using a2m.Models
+@using a2mbl
+@using CustomExtensions
 @model HomeModel
 @{
     ViewBag.Title = "Home Page";
@@ -11,5 +13,5 @@ HOME
 
 @foreach (var municipality in Model.Municipalities)
 {
-    <div>@municipality.Name - @municipality.Postal_Code</div>
+    <div>@municipality.Name - @municipality.Postal_Code  <a href="~/@municipality.Name.NameToA2MUrl()">Enlace a : @municipality.Name</a></div>
 }

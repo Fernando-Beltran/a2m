@@ -9,7 +9,28 @@ namespace a2mbl.Managers
 
     public static class BussinessManager
     {
-        
+        /// <summary>
+        /// Obtiene la lista de negocios de un municipio
+        /// </summary>
+        /// <param name="municipalityId">Identificador del municipio</param>
+        /// <returns>Lista de municipios activos</returns>
+        public static List<Business> GetBusinessFromMunicipalityId(int municipalityId){
+            try
+            {
+                using (var db = new a2mbl.a2mContext())
+                {
+                    List<Business> BusinessList = db.Businesses
+                        .Include("Business_Status")
+                        .Include("Categories")
+                        .Where(item => item.Fk_Municipality == municipalityId).ToList();
+                    return BusinessList;
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
        
         public static bool ValidateLogin(string phone,string password) {
             try

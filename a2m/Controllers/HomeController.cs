@@ -18,12 +18,13 @@ namespace a2m.Controllers
             try
             {
                 HomeModel HomeModel = new HomeModel();
-                HomeModel.Municipalities = MunicipalityManager.getAllMunicipalities();
+                HomeModel.Municipalities = MunicipalityManager.getAllActiveMunicipalities();
+                if (HomeModel.Municipalities == null) return View("Error");
                 return View(HomeModel);
             }
             catch (Exception ex) {
-                a2m.MvcApplication.log.Error("HomeController", ex);
-                return View();
+                a2m.A2MApplication.log.Error("HomeController", ex);
+                return View("Error");
             }
         }
 

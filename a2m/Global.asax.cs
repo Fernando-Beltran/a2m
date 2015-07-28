@@ -9,7 +9,7 @@ using System.Web.Routing;
 
 namespace a2m
 {
-    public class MvcApplication : System.Web.HttpApplication
+    public class A2MApplication : System.Web.HttpApplication
     {
         public static ILog log;
         protected void Application_Start()
@@ -19,7 +19,7 @@ namespace a2m
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             log4net.Config.XmlConfigurator.Configure();
-            log = LogManager.GetLogger(typeof(MvcApplication));
+            log = LogManager.GetLogger(typeof(A2MApplication));
             log.Debug("Application_Start");
         }
     }

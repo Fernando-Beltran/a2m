@@ -81,6 +81,7 @@
     <Compile Include="Category.cs">
       <DependentUpon>a2m_model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Common\CustomExtensions.cs" />
     <Compile Include="Common\MunicipalityStatus.cs" />
     <Compile Include="Customer.cs">
       <DependentUpon>a2m_model.tt</DependentUpon>

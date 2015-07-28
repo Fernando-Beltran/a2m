@@ -13,5 +13,5 @@ HOME
 
 @foreach (var municipality in Model.Municipalities)
 {
-    <div>@municipality.Name - @municipality.Postal_Code  <a href="~/@municipality.Name.NameToA2MUrl()">Enlace a : @municipality.Name</a></div>
+    <div>@municipality.Name - @municipality.Postal_Code  <a href="~/@municipality.Name.ToA2MUrlName()">Enlace a : @municipality.Name</a></div>
 }

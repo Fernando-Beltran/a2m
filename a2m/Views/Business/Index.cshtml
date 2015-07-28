@@ -1,0 +1,14 @@
+﻿@using a2m.Models
+@using a2mbl
+@using CustomExtensions
+@model BusinessModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Vista negocio</h2>
+
+<div>@Model.Business.Name</div>
+<div>@Model.Business.Creation_Date</div>
+<div>@Model.Business.Description</div>
+<div>@Model.Business.Is_A2M</div>

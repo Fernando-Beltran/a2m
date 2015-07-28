@@ -91,7 +91,7 @@ namespace CustomExtensions
             return regex.Replace(s, @" ");
         }
 
-        public static string NameToA2MUrl(this string s)
+        public static string ToA2MUrlName(this string s)
         {
             s = s.RemoveDoubleSpaces();
             s = s.RemoveDiacritics();

@@ -26,6 +26,9 @@ namespace a2m
            /* RUTAS MUNICIPIOS */
            routes.MapRoute(name: "Home municipio", url: "{municipality}", defaults: new { controller = "Municipality", action = "Index" });
            /* RUTAS MUNICIPIOS */
+           /* RUTA Negocios */
+           routes.MapRoute(name: "Home negocio", url: "{municipality}/{business}", defaults: new { controller = "Business", action = "Index" });
+           /* RUTAS MUNICIPIOS */
 
            routes.MapRoute(name: "Controllers",url: "{controller}/{action}/{id}", defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional } );
 

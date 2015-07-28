@@ -14,14 +14,22 @@ namespace a2m.Controllers
     {
         public ActionResult Index(string municipality)
         {
-            if (municipality.IsNullOrEmpty()) return View("Error");
-            Municipality currentMunicipality = MunicipalityManager.getMunicipalityByNormalizedName(municipality);
-            if (currentMunicipality == null) return View("Error");
-            MunicipalityModel MunicipalityModel = new MunicipalityModel();
-            MunicipalityModel.Municipality = currentMunicipality;
-            MunicipalityModel.BusinessList = BussinessManager.GetBusinessFromMunicipalityId(currentMunicipality.Pk_Municipality);
+            try
+            {
+                if (municipality.IsNullOrEmpty()) return View("Error");
+                Municipality currentMunicipality = MunicipalityManager.getMunicipalityByNormalizedName(municipality);
+                if (currentMunicipality == null) return View("Error");
+                MunicipalityModel MunicipalityModel = new MunicipalityModel();
+                MunicipalityModel.Municipality = currentMunicipality;
+                MunicipalityModel.BusinessList = BussinessManager.GetBusinessFromMunicipalityId(currentMunicipality.Pk_Municipality);
 
-            return View(MunicipalityModel);
+                return View(MunicipalityModel);
+            }
+            catch (Exception ex)
+            {
+                a2m.A2MApplication.log.Error("MunicipalityController", ex);
+                return View("Error");
+            }
         }
 	}
 }

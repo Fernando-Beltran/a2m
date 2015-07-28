@@ -65,7 +65,7 @@ namespace a2mbl.Managers
             try
             {
                 List<Municipality> MunicipalityList = getAllActiveMunicipalities();
-                return MunicipalityList.Where(item => item.Name.NameToA2MUrl() == normalizedName).SingleOrDefault();              
+                return MunicipalityList.Where(item => item.Name.ToA2MUrlName() == normalizedName).SingleOrDefault();              
             }
             catch
             {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CustomExtensions;
 
 namespace a2mbl.Managers
 {
@@ -24,6 +25,58 @@ namespace a2mbl.Managers
                         .Include("Categories")
                         .Where(item => item.Fk_Municipality == municipalityId).ToList();
                     return BusinessList;
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Obtiene un negocio desde el nombre normalizado de un municipio y su negocio
+        /// </summary>        
+        /// <param name="businessName"></param>
+        /// <param name="municipalityName"></param>
+        /// <returns>Negocio</returns>
+        public static Business GetBusinessFromMunicipalityNormalizedNameAndBusinessNormalizedNamed(string municipalityName,string businessName)
+        {
+            try
+            {
+                using (var db = new a2mbl.a2mContext())
+                {
+                    List<Business> BusinessList = db.Businesses
+                        .Include("Business_Status")
+                        .Include("Categories")
+                        .Include("Municipality").ToList();
+                    
+                    return BusinessList.Where(item => item.Name.ToA2MUrlName() == businessName && item.Municipality.Name.ToA2MUrlName() == municipalityName).SingleOrDefault();             
+                    
+                    
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Obtiene el negocio apartir de su ID
+        /// </summary>
+        /// <param name="municipalityId">Identificador del negocio</param>
+        /// <returns>Negocio</returns>
+        public static Business GetBusinessFromId(int businessId)
+        {
+            try
+            {
+                using (var db = new a2mbl.a2mContext())
+                {
+                    Business Business = db.Businesses
+                        .Include("Business_Status")
+                        .Include("Categories")
+                        .Where(item => item.Pk_Business == businessId).SingleOrDefault();
+                    return Business;
                 }
             }
             catch

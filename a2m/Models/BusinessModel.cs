@@ -6,8 +6,8 @@ using a2mbl;
 
 namespace a2m.Models
 {
-    public class HomeModel
+    public class BusinessModel
     {
-        public List<Municipality> Municipalities { get; set;}
+        public Business Business { get; set; }
     }
 }

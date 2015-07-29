@@ -5,11 +5,23 @@
 @{
     ViewBag.Title = "Index";
 }
-
+<script>
+    $(document).ready(function () {
+        A2M_Municipality._init();
+    });
+</script>
 <h2>Buscador negocios municipio </h2>
 
 @{foreach (var iBusiness in Model.BusinessList) { 
-  
+  <div>
+        Filtros
+      <input type="checkbox" id="chkOnlineOrder" /> Pedido online<br />
+      <input type="checkbox" id="chkOrderToHome" /> Pedido a domicilio<br />
+      <input type="checkbox" id="chkPickupOrder" /> Para recoger<br />
+      <input type="checkbox" id="chkReserves" /> Reservas<br />
+      <input type="checkbox" id="chkBrochurePdf" /> Folleto<br />
+      <input type="checkbox" id="chkMenu" /> Menu<br />
+    </div><br />
       <div>
           <span> @iBusiness.Name</span>
           <span> @iBusiness.Phone</span>

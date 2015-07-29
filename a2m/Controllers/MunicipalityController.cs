@@ -27,7 +27,7 @@ namespace a2m.Controllers
             }
             catch (Exception ex)
             {
-                a2m.A2MApplication.log.Error("MunicipalityController", ex);
+                a2m.A2MApplication.Log.Error("MunicipalityController", ex);
                 return View("Error");
             }
         }

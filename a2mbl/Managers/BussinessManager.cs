@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CustomExtensions;
+using log4net;
+using a2mbl.Common;
 
 namespace a2mbl.Managers
 {
 
     public static class BussinessManager
-    {
+    {       
         /// <summary>
         /// Obtiene la lista de negocios de un municipio
         /// </summary>
@@ -18,6 +20,7 @@ namespace a2mbl.Managers
         public static List<Business> GetBusinessFromMunicipalityId(int municipalityId){
             try
             {
+               
                 using (var db = new a2mbl.a2mContext())
                 {
                     List<Business> BusinessList = db.Businesses
@@ -27,8 +30,9 @@ namespace a2mbl.Managers
                     return BusinessList;
                 }
             }
-            catch
+            catch(Exception ex)
             {
+                LogWrapper.GetLogger().Error(ex);
                 throw;
             }
         }
@@ -55,8 +59,9 @@ namespace a2mbl.Managers
                     
                 }
             }
-            catch
+            catch (Exception ex)
             {
+                LogWrapper.GetLogger().Error(ex);
                 throw;
             }
         }
@@ -79,8 +84,9 @@ namespace a2mbl.Managers
                     return Business;
                 }
             }
-            catch
+            catch (Exception ex)
             {
+                LogWrapper.GetLogger().Error(ex);
                 throw;
             }
         }

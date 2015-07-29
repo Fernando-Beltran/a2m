@@ -25,7 +25,7 @@ namespace a2m.Controllers
             }
             catch (Exception ex)
             {
-                a2m.A2MApplication.log.Error("BusinessController", ex);
+                a2m.A2MApplication.Log.Error("BusinessController", ex);
                 return View("Error");
             }
         }

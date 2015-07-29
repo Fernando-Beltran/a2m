@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CustomExtensions;
+using log4net;
+using a2mbl.Common;
 
 namespace a2mbl.Managers
 {
@@ -17,6 +19,7 @@ namespace a2mbl.Managers
         {
             try
             {
+                //LogManager.GetLogger()
                 using (var db = new a2mbl.a2mContext())
                 {
                     List<Municipality> MunicipalityList = db.Municipalities.Include("Municipality_Status").ToList();
@@ -24,8 +27,9 @@ namespace a2mbl.Managers
 
                 }
             }
-            catch
+            catch (Exception ex)
             {
+                LogWrapper.GetLogger().Error(ex);
                 throw;
             }
         }
@@ -48,8 +52,9 @@ namespace a2mbl.Managers
 
                 }
             }
-            catch
-            {                
+            catch (Exception ex)
+            {
+                LogWrapper.GetLogger().Error(ex);
                 throw;
             }
         }
@@ -67,8 +72,9 @@ namespace a2mbl.Managers
                 List<Municipality> MunicipalityList = getAllActiveMunicipalities();
                 return MunicipalityList.Where(item => item.Name.ToA2MUrlName() == normalizedName).SingleOrDefault();              
             }
-            catch
+            catch (Exception ex)
             {
+                LogWrapper.GetLogger().Error(ex);
                 throw;
             }
         }

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -11,7 +12,7 @@ namespace a2m
 {
     public class A2MApplication : System.Web.HttpApplication
     {
-        public static ILog log;
+        public static ILog Log;
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
@@ -19,8 +20,8 @@ namespace a2m
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             log4net.Config.XmlConfigurator.Configure();
-            log = LogManager.GetLogger(typeof(A2MApplication));
-            log.Debug("Application_Start");
+            Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+            Log.Debug("Application_Start");
         }
     }
 }

@@ -19,6 +19,17 @@ namespace a2m
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Content/external/js/modernizr-*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/a2m").Include(
+                       "~/Content/a2m/js/a2m.common.js",
+                       "~/Content/a2m/js/a2m.enums.js",
+                       "~/Content/a2m/js/a2m.properties.js",
+                       "~/Content/a2m/js/a2m.utils.js",
+                       "~/Content/a2m/js/a2m.cookie.js",
+                       "~/Content/a2m/js/a2m.storage.js",
+                       "~/Content/a2m/js/a2m.request.js",
+                       "~/Content/a2m/js/a2m.municipality.js"
+                       ));
+
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Content/external/js/bootstrap.js",
                       "~/Content/external/js/respond.js"));

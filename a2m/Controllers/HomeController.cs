@@ -23,7 +23,7 @@ namespace a2m.Controllers
                 return View(HomeModel);
             }
             catch (Exception ex) {
-                a2m.A2MApplication.log.Error("HomeController", ex);
+                a2m.A2MApplication.Log.Error("HomeController", ex);
                 return View("Error");
             }
         }

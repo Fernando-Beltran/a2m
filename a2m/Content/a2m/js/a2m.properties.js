@@ -29,10 +29,8 @@ A2M.Properties = {
 	 */
 	DEBUG: {
 		// Debug settings		
-	    "debug.A2M.Login": true,
-	    "debug.A2M.Request": true,
-		//Settings
-		"rateLimit.ScrollView.Timer": 200
+	    "debug.A2M.Municipality": true,
+	    "debug.A2M.Request": true,		
 	},
 	/**
 	 * Obtiene el valor de la propiedad por nombre

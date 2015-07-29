@@ -179,6 +179,12 @@
     <Content Include="Content\a2m\js\a2m.common.js" />
     <Content Include="Content\a2m\js\a2m.enums.js" />
     <Content Include="Content\a2m\js\a2m.municipality.js" />
+    <Content Include="Content\external\css\bootstrap-theme.css" />
+    <Content Include="Content\external\css\bootstrap-theme.min.css" />
+    <Content Include="Content\external\css\bootstrap.css" />
+    <Content Include="Content\external\css\bootstrap.min.css" />
+    <Content Include="Content\external\css\qunit-1.18.0.css" />
+    <Content Include="Content\external\js\qunit-1.18.0.js" />
     <Content Include="favicon.ico" />
     <Content Include="Content\external\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -189,6 +195,8 @@
     <Content Include="Content\a2m\js\a2m.cookie.js" />
     <Content Include="Content\external\js\bootstrap.js" />
     <Content Include="Content\external\js\bootstrap.min.js" />
+    <Content Include="Content\external\css\bootstrap-theme.css.map" />
+    <Content Include="Content\external\css\bootstrap.css.map" />
     <None Include="Content\external\js\jquery-1.10.2.intellisense.js" />
     <Content Include="Content\external\js\jquery-1.10.2.js" />
     <Content Include="Content\external\js\jquery-1.10.2.min.js" />
@@ -227,7 +235,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Common\" />
     <Folder Include="Content\a2m\css\" />
-    <Folder Include="Content\external\css\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\external\fonts\glyphicons-halflings-regular.woff" />

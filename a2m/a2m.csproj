@@ -200,6 +200,7 @@
     <Content Include="Content\external\css\bootstrap.css" />
     <Content Include="Content\external\css\bootstrap.min.css" />
     <Content Include="Content\external\css\qunit-1.18.0.css" />
+    <Content Include="Content\external\js\npm.js" />
     <Content Include="Content\external\js\qunit-1.18.0.js" />
     <Content Include="favicon.ico" />
     <Content Include="Content\external\fonts\glyphicons-halflings-regular.svg" />

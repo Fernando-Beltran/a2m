@@ -19,7 +19,7 @@ A2M.Request = {
 	 * @type {Object}
 	 */
 	VALUES: {
-		"EXAMPLE_REQUEST": "example/{0}/{1}", //example/{param1}/{param2}
+	    "GET_municipality_update_filters": "api/GET_municipality_update_filters", //Actualiza los filtros de los resultados de municipios
 	
 	},
 	/**
@@ -44,18 +44,9 @@ A2M.Request = {
 		if (value == null) {
 		    value = A2M.Request.VALUES[key];
 		}
-		return value;
+		return  A2M.Utils.getBasePath() + "/" + value;
 	},
-
-	/**
-    * Ejemplo
-    * @returns peticion
-    */
-	example: function () {
-	    var request = A2M.Request.getRequest("EXAMPLE_REQUEST");
-		if (this.debug) console.log(this.CLASS_NAME + ": Request " + request);
-		return request;
-	},
+	
 
 	CLASS_NAME: "A2M.Request",
 };

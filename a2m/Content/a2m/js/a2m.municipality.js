@@ -28,50 +28,49 @@ A2M.Municipality = function () {
     this.$chkMenu = null;
     /* / DOM Links */
     /**
-    * Envía la petición de soporte 
-    * @param {String} type Tipo de incidencia
-    * @param {String} [sku] sku Sku del producto si lo selecciona
-    * @param {String} [sku] description Descripción de la incidencia
+    * Actualiza los resultados en función de los filtros
     */
-    this.sendMessage = function (type, sku, description) {
+    this.updateFilters = function () {
 
         A2M.Global.IsBusy = true;
 
-        var request = A2M.Utils.getBasePath() + A2M.Request.getRequest("sendGameDigitalSupportEmail");
+        var request = A2M.Request.getRequest("GET_municipality_update_filters");
         var headers = {};
         var token = $('input[name="__RequestVerificationToken"]').val();
         headers['__RequestVerificationToken'] = token;
         var data = JSON.stringify({
-            "Type": type,
-            "Sku": sku,
-            "Description": description
+            "Type": 1,
+            "Sku": 2,
+            "Description": 1
         });
         $.ajax({
             url: request,
             type: "POST",
             headers: headers,
             contentType: 'application/json; charset=utf-8',
-            data: data
+            //data: data
         })
-       .done(function (response) {
-           if (this.debug) console.log(this.CLASS_NAME + ": sendMessage response");
+       .done(function (response) {           
            if (response) {
-               switch(response.ErrorResponses){
+               switch (response.Status) {
                    case A2M.Enums.CommonRequestResponses.Ok:
+                       if (this.debug) console.log(this.CLASS_NAME + ": updateFilters response ok");
                        break;
                    case A2M.Enums.CommonRequestResponses.NotAuthenticated:
+                       if (this.debug) console.log(this.CLASS_NAME + ": updateFilters response NotAuthenticated");
                        break;
                    case A2M.Enums.CommonRequestResponses.Error:
+                       if (this.debug) console.log(this.CLASS_NAME + ": updateFilters response Error");
                        break;
                }
                    
            }
        }.bind(this))
        .fail(function (response, textStatus, errorThrown) {
-           if (this.debug) console.error(this.CLASS_NAME + ": sendMessage fail: " + response.responseText + "," + response.statusText + "," + errorThrown);
+           if (this.debug) console.error(this.CLASS_NAME + ": updateFilters fail: " + response.responseText + "," + response.statusText + "," + errorThrown);
        }.bind(this))
        .always(function () {
-           if (this.debug) console.log(this.CLASS_NAME + ": sendMessage always ");
+           if (this.debug) console.log(this.CLASS_NAME + ": updateFilters always ");
            this.requestInProgress = false;
            
        }.bind(this));
@@ -93,7 +92,8 @@ A2M.Municipality = function () {
     */
     this.bindDOMEvents = function () {
         this.$chkBrochurePdf.change(function () {
-            if (this.debug) console.log(this.CLASS_NAME + ": chkBrochurePdf checked change");
+            if (A2M_Municipality.debug) console.log(A2M_Municipality.CLASS_NAME + ": chkBrochurePdf checked change");
+            A2M_Municipality.updateFilters();
             if ($(this).is(":checked")) {            
                 
             } else {

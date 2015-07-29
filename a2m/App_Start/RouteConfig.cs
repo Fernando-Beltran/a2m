@@ -16,6 +16,9 @@ namespace a2m
            routes.IgnoreRoute("Content/{resource}");
            routes.IgnoreRoute("Content/{*pathInfo}");
            routes.IgnoreRoute("Static/{*pathInfo}");
+           #if DEBUG 
+                routes.IgnoreRoute("{*browserlink}", new { browserlink = @".*/arterySignalR/ping" }); 
+           #endif
            /* RUTAS IGNORADAS */
            /* RUTAS HOME */
            routes.MapRoute(name: "Inicio", url: "", defaults: new { controller = "Home", action = "Index" });

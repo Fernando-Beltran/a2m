@@ -12,14 +12,24 @@ A2M.Request = {
 	 * Debug mode.
 	 * @type {boolean}
 	 */
-	debug: null,
+    debug: null,
+    /**
+	 * Api path
+	 * @type {boolean}
+	 */
+    apiPath: "Api",
+    /**
+	 * Aplication path
+	 * @type {boolean}
+	 */
+    appPath: "a2m",
 	/**
 	 * Default values.
 	 * @readonly
 	 * @type {Object}
 	 */
 	VALUES: {
-	    "GET_municipality_update_filters": "api/GET_municipality_update_filters", //Actualiza los filtros de los resultados de municipios
+	    "GET_municipality_update_filters": "GET_municipality_update_filters", //Actualiza los filtros de los resultados de municipios
 	
 	},
 	/**
@@ -44,7 +54,7 @@ A2M.Request = {
 		if (value == null) {
 		    value = A2M.Request.VALUES[key];
 		}
-		return  A2M.Utils.getBasePath() + "/" + value;
+		return A2M.Utils.getBasePath() + "/" + this.appPath + "/" + this.apiPath + "/" + value;
 	},
 	
 

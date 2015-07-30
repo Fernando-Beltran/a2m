@@ -12,6 +12,9 @@ using a2m.Common.Responses;
 
 namespace a2m.Controllers
 {
+    /// <summary>
+    /// Controlador para el API de JSON
+    /// </summary>
     public class ApiController : Controller  
     {
         [System.Web.Http.HttpPost]

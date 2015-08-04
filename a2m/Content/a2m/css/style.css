@@ -23,7 +23,7 @@ body {
   color: #006300;
 }
 .link-active {
-  font-weight: bold;
+  font-weight: bold; 
 }
 .link:hover {
   opacity: 0.8;
@@ -80,7 +80,7 @@ body {
   /*Link de accesos*/
 }
 .layout-header .content-nav .menu {
-  diplay: block;
+  display: block;
 }
 .layout-header .content-nav .menu ul {
   display: table;

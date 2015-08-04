@@ -17,7 +17,11 @@ var A2M = A2M || {};
 A2M.Municipality = function () {
     /** @property {boolean} debug - Muestra las trazas en la consola */
     this.debug = null;
+    /** @property {boolean} requestInProgress - Si hay petición en curso */
     this.requestInProgress = false;
+    /** @property {String} requestInProgress - Si hay petición en curso */
+    this.currenMunicipality;
+    this.business;
 
     /* DOM Links */
     this.$chkOnlineOrder = null;
@@ -26,6 +30,7 @@ A2M.Municipality = function () {
     this.$chkReserves = null;
     this.$chkBrochurePdf = null;
     this.$chkMenu = null;
+    this.$municipalityRenderDiv = null;
     /* / DOM Links */
     /**
     * Actualiza los resultados en función de los filtros
@@ -38,23 +43,27 @@ A2M.Municipality = function () {
         var headers = {};
         var token = $('input[name="__RequestVerificationToken"]').val();
         headers['__RequestVerificationToken'] = token;
-        var data = JSON.stringify({
-            "Type": 1,
-            "Sku": 2,
-            "Description": 1
+        var data = JSON.stringify({            
+            "IsOnlineOrder" : 0,
+            "IsOrderToPickup" : 1,
+            "IsReserve" : 0,
+            "IsBrochure" : 1,
+            "IsDiaryMenu": 1,
+            "CurrentMunicipality": this.currenMunicipality
         });
         $.ajax({
             url: request,
             type: "POST",
             headers: headers,
             contentType: 'application/json; charset=utf-8',
-            //data: data
+            data: data
         })
        .done(function (response) {           
            if (response) {
                switch (response.Status) {
                    case A2M.Enums.CommonRequestResponses.Ok:
                        if (this.debug) console.log(this.CLASS_NAME + ": updateFilters response ok");
+                       this.$municipalityRenderDiv.html(response.ResultHtmlView);
                        break;
                    case A2M.Enums.CommonRequestResponses.NotAuthenticated:
                        if (this.debug) console.log(this.CLASS_NAME + ": updateFilters response NotAuthenticated");
@@ -85,6 +94,7 @@ A2M.Municipality = function () {
         this.$chkReserves = $("#chkReserves");
         this.$chkBrochurePdf = $("#chkBrochurePdf");
         this.$chkMenu = $("#chkMenu");
+        this.$municipalityRenderDiv = $("#municipalityRenderDiv");
     };
 
     /**
@@ -139,15 +149,17 @@ A2M.Municipality = function () {
 
     /**
 	* Inicialización de la clase a2m Municipality Digital
+    * @param {String} currenMunicipality - Municipio actual
 	* @param {Function(result)} [qUnitCallback] callback - Callback para test qUnit
 	* @param {Boolean} callback.result - Resultado del callback para wUnit
 	*/
-    this._init = function (qUnitCallback) {
+    this._init = function (currenMunicipality,qUnitCallback) {
         try {
             if (this.debug == null) {
                 this.debug = A2M.Properties.getProperty("debug." + this.CLASS_NAME);
                 if (this.debug) console.info(this.CLASS_NAME + ": Inicializada");
             }
+            this.currenMunicipality = currenMunicipality;
             this.bindDOMObjects();
             this.bindDOMEvents();
             if (qUnitCallback != null) qUnitCallback(true);

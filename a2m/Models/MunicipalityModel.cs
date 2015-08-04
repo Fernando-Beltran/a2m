@@ -8,7 +8,7 @@ namespace a2m.Models
 {
     public class MunicipalityModel
     {
-        public Municipality Municipality { get; set; }
+        public Municipality Municipality { get; set; }       
         public List<Business> BusinessList { get; set; }
     }
 }

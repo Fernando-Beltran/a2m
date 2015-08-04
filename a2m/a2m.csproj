@@ -195,6 +195,8 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BBDD\00_Initial_Objects_v1.0.0.sql" />
+    <Content Include="BBDD\01_Initial_Data_v1.0.0.sql" />
     <Content Include="Content\a2m\js\a2m.common.js" />
     <Content Include="Content\a2m\js\a2m.enums.js" />
     <Content Include="Content\a2m\js\a2m.municipality.js" />

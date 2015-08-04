@@ -16,7 +16,13 @@ namespace a2m
            routes.IgnoreRoute("Content/{resource}");
            routes.IgnoreRoute("Content/{*pathInfo}");
            routes.IgnoreRoute("Static/{*pathInfo}");
+           #if DEBUG 
+                routes.IgnoreRoute("{*browserlink}", new { browserlink = @".*/arterySignalR/ping" }); 
+           #endif
            /* RUTAS IGNORADAS */
+           /* RUTAS API */
+                routes.MapRoute(name: "API", url: "api/{action}", defaults: new { controller = "Api", action = "Index" });
+           /* RUTAS API */
            /* RUTAS HOME */
            routes.MapRoute(name: "Inicio", url: "", defaults: new { controller = "Home", action = "Index" });
            routes.MapRoute(name: "Inicio - Ayuda", url: "ayuda", defaults: new { controller = "Home", action = "Help" });
@@ -30,7 +36,7 @@ namespace a2m
            routes.MapRoute(name: "Home negocio", url: "{municipality}/{business}", defaults: new { controller = "Business", action = "Index" });
            /* RUTAS MUNICIPIOS */
 
-           routes.MapRoute(name: "Controllers",url: "{controller}/{action}/{id}", defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional } );
+           routes.MapRoute(name: "Generic Controllers",url: "{controller}/{action}", defaults: new { controller = "Home", action = "Index"} );
 
         }
     }

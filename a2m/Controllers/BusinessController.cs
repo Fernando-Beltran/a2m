@@ -10,8 +10,17 @@ using CustomExtensions;
 
 namespace a2m.Controllers
 {
+    /// <summary>
+    /// Controlador de negocios
+    /// </summary>
     public class BusinessController : Controller
     {
+        /// <summary>
+        /// Obtiene un negocio
+        /// </summary>
+        /// <param name="municipality">Municipio</param>
+        /// <param name="business">Negocio</param>
+        /// <returns>Vista de la ficha de un municipio</returns>
         public ActionResult Index(string municipality,string business)
         {
             try

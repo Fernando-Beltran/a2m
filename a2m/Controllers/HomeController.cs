@@ -11,6 +11,9 @@ using a2m.Models;
 
 namespace a2m.Controllers
 {
+    /// <summary>
+    /// Controlador de la HOME
+    /// </summary>
     public class HomeController : Controller
     {
         public ActionResult Index()

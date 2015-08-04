@@ -15,7 +15,7 @@
     <AssemblyName>a2m</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -46,12 +46,24 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.0.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.0.0\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.0.0\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -161,6 +173,12 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Common\Responses\BusinessResultResponse.cs" />
+    <Compile Include="Common\Responses\JSONResponse.cs" />
+    <Compile Include="Common\Responses\RequestResponseStatus.cs" />
+    <Compile Include="Controllers\ApiController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BusinessController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MunicipalityController.cs" />
@@ -172,6 +190,7 @@
     <Compile Include="Models\BusinessModel.cs" />
     <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Models\MunicipalityModel.cs" />
+    <Compile Include="Models\RequestBusinessFilter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -187,6 +206,13 @@
     <Content Include="Content\a2m\js\a2m.municipality.js" />
     <Content Include="Content\a2m\js\events.js" />
     <Content Include="Content\external\css\bootstrap.min.css" />
+    <Content Include="Content\external\css\bootstrap-theme.css" />
+    <Content Include="Content\external\css\bootstrap-theme.min.css" />
+    <Content Include="Content\external\css\bootstrap.css" />
+    <Content Include="Content\external\css\bootstrap.min.css" />
+    <Content Include="Content\external\css\qunit-1.18.0.css" />
+    <Content Include="Content\external\js\npm.js" />
+    <Content Include="Content\external\js\qunit-1.18.0.js" />
     <Content Include="favicon.ico" />
     <Content Include="Content\external\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -197,6 +223,8 @@
     <Content Include="Content\a2m\js\a2m.cookie.js" />
     <Content Include="Content\external\js\bootstrap.js" />
     <Content Include="Content\external\js\bootstrap.min.js" />
+    <Content Include="Content\external\css\bootstrap-theme.css.map" />
+    <Content Include="Content\external\css\bootstrap.css.map" />
     <Content Include="Content\a2m\css\style.less" />
     <Content Include="Content\a2m\css\style.css.map">
       <DependentUpon>style.css</DependentUpon>
@@ -234,9 +262,12 @@
     <Content Include="Views\Home\Access.cshtml" />
     <Content Include="Views\Error\Index.cshtml" />
     <Content Include="Views\Business\Index.cshtml" />
+    <Content Include="Views\Municipality\MunicipalitySearchResult.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\a2m\css\" />
+    <Folder Include="Views\Base\" />
     <Folder Include="Common\" />
   </ItemGroup>
   <ItemGroup>
@@ -270,7 +301,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>18237</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:18237/</IISUrl>
+          <IISUrl>http://localhost/a2m/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

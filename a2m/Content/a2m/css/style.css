@@ -81,6 +81,8 @@ body {
 }
 .layout-header .content-nav .menu {
   display: block;
+  position: relative;
+  z-index: 10000;
 }
 .layout-header .content-nav .menu ul {
   display: table;

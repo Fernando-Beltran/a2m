@@ -17,7 +17,11 @@ var A2M = A2M || {};
 A2M.Municipality = function () {
     /** @property {boolean} debug - Muestra las trazas en la consola */
     this.debug = null;
+    /** @property {boolean} requestInProgress - Si hay petición en curso */
     this.requestInProgress = false;
+    /** @property {String} requestInProgress - Si hay petición en curso */
+    this.currenMunicipality;
+    this.business;
 
     /* DOM Links */
     this.$chkOnlineOrder = null;
@@ -26,25 +30,26 @@ A2M.Municipality = function () {
     this.$chkReserves = null;
     this.$chkBrochurePdf = null;
     this.$chkMenu = null;
+    this.$municipalityRenderDiv = null;
     /* / DOM Links */
     /**
-    * Envía la petición de soporte 
-    * @param {String} type Tipo de incidencia
-    * @param {String} [sku] sku Sku del producto si lo selecciona
-    * @param {String} [sku] description Descripción de la incidencia
+    * Actualiza los resultados en función de los filtros
     */
-    this.sendMessage = function (type, sku, description) {
+    this.updateFilters = function () {
 
         A2M.Global.IsBusy = true;
 
-        var request = A2M.Utils.getBasePath() + A2M.Request.getRequest("sendGameDigitalSupportEmail");
+        var request = A2M.Request.getRequest("GET_municipality_update_filters");
         var headers = {};
         var token = $('input[name="__RequestVerificationToken"]').val();
         headers['__RequestVerificationToken'] = token;
-        var data = JSON.stringify({
-            "Type": type,
-            "Sku": sku,
-            "Description": description
+        var data = JSON.stringify({            
+            "IsOnlineOrder" : 0,
+            "IsOrderToPickup" : 1,
+            "IsReserve" : 0,
+            "IsBrochure" : 1,
+            "IsDiaryMenu": 1,
+            "CurrentMunicipality": this.currenMunicipality
         });
         $.ajax({
             url: request,
@@ -53,25 +58,28 @@ A2M.Municipality = function () {
             contentType: 'application/json; charset=utf-8',
             data: data
         })
-       .done(function (response) {
-           if (this.debug) console.log(this.CLASS_NAME + ": sendMessage response");
+       .done(function (response) {           
            if (response) {
-               switch(response.ErrorResponses){
+               switch (response.Status) {
                    case A2M.Enums.CommonRequestResponses.Ok:
+                       if (this.debug) console.log(this.CLASS_NAME + ": updateFilters response ok");
+                       this.$municipalityRenderDiv.html(response.ResultHtmlView);
                        break;
                    case A2M.Enums.CommonRequestResponses.NotAuthenticated:
+                       if (this.debug) console.log(this.CLASS_NAME + ": updateFilters response NotAuthenticated");
                        break;
                    case A2M.Enums.CommonRequestResponses.Error:
+                       if (this.debug) console.log(this.CLASS_NAME + ": updateFilters response Error");
                        break;
                }
                    
            }
        }.bind(this))
        .fail(function (response, textStatus, errorThrown) {
-           if (this.debug) console.error(this.CLASS_NAME + ": sendMessage fail: " + response.responseText + "," + response.statusText + "," + errorThrown);
+           if (this.debug) console.error(this.CLASS_NAME + ": updateFilters fail: " + response.responseText + "," + response.statusText + "," + errorThrown);
        }.bind(this))
        .always(function () {
-           if (this.debug) console.log(this.CLASS_NAME + ": sendMessage always ");
+           if (this.debug) console.log(this.CLASS_NAME + ": updateFilters always ");
            this.requestInProgress = false;
            
        }.bind(this));
@@ -86,6 +94,7 @@ A2M.Municipality = function () {
         this.$chkReserves = $("#chkReserves");
         this.$chkBrochurePdf = $("#chkBrochurePdf");
         this.$chkMenu = $("#chkMenu");
+        this.$municipalityRenderDiv = $("#municipalityRenderDiv");
     };
 
     /**
@@ -93,7 +102,8 @@ A2M.Municipality = function () {
     */
     this.bindDOMEvents = function () {
         this.$chkBrochurePdf.change(function () {
-            if (this.debug) console.log(this.CLASS_NAME + ": chkBrochurePdf checked change");
+            if (A2M_Municipality.debug) console.log(A2M_Municipality.CLASS_NAME + ": chkBrochurePdf checked change");
+            A2M_Municipality.updateFilters();
             if ($(this).is(":checked")) {            
                 
             } else {
@@ -139,15 +149,17 @@ A2M.Municipality = function () {
 
     /**
 	* Inicialización de la clase a2m Municipality Digital
+    * @param {String} currenMunicipality - Municipio actual
 	* @param {Function(result)} [qUnitCallback] callback - Callback para test qUnit
 	* @param {Boolean} callback.result - Resultado del callback para wUnit
 	*/
-    this._init = function (qUnitCallback) {
+    this._init = function (currenMunicipality,qUnitCallback) {
         try {
             if (this.debug == null) {
                 this.debug = A2M.Properties.getProperty("debug." + this.CLASS_NAME);
                 if (this.debug) console.info(this.CLASS_NAME + ": Inicializada");
             }
+            this.currenMunicipality = currenMunicipality;
             this.bindDOMObjects();
             this.bindDOMEvents();
             if (qUnitCallback != null) qUnitCallback(true);

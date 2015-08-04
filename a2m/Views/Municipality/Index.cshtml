@@ -7,26 +7,19 @@
 }
 <script>
     $(document).ready(function () {
-        A2M_Municipality._init();
+        A2M_Municipality._init('@Model.Municipality.Name.ToA2MUrlName()');
     });
 </script>
 <h2>Buscador negocios municipio </h2>
-
-@{foreach (var iBusiness in Model.BusinessList) { 
-  <div>
-        Filtros
-      <input type="checkbox" id="chkOnlineOrder" /> Pedido online<br />
-      <input type="checkbox" id="chkOrderToHome" /> Pedido a domicilio<br />
-      <input type="checkbox" id="chkPickupOrder" /> Para recoger<br />
-      <input type="checkbox" id="chkReserves" /> Reservas<br />
-      <input type="checkbox" id="chkBrochurePdf" /> Folleto<br />
-      <input type="checkbox" id="chkMenu" /> Menu<br />
-    </div><br />
-      <div>
-          <span> @iBusiness.Name</span>
-          <span> @iBusiness.Phone</span>
-          <span> @iBusiness.Webpage</span>
-          <span> <a href="~/@Model.Municipality.Name.ToA2MUrlName()/@iBusiness.Name.ToA2MUrlName()">LINK</a></span>
-      </div>    
-      
-}}
+<div>
+    Filtros
+    <input type="checkbox" id="chkOnlineOrder" /> Pedido online<br />
+    <input type="checkbox" id="chkOrderToHome" /> Pedido a domicilio<br />
+    <input type="checkbox" id="chkPickupOrder" /> Para recoger<br />
+    <input type="checkbox" id="chkReserves" /> Reservas<br />
+    <input type="checkbox" id="chkBrochurePdf" /> Folleto<br />
+    <input type="checkbox" id="chkMenu" /> Menu<br />
+</div><br />
+<div id="municipalityRenderDiv">
+    @{ Html.RenderPartial("MunicipalitySearchResult", Model);}
+</div>

@@ -8,6 +8,6 @@ namespace a2m.Models
 {
     public class BusinessModel
     {
-        public Business Business { get; set; }
+        public Business Business { get; set; } 
     }
 }

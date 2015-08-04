@@ -195,11 +195,19 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\a2m\css\reset.css" />
+    <Content Include="Content\a2m\css\style.css" />
+    <Content Include="Content\a2m\css\style.min.css">
+      <DependentUpon>style.css</DependentUpon>
+    </Content>
+    <Content Include="Content\a2m\img\logo-a2m.png" />
     <Content Include="BBDD\00_Initial_Objects_v1.0.0.sql" />
     <Content Include="BBDD\01_Initial_Data_v1.0.0.sql" />
     <Content Include="Content\a2m\js\a2m.common.js" />
     <Content Include="Content\a2m\js\a2m.enums.js" />
     <Content Include="Content\a2m\js\a2m.municipality.js" />
+    <Content Include="Content\a2m\js\events.js" />
+    <Content Include="Content\external\css\bootstrap.min.css" />
     <Content Include="Content\external\css\bootstrap-theme.css" />
     <Content Include="Content\external\css\bootstrap-theme.min.css" />
     <Content Include="Content\external\css\bootstrap.css" />
@@ -219,6 +227,10 @@
     <Content Include="Content\external\js\bootstrap.min.js" />
     <Content Include="Content\external\css\bootstrap-theme.css.map" />
     <Content Include="Content\external\css\bootstrap.css.map" />
+    <Content Include="Content\a2m\css\style.less" />
+    <Content Include="Content\a2m\css\style.css.map">
+      <DependentUpon>style.css</DependentUpon>
+    </Content>
     <None Include="Content\external\js\jquery-1.10.2.intellisense.js" />
     <Content Include="Content\external\js\jquery-1.10.2.js" />
     <Content Include="Content\external\js\jquery-1.10.2.min.js" />
@@ -258,6 +270,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\a2m\css\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Common\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\external\fonts\glyphicons-halflings-regular.woff" />
@@ -290,7 +303,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>18237</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/a2m</IISUrl>
+          <IISUrl>http://localhost/a2m/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

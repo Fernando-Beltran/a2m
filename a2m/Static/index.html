@@ -1,10 +1,112 @@
 ﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="es">
 <head>
-    <title></title>
-
+    <!--Max 50 / 55 caracteres-->
+    <title>Plantilla HTML5</title>
+    <meta charset="utf-8" />
+    <meta content="David Ramirez" name="author" />
+    <!--Max 150 / 160 caracteres-->
+    <meta content="" name="description" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1, user-scalable=no" />
+    <!--Cuantas menos y más directas mejor-->
+    <meta content="" name="keywords" />
+    <!-- Bootstrap -->
+    <link href="../Content/external/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../Content/a2m/css/reset.css" rel="stylesheet">
+    <link rel="stylesheet" href="../Content/a2m/css/style.css" />
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Fuente Oxygen | Normal 400 | Bold 700 -->
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:700,400' rel='stylesheet' type='text/css'>
+    <!-- Jquery, Bootstrap y js propios-->
+    <script src="../Content/external/js/jquery-1.10.2.min.js"></script>
+    <script src="../Content/external/js/bootstrap.min.js"></script>
+    <!--[if lt IE 9]>
+    <script src="js/htmlie/dist/html5shiv.js"></script>
+    <![endif]-->
+    <script type="application/javascript" src="../Content/a2m/js/events.js"></script>
 </head>
 <body>
-    Lo vaamos a PETAR!
+    <div class="container-generic">
+        <!--Cabecera genérica-->
+        <header class="layout-header container col-xs-12">
+            <div class="col-xs-2 brand">
+                <a href="/">
+                    <img src="../Content/a2m/img/logo-a2m.png" alt="Logotipo a2m" title="a2minutos, la confianza más cercana" />
+                </a>
+            </div>
+            <div class="col-xs-10 content-nav">
+                <!--Menu general-->
+                <nav class="menu col-xs-5">
+                    <ul>
+                        <li><a href="#">Nosotros</a></li>
+                        <li><a href="#">Añadirse</a></li>
+                        <li><a href="#">Contacto</a></li>
+                        <li><a href="#">Ayuda</a></li>
+                    </ul>
+                </nav>
+                <!--Acceso-->
+                <div class="acces-link col-xs-7">
+                    <!--Icon menú desplegable-->
+                    <div class="content-link-login" id="link-down-menu">
+                        <i class="fa fa-bars"></i>
+                    </div>
+                    <div class="content-link-login" id="link-down-buy">
+                        <i class="fa fa-user"></i>
+                        <span>Tus pedidos</span>
+                    </div>
+                    <div class="content-link-login" id="link-down-bussines">
+                        <i class="fa fa-cog"></i>
+                        <span>Comercios</span>
+                    </div>
+                </div>
+            </div>
+            <!--Formulario acceso zona a2m pedidos-->
+            <form class="login-acces" id="form-acces-user">
+                <header class="col-xs-12 header-form">
+                    <span><i class="fa fa-user"></i>Acceso mis pedidos</span>
+                    <i class="close-x">X</i>
+                </header>
+                <input type="text" placeholder="Introduce usuario" onfocus=" this.placeholder = '' " onblur=" this.placeholder = 'Introduce usuario' ">
+                <input type="text" placeholder="Introduce contraseña" onfocus=" this.placeholder = '' " onblur=" this.placeholder = 'Introduce contraseña' ">
+                <div class="checkbox-remember-pass">
+                    <label>
+                        <input type="checkbox" checked="checked">
+                        Recordarme
+                    </label>
+                </div>
+                <span class="link-remeber link">¿Has olvidado la contraseña?</span>
+                <button type="button" class="button-generic">Entrar</button>
+            </form>
+            <!--Formulario acceso zona a2m comercios-->
+            <form class="login-acces" id="form-acces-bussines">
+                <header class="col-xs-12 header-form">
+                    <span><i class="fa fa-cog"></i>Acceso comercios</span>
+                    <i class="close-x">X</i>
+                </header>
+                <input type="text" placeholder="Usuario" onfocus=" this.placeholder = '' " onblur=" this.placeholder = 'Usuario' ">
+                <input type="text" placeholder="Contraseña" onfocus=" this.placeholder = '' " onblur=" this.placeholder = 'Contraseña' ">
+                <div class="checkbox-remember-pass">
+                    <label>
+                        <input type="checkbox" checked="checked">
+                        Recordarme
+                    </label>
+                </div>
+                <span class="link-remeber link">¿Has olvidado la contraseña?</span>
+                <button type="button" class="button-generic">Entrar</button>
+            </form>
+        </header>
+        <!--Migas de pan-->
+        <nav class="breadcumbs">
+            <span>Estan en:</span>
+            <ul>
+                <li><a href="#" class="link">a2m</a></li>
+                <li class="c">></li>
+                <li><a href="#" class="link activation-link">Locales Sevilla la Nueva</a></li>
+            </ul>
+        </nav>
+        <!--Seccion central genérica-->
+        <section class="main container col-xs-12"></section>
+    </div>
 </body>
 </html>

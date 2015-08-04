@@ -65,7 +65,7 @@ namespace a2m
                             {
                                 controller = routeData.GetRequiredString("controller");
                             }
-                            catch
+                            catch 
                             {
                                 controller = string.Empty;
                             }
@@ -74,7 +74,7 @@ namespace a2m
                         }
                         catch (Exception ex)
                         {
-                            Log.Warn("Application_BeginRequest Error", ex);
+                             Log.Warn("Application_BeginRequest Error", ex);
                         }
             #endif
 

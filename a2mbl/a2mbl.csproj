@@ -42,6 +42,9 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Linq.Dynamic">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.4\lib\net40\System.Linq.Dynamic.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -82,6 +85,7 @@
       <DependentUpon>a2m_model.tt</DependentUpon>
     </Compile>
     <Compile Include="Common\CustomExtensions.cs" />
+    <Compile Include="Common\LinqFilter.cs" />
     <Compile Include="Common\Log.cs" />
     <Compile Include="Common\MunicipalityStatus.cs" />
     <Compile Include="Customer.cs">
@@ -93,6 +97,7 @@
     <Compile Include="Customer_Status.cs">
       <DependentUpon>a2m_model.tt</DependentUpon>
     </Compile>
+    <Compile Include="IManagers\IBussinessManager.cs" />
     <Compile Include="Managers\BussinessManager.cs" />
     <Compile Include="Managers\MunicipalityManager.cs" />
     <Compile Include="Municipality.cs">

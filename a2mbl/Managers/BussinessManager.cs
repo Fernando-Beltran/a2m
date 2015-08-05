@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 using CustomExtensions;
 using log4net;
 using a2mbl.Common;
+using a2mbl.IManagers;
 
 namespace a2mbl.Managers
 {
 
-    public static class BussinessManager
+    public class BussinessManager 
     {       
         /// <summary>
         /// Obtiene la lista de negocios de un municipio
@@ -65,6 +66,37 @@ namespace a2mbl.Managers
                 throw;
             }
         }
+
+        /// <summary>
+        /// Obtiene un negocio desde el nombre normalizado de un municipio y su negocio
+        /// </summary>        
+        /// <param name="businessName"></param>
+        /// <param name="municipalityName"></param>
+        /// <param name="filters">Filtros</param>
+        /// <returns>Negocio</returns>
+        public static Business GetBusinessFromMunicipalityNormalizedNameAndBusinessNormalizedNamedFiltered(string municipalityName, string businessName, List<LinqFilter> filters)
+        {
+            try
+            {
+                using (var db = new a2mbl.a2mContext())
+                {
+                    List<Business> BusinessList = db.Businesses
+                        .Include("Business_Status")
+                        .Include("Categories")
+                        .Include("Municipality").ToList();
+
+                    return BusinessList.Where(item => item.Name.ToA2MUrlName() == businessName && item.Municipality.Name.ToA2MUrlName() == municipalityName).SingleOrDefault();
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                LogWrapper.GetLogger().Error(ex);
+                throw;
+            }
+        }
+
 
         /// <summary>
         /// Obtiene el negocio apartir de su ID

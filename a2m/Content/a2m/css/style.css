@@ -21,9 +21,10 @@ body {
 /*Estilos clases genericas para utilizar cuando se necesiten*/
 .link {
   color: #006300;
+  cursor: pointer;
 }
 .link-active {
-  font-weight: bold; 
+  font-weight: bold;
 }
 .link:hover {
   opacity: 0.8;
@@ -51,6 +52,16 @@ body {
 }
 .button-generic:hover {
   opacity: 0.8;
+}
+strong {
+  font-weight: 700;
+  color: #006300;
+}
+h1 {
+  color: #006300;
+  font-weight: 700;
+  font-size: 1.6em;
+  margin-bottom: 5px;
 }
 /**/
 .layout-header {
@@ -80,9 +91,7 @@ body {
   /*Link de accesos*/
 }
 .layout-header .content-nav .menu {
-  display: block;
-  position: relative;
-  z-index: 10000;
+  diplay: block;
 }
 .layout-header .content-nav .menu ul {
   display: table;
@@ -224,8 +233,76 @@ body {
   -webkit-box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.25);
   -moz-box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.25);
   box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.25);
-  height: 600px;
   background: #ffffff;
+  padding-bottom: 30px;
+}
+.main .search-list {
+  padding: 0 10px;
+}
+.main .search-list header {
+  padding: 15px 0;
+}
+.main .search-list header p {
+  display: block;
+  font-size: 0.9em;
+  line-height: 22px;
+  margin-left: 18px;
+}
+.main .search-list header span {
+  font-size: 0.85em;
+  margin-top: 10px;
+  display: block;
+  text-align: center;
+  margin-bottom: -11px;
+  background: #439944;
+  color: #ffffff;
+  padding: 5px;
+}
+.main .search-list .content-filter {
+  text-align: center;
+  margin-bottom: 15px;
+}
+.main .search-list .content-filter .check-filter {
+  text-align: center;
+  padding: 0 30px;
+  display: inline-block;
+  position: relative;
+  margin-top: 15px;
+}
+.main .search-list .content-filter .check-filter input {
+  float: left;
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  padding: 0 3px;
+  cursor: pointer;
+}
+.main .search-list .content-filter .check-filter label {
+  display: block;
+  cursor: pointer;
+}
+.main .search-list .content-filter .check-filter label img {
+  clear: both;
+  margin: 0 auto;
+  display: block;
+  padding-bottom: 5px;
+  width: 20px;
+  image-rendering: optimizeQuality;
+}
+.main .search-list .content-filter .check-filter label span {
+  display: block;
+  clear: both;
+  font-size: 0.8em;
+  color: #006300;
+}
+.main .search-list .item-list-result {
+  background: red;
+  height: 300px;
+  border: 2px solid #ffffff;
+  -webkit-box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.25);
+  margin: 5px 0;
 }
 /*MEDIAS QUERYS*/
 /* Para 850px */
@@ -280,6 +357,35 @@ body {
   }
   .layout-header .content-nav .acces-link .content-link-login span {
     display: none;
+  }
+  .main .search-list .content-filter {
+    text-align: left;
+  }
+  .main .search-list .content-filter .check-filter {
+    width: 100%;
+    background: #f7f7f8;
+    padding: 13px 30px 8px 30px;
+    margin-top: 0;
+  }
+  .main .search-list .content-filter .check-filter input {
+    bottom: 20px;
+    left: 10px;
+  }
+  .main .search-list .content-filter .check-filter label img {
+    float: right;
+  }
+  .main .search-list .content-filter .check-filter label span {
+    float: left;
+    clear: none;
+  }
+}
+/* Para 500px */
+@media only screen and (max-width: 500px) {
+  h1 {
+    font-size: 1.2em;
+  }
+  .main .search-list header p {
+    margin-left: 0;
   }
 }
 /*# sourceMappingURL=style.css.map */

@@ -200,9 +200,15 @@
     <Content Include="Content\a2m\css\style.min.css">
       <DependentUpon>style.css</DependentUpon>
     </Content>
+    <Content Include="Content\a2m\img\icon-menu.svg" />
+    <Content Include="Content\a2m\img\icon-a-domicilio.svg" />
+    <Content Include="Content\a2m\img\icon-reservas.svg" />
     <Content Include="Content\a2m\img\logo-a2m.png" />
     <Content Include="BBDD\00_Initial_Objects_v1.0.0.sql" />
     <Content Include="BBDD\01_Initial_Data_v1.0.0.sql" />
+    <Content Include="Content\a2m\img\icon-pedido-online.svg" />
+    <Content Include="Content\a2m\img\icon-recoger-local.svg" />
+    <Content Include="Content\a2m\img\icon-carta-pdf.svg" />
     <Content Include="Content\a2m\js\a2m.common.js" />
     <Content Include="Content\a2m\js\a2m.enums.js" />
     <Content Include="Content\a2m\js\a2m.municipality.js" />
@@ -268,9 +274,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\a2m\css\" />
     <Folder Include="Views\Base\" />
-    <Folder Include="Common\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\external\fonts\glyphicons-halflings-regular.woff" />

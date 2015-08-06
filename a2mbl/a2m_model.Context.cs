@@ -15,17 +15,14 @@ namespace a2mbl
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class a2mContext : DbContext
+    public partial class a2mContext : ObjectContext
     {
         public a2mContext()
             : base("name=a2mContext")
         {
         }
     
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            throw new UnintentionalCodeFirstException();
-        }
+     
     
         public virtual DbSet<Business> Businesses { get; set; }
         public virtual DbSet<Business_Status> Business_Status { get; set; }

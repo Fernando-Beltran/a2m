@@ -25,7 +25,8 @@ namespace a2m.Controllers
         {
             try
             {
-                Business currentBusiness = BussinessManager.GetBusinessFromMunicipalityNormalizedNameAndBusinessNormalizedNamed(municipality, business);
+                Business currentBusiness = null;
+                //Business currentBusiness =  BussinessManager.GetBusinessFromMunicipalityNormalizedNameAndBusinessNormalizedNamed(municipality, business);
                 if (currentBusiness == null) return View("Error");
 
                 BusinessModel BusinessModel = new BusinessModel();

@@ -7,24 +7,26 @@ using CustomExtensions;
 using log4net;
 using a2mbl.Common;
 using a2mbl.IManagers;
+using a2mbl.Wrapper;
+using a2mbl.Linq;
 
 namespace a2mbl.Managers
 {
 
-    public class BussinessManager 
+    public class BussinessManager : IBussinessManager
     {       
         /// <summary>
         /// Obtiene la lista de negocios de un municipio
         /// </summary>
         /// <param name="municipalityId">Identificador del municipio</param>
         /// <returns>Lista de municipios activos</returns>
-        public static List<Business> GetBusinessFromMunicipalityId(int municipalityId){
+        public List<Business> GetBusinessFromMunicipalityId(int municipalityId){
             try
             {
                
-                using (var db = new a2mbl.a2mContext())
-                {
-                    List<Business> BusinessList = db.Businesses
+                 using (ContextWrapper context = new ContextWrapper()) {
+
+                     List<Business> BusinessList = context.Current.Businesses
                         .Include("Business_Status")
                         .Include("Categories")
                         .Where(item => item.Fk_Municipality == municipalityId).ToList();
@@ -44,21 +46,22 @@ namespace a2mbl.Managers
         /// <param name="businessName"></param>
         /// <param name="municipalityName"></param>
         /// <returns>Negocio</returns>
-        public static Business GetBusinessFromMunicipalityNormalizedNameAndBusinessNormalizedNamed(string municipalityName,string businessName)
+        public Business GetBusinessFromMunicipalityNormalizedNameAndBusinessNormalizedNamed(string municipalityName,string businessName)
         {
             try
             {
-                using (var db = new a2mbl.a2mContext())
-                {
-                    List<Business> BusinessList = db.Businesses
-                        .Include("Business_Status")
-                        .Include("Categories")
-                        .Include("Municipality").ToList();
-                    
+                using (ContextWrapper context = new ContextWrapper()) {
+                    List<Business> BusinessList = context.Current.Businesses
+                          .Include("Business_Status")
+                          .Include("Categories")
+                          .Include("Municipality").ToList();
+
                     return BusinessList.Where(item => item.Name.ToA2MUrlName() == businessName && item.Municipality.Name.ToA2MUrlName() == municipalityName).SingleOrDefault();             
                     
-                    
+                 
                 }
+
+               
             }
             catch (Exception ex)
             {
@@ -74,13 +77,14 @@ namespace a2mbl.Managers
         /// <param name="municipalityName"></param>
         /// <param name="filters">Filtros</param>
         /// <returns>Negocio</returns>
-        public static Business GetBusinessFromMunicipalityNormalizedNameAndBusinessNormalizedNamedFiltered(string municipalityName, string businessName, List<LinqFilter> filters)
+        public Business GetBusinessFromMunicipalityNormalizedNameAndBusinessNormalizedNamedFiltered(string municipalityName, string businessName, List<BusinessFilterCriteria> filters)
         {
             try
             {
-                using (var db = new a2mbl.a2mContext())
+                using (ContextWrapper context = new ContextWrapper())
                 {
-                    List<Business> BusinessList = db.Businesses
+
+                    List<Business> BusinessList = context.Current.Businesses
                         .Include("Business_Status")
                         .Include("Categories")
                         .Include("Municipality").ToList();
@@ -103,13 +107,13 @@ namespace a2mbl.Managers
         /// </summary>
         /// <param name="municipalityId">Identificador del negocio</param>
         /// <returns>Negocio</returns>
-        public static Business GetBusinessFromId(int businessId)
+        public Business GetBusinessFromId(int businessId)
         {
             try
             {
-                using (var db = new a2mbl.a2mContext())
+                using (ContextWrapper context = new ContextWrapper())
                 {
-                    Business Business = db.Businesses
+                    Business Business = context.Current.Businesses
                         .Include("Business_Status")
                         .Include("Categories")
                         .Where(item => item.Pk_Business == businessId).SingleOrDefault();
@@ -123,7 +127,7 @@ namespace a2mbl.Managers
             }
         }
        
-        public static bool ValidateLogin(string phone,string password) {
+        public bool ValidateLogin(string phone,string password) {
             try
             {
                 //a2mbl.a2mContext dbContext = new a2mbl.a2mContext();
@@ -171,6 +175,24 @@ namespace a2mbl.Managers
             }
            
         }
-        
+
+        private IQueryable<Business> GetBussinessManagerBaseQuery(a2mContext context, List<BusinessFilterCriteria> filters, int bussinessId, int? categoryId)
+        {
+            IQueryable<Business> query = context.Businesses.Where(item => item.Pk_Business == bussinessId);
+
+            //if (categoryId.HasValue)
+            //    query = query.Where(item => item.NetworkNodeCategoryId == categoryId);
+
+            if (filters != null)
+            {
+                //DynamicWhere result = GenerateDynamicWhere(filters);
+                //if (!string.IsNullOrEmpty(result.WhereClause))
+                //        query = query.Where(result.WhereClause, result.Params);
+            }
+
+            return query;
+
+        }
+       
     }
 }

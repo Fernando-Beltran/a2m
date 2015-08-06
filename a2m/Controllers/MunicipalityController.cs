@@ -21,7 +21,7 @@ namespace a2m.Controllers
                 if (currentMunicipality == null) return View("Error");
                 MunicipalityModel MunicipalityModel = new MunicipalityModel();
                 MunicipalityModel.Municipality = currentMunicipality;
-                MunicipalityModel.BusinessList = BussinessManager.GetBusinessFromMunicipalityId(currentMunicipality.Pk_Municipality);
+               // MunicipalityModel.BusinessList = BussinessManager.GetBusinessFromMunicipalityId(currentMunicipality.Pk_Municipality);
 
                 return View(MunicipalityModel);
             }

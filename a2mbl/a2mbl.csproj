@@ -47,6 +47,7 @@
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -85,7 +86,7 @@
       <DependentUpon>a2m_model.tt</DependentUpon>
     </Compile>
     <Compile Include="Common\CustomExtensions.cs" />
-    <Compile Include="Common\LinqFilter.cs" />
+    <Compile Include="Common\BusinessFilterCriteria.cs" />
     <Compile Include="Common\Log.cs" />
     <Compile Include="Common\MunicipalityStatus.cs" />
     <Compile Include="Customer.cs">
@@ -97,6 +98,10 @@
     <Compile Include="Customer_Status.cs">
       <DependentUpon>a2m_model.tt</DependentUpon>
     </Compile>
+    <Compile Include="DynamicWhere\DynamicQueryable.cs" />
+    <Compile Include="DynamicWhere\DynamicWhere.cs" />
+    <Compile Include="Factory\Factory.cs" />
+    <Compile Include="Factory\IFactory.cs" />
     <Compile Include="IManagers\IBussinessManager.cs" />
     <Compile Include="Managers\BussinessManager.cs" />
     <Compile Include="Managers\MunicipalityManager.cs" />
@@ -152,6 +157,8 @@
     <Compile Include="sysdiagram.cs">
       <DependentUpon>a2m_model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Wrapper\BaseContextWrapper.cs" />
+    <Compile Include="Wrapper\ContextWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="a2m_model.edmx">

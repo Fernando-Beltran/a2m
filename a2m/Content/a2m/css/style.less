@@ -2,6 +2,7 @@
 @NegroPuro: #000000;
 @BlancoPuro: #FFFFFF;
 @GrisFondoGenerico: #F7F7F8;
+@GrisOscuro: #999999;
 @VerdePrincipal: #006300;
 @VerdeClaro:#439944;
 
@@ -24,9 +25,9 @@ body {
 }
 /*Mixins*/
 .shadowbox(){
-    -webkit-box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.25);
-    -moz-box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.25);
-    box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.25);
+    -webkit-box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.35);
+    -moz-box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.35);
+    box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.35);
 }
 /**/
 /*Estilos clases genericas para utilizar cuando se necesiten*/
@@ -52,22 +53,38 @@ body {
     width: 100%;
     max-width: 1500px;
 }
-.button-generic{
-    background: @VerdePrincipal;
-    color: @BlancoPuro;
-    padding: 10px 20px;
-    width: 100%;
-    border: 0;
-    display: block;
-    margin-top: 4%;
-}
 .button-generic:hover{
     opacity: 0.8;
 }
 strong{
     font-weight: 700;
     color: @VerdePrincipal;
+    clear: both;
 }
+.disable{
+    opacity: 0.4;
+}
+/**Botón generico**/
+.btn-generic{
+    background: @VerdePrincipal;
+    color: @BlancoPuro;
+    padding: 15px;
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    text-align: center;
+    border: 0;
+    display: block;
+    margin-top: 2%;
+    p{
+        font-weight: bold;
+        text-decoration: none;
+    }
+}
+.btn-generic:hover{
+    opacity: 0.8;
+}
+/**/
 //Encabezados siempre iguales
 h1{
     color: @VerdePrincipal;
@@ -76,6 +93,17 @@ h1{
     margin-bottom: 5px
 }
 /**/
+/*****Estilos para centrar las columnas*****/
+.row-centered {
+	text-align:center;
+}
+.col-centered {
+	display: inline-block;
+	float: none;
+	text-align: left;
+	margin-right: -4px;
+}
+/*********/
 //Estilos cabecera Layout genérico
 .layout-header{
     background: @BlancoPuro;
@@ -151,7 +179,7 @@ h1{
     /*Formularios accesos*/
     .login-acces{
         background: @BlancoPuro;
-        padding: 15px 10px;
+        padding: 15px 10px 0 10px;
         position: absolute;
         right: 16px;
         top: 64px;
@@ -262,7 +290,11 @@ h1{
                 margin-bottom: -11px;
                 background: @VerdeClaro;
                 color: @BlancoPuro;
-                padding: 5px;     
+                padding: 5px;
+                .btn-more-filers{
+                    margin-left: 10px;
+                    display: none;
+                }
             }
         }
         .content-filter{
@@ -302,12 +334,127 @@ h1{
                 }
             }
         }
-        .item-list-result{
-            background: red;
-            height: 300px;
-            border: 2px solid @BlancoPuro;
-            .shadowbox();
-            margin: 5px 0;
+        .content-list-result{
+            margin-top:5px;
+            padding:0;
+            margin-bottom: 35px;
+            float: left;
+            .content-result{
+                padding: 5px;
+                float: left;
+                .item-result{
+                    display:block;
+                    margin: 0;
+                    padding: 0;
+                    text-decoration: none;
+                    .shadowbox();
+                    .content-img{
+                        overflow: hidden;
+                        height: 200px;
+                        img{
+                            width:100%;
+                        }
+                    }
+                    .content-detail{
+                        text-align: left;
+                        padding: 10px;
+                        line-height: 20px;
+                        strong{
+                            font-size: 1.5em;
+                        }
+                        i{
+                            clear: both;
+                            width: 100%;
+                            font-size: 0.8em;
+                            display: block;
+                            color: @GrisOscuro;
+                            margin-bottom: 5px;
+                        }
+                        b{
+                            font-weight: bold;
+                            font-size: 1.2em;
+                            width: 100%;
+                            display: block;
+                            color: @NegroPuro;
+                            margin-bottom: 3px;
+                        }
+                        span{
+                            color: @VerdeClaro;
+                            font-size: 0.8em;
+                            display: block;
+                            font-weight: 700;
+                        }
+                    }
+                    .icons-services{
+                        display: inline-block;
+                        text-align: center;
+                        padding: 10px 20px 20px 20px;
+                        li{
+                            display: inline-block;
+                            text-align: center;
+                            margin:7px 5px;
+                            color: @VerdePrincipal;
+                            width: 83px;
+                            img{
+                                width: 20px;
+                                display: block;
+                                margin: 0 auto;
+                            }
+                            span{
+                                font-size: 0.65em;
+                                clear: both;
+                                width: 100%;
+                                color: @NegroPuro;
+                                font-weight: bold;
+                                color: @VerdePrincipal;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .btn-more-result{
+            clear:both;
+            margin-top: 30px;
+            cursor: pointer;
+        }
+    }
+}
+//Estilos Footer
+.footer-generic{
+    background: @VerdePrincipal;
+    .shadowbox();
+    padding: 20px;
+    margin-top: 20px;
+    strong{
+        color: @BlancoPuro;
+        margin-bottom: 10px;
+    }
+    i{
+        font-size: 0.8em
+    }
+    .form-contact{
+        display: inline-block;
+        width: 100%;
+        padding: 14px;
+        label{
+            padding-right: 5px;
+            padding-left: 0;
+            input{
+                border: 0;
+                width: 100%;
+                padding: 5px 30px;
+            }
+            textarea{
+                margin-top: 10px;
+                width: 100%;
+                border: 0;
+                padding: 30px;
+            }
+        }
+        .btn-form-contact{
+            background: @BlancoPuro;
+            color: @VerdePrincipal;
         }
     }
 }
@@ -369,6 +516,19 @@ h1{
     }
     .main .search-list .content-filter{
         text-align:left;
+        display: none;
+    }
+
+    .main .search-list header span{
+        padding: 13px;
+        cursor: pointer;
+        font-size: 0.8em;
+    }
+    .main .search-list header span:hover{
+        opacity: 0.8;
+    }
+    .main .search-list header span .btn-more-filers{
+        display: inline-block;
     }
     .main .search-list .content-filter .check-filter{
         width: 100%;
@@ -387,6 +547,7 @@ h1{
         float:left;
         clear: none;
     }
+    
 
 }
 /* Para 500px */  

@@ -15,7 +15,7 @@
     <AssemblyName>a2m</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -209,6 +209,7 @@
     <Content Include="Content\a2m\img\icon-pedido-online.svg" />
     <Content Include="Content\a2m\img\icon-recoger-local.svg" />
     <Content Include="Content\a2m\img\icon-carta-pdf.svg" />
+    <Content Include="Content\a2m\img\restaurantes\elportico.jpg" />
     <Content Include="Content\a2m\js\a2m.common.js" />
     <Content Include="Content\a2m\js\a2m.enums.js" />
     <Content Include="Content\a2m\js\a2m.municipality.js" />
@@ -307,7 +308,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>18237</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/a2m/</IISUrl>
+          <IISUrl>http://localhost:18237/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

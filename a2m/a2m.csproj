@@ -39,6 +39,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DbUp">
+      <HintPath>..\packages\dbup.3.2.1\lib\NET35\DbUp.dll</HintPath>
+    </Reference>
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
     </Reference>
@@ -249,6 +252,8 @@
     <Content Include="Content\external\js\respond.js" />
     <Content Include="Content\external\js\respond.min.js" />
     <Content Include="Content\external\js\_references.js" />
+    <Content Include="Scripts\Script_0000_Initial_Objects_v1.0.0.sql" />
+    <Content Include="Scripts\Script_0001_Initial_Data_v1.0.0.sql" />
     <Content Include="Static\index.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

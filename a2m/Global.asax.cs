@@ -9,6 +9,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.Http;
 using System.Web.Routing;
+using DbUp;
 
 namespace a2m
 {
@@ -33,11 +34,33 @@ namespace a2m
                 config.Formatters.JsonFormatter.SerializerSettings.Formatting =
                     Newtonsoft.Json.Formatting.Indented;
 
-                Log.Debug("A2M started succesfully");
-                StartedSuccesfully = true;
+                var connectionString = "";
+        
+
+                var upgrader =
+                    DeployChanges.To
+                        .SqlDatabase(connectionString)
+                        .WithScriptsEmbeddedInAssembly(Assembly.GetExecutingAssembly())                        
+                        .Build();
+
+                var result = upgrader.PerformUpgrade();
+
+                if (!result.Successful)
+                {
+                    Log.Debug("A2M Not started succesfully due dbUp problem");
+                    StartedSuccesfully = false;
+                }
+                else
+                {
+
+
+                    Log.Debug("A2M started succesfully");
+                    StartedSuccesfully = true;
+                }
             }
             catch (Exception ex)
             {
+                StartedSuccesfully = false;
                 Log.Fatal("Unable to start A2M", ex);
             }
 

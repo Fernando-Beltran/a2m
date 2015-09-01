@@ -195,6 +195,9 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\a2m\css\generic.css" />
+    <Content Include="Content\a2m\css\list.css" />
+    <Content Include="Content\a2m\css\product.css" />
     <Content Include="Content\a2m\css\reset.css" />
     <Content Include="Content\a2m\css\style.css" />
     <Content Include="Content\a2m\css\style.min.css">
@@ -238,6 +241,9 @@
     <Content Include="Content\a2m\css\style.css.map">
       <DependentUpon>style.css</DependentUpon>
     </Content>
+    <Content Include="Content\a2m\css\generic.less" />
+    <Content Include="Content\a2m\css\list.less" />
+    <Content Include="Content\a2m\css\product.less" />
     <None Include="Content\external\js\jquery-1.10.2.intellisense.js" />
     <Content Include="Content\external\js\jquery-1.10.2.js" />
     <Content Include="Content\external\js\jquery-1.10.2.min.js" />
@@ -250,7 +256,9 @@
     <Content Include="Content\external\js\respond.js" />
     <Content Include="Content\external\js\respond.min.js" />
     <Content Include="Content\external\js\_references.js" />
+    <Content Include="Static\ficha-tipo1.html" />
     <Content Include="Static\index.html" />
+    <Content Include="Static\listado.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

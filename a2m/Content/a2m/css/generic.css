@@ -20,7 +20,7 @@ body {
 /**/
 /* Mixins
 ------------------------------------------------------------------*/
-/* CSS Global
+/* CSS Global para layout
 ------------------------------------------------------------------*/
 .link {
   color: #006300;
@@ -78,7 +78,7 @@ strong {
 h1 {
   color: #006300;
   font-weight: 700;
-  font-size: 1.7em;
+  font-size: 1.8em;
   margin-bottom: 5px;
 }
 .row-centered {
@@ -119,7 +119,7 @@ h1 {
   /*Link de accesos*/
 }
 .layout-header .content-nav .menu {
-  diplay: block;
+  display: block;
 }
 .layout-header .content-nav .menu ul {
   display: table;
@@ -302,7 +302,7 @@ h1 {
   width: 100%;
   margin-top: 0;
 }
-/*MEDIAS QUERYS para RWD*/
+/*MEDIAS QUERYS para RWD Layout*/
 /* Para 850px */
 @media only screen and (max-width: 850px) {
   .layout-header .content-nav .menu {
@@ -357,38 +357,6 @@ h1 {
   .layout-header .content-nav .acces-link .content-link-login span {
     display: none;
   }
-  .main .search-list .content-filter {
-    text-align: left;
-    display: none;
-  }
-  .main .search-list header span {
-    padding: 13px;
-    cursor: pointer;
-    font-size: 0.8em;
-  }
-  .main .search-list header span:hover {
-    opacity: 0.8;
-  }
-  .main .search-list header span .btn-more-filers {
-    display: inline-block;
-  }
-  .main .search-list .content-filter .check-filter {
-    width: 100%;
-    background: #f7f7f8;
-    padding: 13px 30px 8px 30px;
-    margin-top: 0;
-  }
-  .main .search-list .content-filter .check-filter input {
-    bottom: 20px;
-    left: 10px;
-  }
-  .main .search-list .content-filter .check-filter label img {
-    float: right;
-  }
-  .main .search-list .content-filter .check-filter label span {
-    float: left;
-    clear: none;
-  }
   .footer-generic {
     padding: 10px;
   }
@@ -400,8 +368,5 @@ h1 {
 @media only screen and (max-width: 500px) {
   h1 {
     font-size: 1.2em;
-  }
-  .main .search-list header p {
-    margin-left: 0;
   }
 }

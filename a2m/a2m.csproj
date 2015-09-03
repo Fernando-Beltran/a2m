@@ -199,22 +199,29 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\a2m\css\generic.css" />
+    <Content Include="Content\a2m\css\generic.min.css">
+      <DependentUpon>generic.css</DependentUpon>
+    </Content>
     <Content Include="Content\a2m\css\list.css" />
     <Content Include="Content\a2m\css\product.css" />
-    <Content Include="Content\a2m\css\reset.css" />
-    <Content Include="Content\a2m\css\style.css" />
-    <Content Include="Content\a2m\css\style.min.css">
-      <DependentUpon>style.css</DependentUpon>
+    <Content Include="Content\a2m\css\product.min.css">
+      <DependentUpon>product.css</DependentUpon>
     </Content>
+    <Content Include="Content\a2m\css\reset.css" />
     <Content Include="Content\a2m\img\icon-menu.svg" />
     <Content Include="Content\a2m\img\icon-a-domicilio.svg" />
+    <Content Include="Content\a2m\img\icon-move-catalog.png" />
     <Content Include="Content\a2m\img\icon-reservas.svg" />
+    <Content Include="Content\a2m\img\icono-arroces.png" />
+    <Content Include="Content\a2m\img\icono-pastas.png" />
+    <Content Include="Content\a2m\img\icono-sopas.png" />
     <Content Include="Content\a2m\img\logo-a2m.png" />
     <Content Include="BBDD\00_Initial_Objects_v1.0.0.sql" />
     <Content Include="BBDD\01_Initial_Data_v1.0.0.sql" />
     <Content Include="Content\a2m\img\icon-pedido-online.svg" />
     <Content Include="Content\a2m\img\icon-recoger-local.svg" />
     <Content Include="Content\a2m\img\icon-carta-pdf.svg" />
+    <Content Include="Content\a2m\img\restaurantes\carta-local.jpg" />
     <Content Include="Content\a2m\img\restaurantes\elportico.jpg" />
     <Content Include="Content\a2m\js\a2m.common.js" />
     <Content Include="Content\a2m\js\a2m.enums.js" />
@@ -240,13 +247,15 @@
     <Content Include="Content\external\js\bootstrap.min.js" />
     <Content Include="Content\external\css\bootstrap-theme.css.map" />
     <Content Include="Content\external\css\bootstrap.css.map" />
-    <Content Include="Content\a2m\css\style.less" />
-    <Content Include="Content\a2m\css\style.css.map">
-      <DependentUpon>style.css</DependentUpon>
-    </Content>
     <Content Include="Content\a2m\css\generic.less" />
     <Content Include="Content\a2m\css\list.less" />
     <Content Include="Content\a2m\css\product.less" />
+    <Content Include="Content\a2m\css\product.css.map">
+      <DependentUpon>product.css</DependentUpon>
+    </Content>
+    <Content Include="Content\a2m\css\generic.css.map">
+      <DependentUpon>generic.css</DependentUpon>
+    </Content>
     <None Include="Content\external\js\jquery-1.10.2.intellisense.js" />
     <Content Include="Content\external\js\jquery-1.10.2.js" />
     <Content Include="Content\external\js\jquery-1.10.2.min.js" />
@@ -259,6 +268,7 @@
     <Content Include="Content\external\js\respond.js" />
     <Content Include="Content\external\js\respond.min.js" />
     <Content Include="Content\external\js\_references.js" />
+    <Content Include="Static\ficha-tipo-pedido.html" />
     <Content Include="Static\ficha-tipo1.html" />
     <Content Include="Scripts\Script_0000_Initial_Objects_v1.0.0.sql" />
     <Content Include="Scripts\Script_0001_Initial_Data_v1.0.0.sql" />

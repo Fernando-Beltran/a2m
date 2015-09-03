@@ -20,7 +20,7 @@ body {
 /**/
 /* Mixins
 ------------------------------------------------------------------*/
-/* CSS Global
+/* CSS Global para layout
 ------------------------------------------------------------------*/
 .link {
   color: #006300;
@@ -119,7 +119,7 @@ h1 {
   /*Link de accesos*/
 }
 .layout-header .content-nav .menu {
-  diplay: block;
+  display: block;
 }
 .layout-header .content-nav .menu ul {
   display: table;
@@ -257,6 +257,121 @@ h1 {
 .breadcumbs ul .separation-breadcumbs {
   font-size: 0.6em;
 }
+.footer-generic {
+  background: #006300;
+  -webkit-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.35);
+  -moz-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.35);
+  box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.35);
+  padding: 23px 179px 0;
+  margin-top: 15px;
+}
+.footer-generic strong {
+  color: #ffffff;
+  margin-bottom: 10px;
+  font-size: 1.6em;
+}
+.footer-generic i {
+  font-size: 0.9em;
+  color: #ffffff;
+}
+.footer-generic .form-contact {
+  display: inline-block;
+  width: 100%;
+  padding: 14px;
+}
+.footer-generic .form-contact label {
+  padding-right: 5px;
+  padding-left: 0;
+}
+.footer-generic .form-contact label input {
+  border: 0;
+  width: 100%;
+  padding: 10px 14px 7px;
+}
+.footer-generic .form-contact label textarea {
+  margin-top: 10px;
+  width: 100%;
+  border: 0;
+  padding: 13px;
+  margin-bottom: 15px;
+  max-height: 250px;
+}
+.footer-generic .form-contact .btn-form-contact {
+  background: #ffffff;
+  color: #006300;
+  width: 100%;
+  margin-top: 0;
+}
+/*MEDIAS QUERYS para RWD Layout*/
+/* Para 850px */
+@media only screen and (max-width: 850px) {
+  .layout-header .content-nav .menu {
+    position: absolute;
+    width: 133.7%;
+    left: -26.7%;
+    top: 64px;
+    z-index: 10;
+  }
+  .layout-header .content-nav .menu ul {
+    display: none;
+    height: auto;
+    padding: 2px 0;
+    width: 100%;
+    background: #ffffff;
+  }
+  .layout-header .content-nav .menu ul li {
+    padding: 15px 23px;
+    display: block;
+    margin-bottom: 4px;
+    cursor: pointer;
+    background: #006300;
+  }
+  .layout-header .content-nav .menu ul li:hover {
+    opacity: 1;
+    background: #439944;
+  }
+  .layout-header .content-nav .menu ul li a {
+    color: #ffffff;
+  }
+  .layout-header .content-nav .acces-link {
+    float: right;
+    text-align: right;
+    padding-right: 0;
+    height: 60px;
+  }
+  .layout-header .content-nav .acces-link .content-link-login:first-child {
+    display: inline-block;
+  }
+  .layout-header .content-nav .acces-link .content-link-login {
+    height: 48px;
+    line-height: 28px;
+    margin-top: 7px;
+    padding: 13px 15px;
+  }
+  .layout-header .content-nav .acces-link .content-link-login i {
+    margin-right: 0;
+    text-align: center;
+    font-size: 18px;
+    padding-right: 0 !important;
+  }
+  .layout-header .content-nav .acces-link .content-link-login span {
+    display: none;
+  }
+  .footer-generic {
+    padding: 10px;
+  }
+  .footer-generic .form-contact label {
+    margin: 5px 0;
+  }
+}
+/* Para 500px */
+@media only screen and (max-width: 500px) {
+  h1 {
+    font-size: 1.2em;
+  }
+}
+/* CSS Listado de resultados
+------------------------------------------------------------------*/
 .main {
   -webkit-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.35);
   -moz-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.35);
@@ -417,31 +532,6 @@ h1 {
   margin-top: 30px;
   cursor: pointer;
 }
-.main .product-data {
-  padding: 0 10px;
-}
-.main .product-data header {
-  padding: 15px 0;
-}
-.main .product-data header p {
-  display: block;
-  font-size: 0.9em;
-  line-height: 22px;
-  margin-left: 18px;
-}
-.main .product-data header span {
-  color: #000000;
-  font-weight: 400;
-  margin-left: 10px;
-}
-.main .product-data header i {
-  margin-right: 5px;
-}
-.main .product-data header a {
-  font-size: 0.45em;
-  text-decoration: underline;
-  float: right;
-}
 .footer-generic {
   background: #006300;
   -webkit-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.35);
@@ -487,61 +577,9 @@ h1 {
   width: 100%;
   margin-top: 0;
 }
-/*MEDIAS QUERYS para RWD*/
+/*MEDIAS QUERYS para RWD listado resultados*/
 /* Para 850px */
 @media only screen and (max-width: 850px) {
-  .layout-header .content-nav .menu {
-    position: absolute;
-    width: 133.7%;
-    left: -26.7%;
-    top: 64px;
-    z-index: 10;
-  }
-  .layout-header .content-nav .menu ul {
-    display: none;
-    height: auto;
-    padding: 2px 0;
-    width: 100%;
-    background: #ffffff;
-  }
-  .layout-header .content-nav .menu ul li {
-    padding: 15px 23px;
-    display: block;
-    margin-bottom: 4px;
-    cursor: pointer;
-    background: #006300;
-  }
-  .layout-header .content-nav .menu ul li:hover {
-    opacity: 1;
-    background: #439944;
-  }
-  .layout-header .content-nav .menu ul li a {
-    color: #ffffff;
-  }
-  .layout-header .content-nav .acces-link {
-    float: right;
-    text-align: right;
-    padding-right: 0;
-    height: 60px;
-  }
-  .layout-header .content-nav .acces-link .content-link-login:first-child {
-    display: inline-block;
-  }
-  .layout-header .content-nav .acces-link .content-link-login {
-    height: 48px;
-    line-height: 28px;
-    margin-top: 7px;
-    padding: 13px 15px;
-  }
-  .layout-header .content-nav .acces-link .content-link-login i {
-    margin-right: 0;
-    text-align: center;
-    font-size: 18px;
-    padding-right: 0 !important;
-  }
-  .layout-header .content-nav .acces-link .content-link-login span {
-    display: none;
-  }
   .main .search-list .content-filter {
     text-align: left;
     display: none;
@@ -574,18 +612,9 @@ h1 {
     float: left;
     clear: none;
   }
-  .footer-generic {
-    padding: 10px;
-  }
-  .footer-generic .form-contact label {
-    margin: 5px 0;
-  }
 }
 /* Para 500px */
 @media only screen and (max-width: 500px) {
-  h1 {
-    font-size: 1.2em;
-  }
   .main .search-list header p {
     margin-left: 0;
   }

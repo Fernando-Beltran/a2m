@@ -23,14 +23,21 @@ body {
     color: @NegroPuro;
     min-width: 400px;
 }
-/*Mixins*/
-.shadowbox(){
-    -webkit-box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.35);
-    -moz-box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.35);
-    box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.35);
-}
 /**/
-/*Estilos clases genericas para utilizar cuando se necesiten*/
+/* Mixins
+------------------------------------------------------------------*/
+.shadowbox(){
+    -webkit-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.35);
+    -moz-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.35);
+    box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.35);
+}
+.shadowboxHover(){
+    -webkit-box-shadow: 1px 1px 5px 0px rgba(0,99,0,0.85);
+    -moz-box-shadow: 1px 1px 5px 0px rgba(0,99,0,0.85);
+    box-shadow: 1px 1px 5px 0px rgba(0,99,0,0.85);
+}
+/* CSS Global
+------------------------------------------------------------------*/
 .link{
     color: @VerdePrincipal;
     cursor: pointer; 
@@ -84,16 +91,12 @@ strong{
 .btn-generic:hover{
     opacity: 0.8;
 }
-/**/
-//Encabezados siempre iguales
 h1{
     color: @VerdePrincipal;
     font-weight: 700;
-    font-size: 1.6em;
+    font-size: 1.7em;
     margin-bottom: 5px
 }
-/**/
-/*****Estilos para centrar las columnas*****/
 .row-centered {
 	text-align:center;
 }
@@ -103,7 +106,8 @@ h1{
 	text-align: left;
 	margin-right: -4px;
 }
-/*********/
+/* CSS Global fin
+------------------------------------------------------------------*/
 //Estilos cabecera Layout genérico
 .layout-header{
     background: @BlancoPuro;
@@ -267,171 +271,20 @@ h1{
         }
     }
 }
-//Estilos Main genérico
-.main{
-    .shadowbox();
-    background: @BlancoPuro;
-    padding-bottom: 30px;
-    .search-list{
-        padding: 0 10px;
-        header{
-            padding: 15px 0;
-            p{
-                display: block; 
-                font-size: 0.9em;
-                line-height: 22px;
-                margin-left: 18px;
-            }
-            span{
-                font-size: 0.85em;
-                margin-top: 10px;
-                display: block;
-                text-align: center;
-                margin-bottom: -11px;
-                background: @VerdeClaro;
-                color: @BlancoPuro;
-                padding: 5px;
-                .btn-more-filers{
-                    margin-left: 10px;
-                    display: none;
-                }
-            }
-        }
-        .content-filter{
-            text-align: center;
-            margin-bottom: 15px;
-            .check-filter{
-                text-align: center;
-                padding: 0 30px;// incluir medias para que no hagan muchas filas a partir de 500px resolucion
-                display: inline-block;
-                position: relative;
-                margin-top: 15px;
-                input{
-                    float:left;
-                    position: absolute;
-                    bottom: 0;
-                    left: 10px;
-                    padding: 0 3px;
-                    cursor: pointer;
-                }
-                label{
-                    display: block;
-                    cursor: pointer;
-                    img{
-                        clear: both;
-                        margin: 0 auto;
-                        display: block;
-                        padding-bottom: 5px;
-                        width: 20px;
-                        image-rendering: optimizeQuality;
-                    }
-                    span{
-                        display:block;
-                        clear: both;
-                        font-size: 0.8em;
-                        color: @VerdePrincipal;
-                    }
-                }
-            }
-        }
-        .content-list-result{
-            margin-top:5px;
-            padding:0;
-            margin-bottom: 35px;
-            float: left;
-            .content-result{
-                padding: 5px;
-                float: left;
-                .item-result{
-                    display:block;
-                    margin: 0;
-                    padding: 0;
-                    text-decoration: none;
-                    .shadowbox();
-                    .content-img{
-                        overflow: hidden;
-                        height: 200px;
-                        img{
-                            width:100%;
-                        }
-                    }
-                    .content-detail{
-                        text-align: left;
-                        padding: 10px;
-                        line-height: 20px;
-                        strong{
-                            font-size: 1.5em;
-                        }
-                        i{
-                            clear: both;
-                            width: 100%;
-                            font-size: 0.8em;
-                            display: block;
-                            color: @GrisOscuro;
-                            margin-bottom: 5px;
-                        }
-                        b{
-                            font-weight: bold;
-                            font-size: 1.2em;
-                            width: 100%;
-                            display: block;
-                            color: @NegroPuro;
-                            margin-bottom: 3px;
-                        }
-                        span{
-                            color: @VerdeClaro;
-                            font-size: 0.8em;
-                            display: block;
-                            font-weight: 700;
-                        }
-                    }
-                    .icons-services{
-                        display: inline-block;
-                        text-align: center;
-                        padding: 10px 20px 20px 20px;
-                        li{
-                            display: inline-block;
-                            text-align: center;
-                            margin:7px 5px;
-                            color: @VerdePrincipal;
-                            width: 83px;
-                            img{
-                                width: 20px;
-                                display: block;
-                                margin: 0 auto;
-                            }
-                            span{
-                                font-size: 0.65em;
-                                clear: both;
-                                width: 100%;
-                                color: @NegroPuro;
-                                font-weight: bold;
-                                color: @VerdePrincipal;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        .btn-more-result{
-            clear:both;
-            margin-top: 30px;
-            cursor: pointer;
-        }
-    }
-}
 //Estilos Footer
 .footer-generic{
     background: @VerdePrincipal;
     .shadowbox();
-    padding: 20px;
-    margin-top: 20px;
+    padding: 23px 179px 0;
+    margin-top: 15px;
     strong{
         color: @BlancoPuro;
         margin-bottom: 10px;
+        font-size: 1.6em;
     }
     i{
-        font-size: 0.8em
+        font-size: 0.9em;
+        color: @BlancoPuro;
     }
     .form-contact{
         display: inline-block;
@@ -443,22 +296,26 @@ h1{
             input{
                 border: 0;
                 width: 100%;
-                padding: 5px 30px;
+                padding: 10px 14px 7px;
             }
             textarea{
                 margin-top: 10px;
                 width: 100%;
                 border: 0;
-                padding: 30px;
+                padding: 13px;
+                margin-bottom: 15px;
+                max-height: 250px;
             }
         }
         .btn-form-contact{
             background: @BlancoPuro;
             color: @VerdePrincipal;
+            width: 100%;
+            margin-top: 0;
         }
     }
 }
-/*MEDIAS QUERYS*/
+/*MEDIAS QUERYS para RWD*/
 
 /* Para 850px */  
 @media only screen and (max-width: 850px) {  
@@ -475,6 +332,7 @@ h1{
         height: auto;
         padding: 2px 0;
         width: 100%;
+        background: @BlancoPuro;
     }
     .layout-header .content-nav .menu ul li{
         padding: 15px 23px;
@@ -547,7 +405,12 @@ h1{
         float:left;
         clear: none;
     }
-    
+    .footer-generic{
+        padding: 10px;
+    }
+    .footer-generic .form-contact label{
+        margin: 5px 0;
+    }
 
 }
 /* Para 500px */  

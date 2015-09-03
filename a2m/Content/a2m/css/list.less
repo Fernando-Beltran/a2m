@@ -1,277 +1,11 @@
-/*Varaiables LESS*/
-@NegroPuro: #000000;
-@BlancoPuro: #FFFFFF;
-@GrisFondoGenerico: #F7F7F8;
-@GrisOscuro: #999999;
-@VerdePrincipal: #006300;
-@VerdeClaro:#439944;
-
-html {
-		margin: 0;
-		padding: 0;
-		font-family: 'Oxygen', sans-serif !important;
-		overflow-x: hidden;
-    background:  @GrisFondoGenerico;
-}
-body {
-    margin: 0 auto;
-    font-size: 100%;
-    vertical-align: baseline;
-    background:  @GrisFondoGenerico;
-		background-size: cover;
-		font-family: 'Oxygen', sans-serif !important;
-    color: @NegroPuro;
-    min-width: 400px;
-}
-/*Mixins*/
-.shadowbox(){
-    -webkit-box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.35);
-    -moz-box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.35);
-    box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.35);
-}
-/**/
-/*Estilos clases genericas para utilizar cuando se necesiten*/
-.link{
-    color: @VerdePrincipal;
-    cursor: pointer; 
-}
-.link-active{
-    font-weight: bold;
-}
-.link:hover{
-    opacity: 0.8;
-    color: @VerdePrincipal; 
-}
-.activation-link{
-    font-weight: bold !important;
-}
-.container-generic{
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-    width: 100%;
-    max-width: 1500px;
-}
-.button-generic:hover{
-    opacity: 0.8;
-}
-strong{
-    font-weight: 700;
-    color: @VerdePrincipal;
-    clear: both;
-}
-.disable{
-    opacity: 0.4;
-}
-/**Botón generico**/
-.btn-generic{
-    background: @VerdePrincipal;
-    color: @BlancoPuro;
-    padding: 15px;
-    width: 80%;
-    margin: 0 auto;
-    margin-bottom: 20px;
-    text-align: center;
-    border: 0;
-    display: block;
-    margin-top: 2%;
-    p{
-        font-weight: bold;
-        text-decoration: none;
-    }
-}
-.btn-generic:hover{
-    opacity: 0.8;
-}
-/**/
-//Encabezados siempre iguales
-h1{
-    color: @VerdePrincipal;
-    font-weight: 700;
-    font-size: 1.6em;
-    margin-bottom: 5px
-}
-/**/
-/*****Estilos para centrar las columnas*****/
-.row-centered {
-	text-align:center;
-}
-.col-centered {
-	display: inline-block;
-	float: none;
-	text-align: left;
-	margin-right: -4px;
-}
-/*********/
-//Estilos cabecera Layout genérico
-.layout-header{
-    background: @BlancoPuro;
-    min-height: 60px;
-    margin-top: 14px;
-    padding-left: 5px;
-    padding-right: 5px;
-    position: relative;
-    .shadowbox();
-    .brand{
-        padding: 0;
-        img{
-            margin-top: 5px;
-            min-width: 160px;
-        }
-    }
-    .content-nav{
-        padding-right: 0;
-        /*Menú Principal*/
-        .menu{
-            diplay: block;
-            ul{
-                display: table;
-                height: 60px;
-                li{
-                    cursor: pointer;
-                    display: table-cell;
-                    padding: 10px 10px 10px 35px;
-                    vertical-align: middle;
-                    text-align: center;
-                    a{
-                        color:@VerdePrincipal;
-                        font-size: 0.80em;
-                    }
-                }
-                li:hover{
-                    opacity: 0.8;
-                    text-decoration: underline;
-                }
-            }
-        }
-        /**/
-        /*Link de accesos*/
-        .acces-link{
-            float:right;
-            text-align: right;
-            padding-right: 10px;
-            .content-link-login:first-child{
-                display:none;
-            }
-            .content-link-login{
-                padding: 13px 15px;
-                background: @VerdePrincipal;
-                color: @BlancoPuro;
-                text-align: center;
-                margin: 11px 0 0 1px;
-                font-size: 0.72em;
-                display: inline-block;
-                cursor: pointer;
-                i{
-                    margin-right: 5px;
-                    clear: both;
-                }
-                span{
-                    clear: both;
-                }
-            }
-            .content-link-login:hover{
-                background: @VerdeClaro;
-            }
-        }
-    }
-    /*Formularios accesos*/
-    .login-acces{
-        background: @BlancoPuro;
-        padding: 15px 10px 0 10px;
-        position: absolute;
-        right: 16px;
-        top: 64px;
-        z-index: 10;
-        .shadowbox();
-        max-width: 300px;
-        display:none;
-        .header-form{
-            display:block;
-            padding-bottom: 5px;
-            padding-left: 2px;
-            span{
-                font-size: 1em;
-                text-align: left;
-                font-weight: bold;
-                color: @VerdePrincipal;
-                i{
-                    margin-right: 10px;
-                }
-            }
-            .close-x{
-                text-align: right;
-                font-weight: bold;
-                color: @BlancoPuro;
-                font-size: 1.5em;
-                float:right;
-                margin-top: -15px;
-                margin-right: -25px;
-                cursor: pointer;
-                background: @VerdePrincipal;
-                padding: 5px 10px;
-            }
-            .close-x:hover{
-                opacity: 0.8;
-            }
-        }
-        input{
-            width: 100%;
-            padding: 10px;
-            margin: 3px 0;
-            font-size: 0.90em;
-        }
-        .checkbox-remember-pass{
-            display: inline-block;
-            padding: 5px 0;
-            label{
-                display: inline;
-                width: 100%;
-                font-size: 0.8em;
-                input{
-                    width: auto;
-                }
-            }
-        }
-        .link-remeber{
-            clear: both;
-            display: block;
-            text-align: center;
-            font-size: 0.8em;
-            padding: 5px 0;
-            cursor: pointer;
-        }
-    }
-    /**/
-}
-//Migas de pan
-.breadcumbs{
-    padding: 10px 0 13px 0;
-    float: left;
-    span{
-        font-weight: bold;
-        font-size: 0.72em;
-        margin: 0 5px;
-    }
-    ul{
-        display: inline-block;
-        li{
-            display: inline;
-            cursor: pointer;
-            min-height: 30px;
-            font-size: 0.8em;
-        }
-        .separation-breadcumbs{
-            font-size: 0.6em;
-        }
-    }
-}
-//Estilos Main genérico
+/* CSS Listado de resultados
+------------------------------------------------------------------*/
+//Estilos Main genérico, este siempre será el mismo contenedor de donde jerarquizaremos los contenidos centrales sin layout
 .main{
     .shadowbox();
     background: @BlancoPuro;
     padding-bottom: 30px;
+    //Cabecera listado de resultados
     .search-list{
         padding: 0 10px;
         header{
@@ -297,6 +31,7 @@ h1{
                 }
             }
         }
+        //Estilos box para filtrar resultados
         .content-filter{
             text-align: center;
             margin-bottom: 15px;
@@ -334,8 +69,9 @@ h1{
                 }
             }
         }
+        //Box de todos los resultados en el listado
         .content-list-result{
-            margin-top:5px;
+            margin-top:20px;
             padding:0;
             margin-bottom: 35px;
             float: left;
@@ -352,7 +88,7 @@ h1{
                         overflow: hidden;
                         height: 200px;
                         img{
-                            width:100%;
+                            width: 100%;
                         }
                     }
                     .content-detail{
@@ -404,15 +140,18 @@ h1{
                                 font-size: 0.65em;
                                 clear: both;
                                 width: 100%;
-                                color: @NegroPuro;
+                                color: @GrisOscuro;
                                 font-weight: bold;
-                                color: @VerdePrincipal;
                             }
                         }
                     }
                 }
+                .item-result:hover{
+                    .shadowboxHover();
+                }
             }
         }
+        //Botón para cargar más resultados en los listados
         .btn-more-result{
             clear:both;
             margin-top: 30px;
@@ -424,14 +163,16 @@ h1{
 .footer-generic{
     background: @VerdePrincipal;
     .shadowbox();
-    padding: 20px;
-    margin-top: 20px;
+    padding: 23px 179px 0;
+    margin-top: 15px;
     strong{
         color: @BlancoPuro;
         margin-bottom: 10px;
+        font-size: 1.6em;
     }
     i{
-        font-size: 0.8em
+        font-size: 0.9em;
+        color: @BlancoPuro;
     }
     .form-contact{
         display: inline-block;
@@ -443,22 +184,26 @@ h1{
             input{
                 border: 0;
                 width: 100%;
-                padding: 5px 30px;
+                padding: 10px 14px 7px;
             }
             textarea{
                 margin-top: 10px;
                 width: 100%;
                 border: 0;
-                padding: 30px;
+                padding: 13px;
+                margin-bottom: 15px;
+                max-height: 250px;
             }
         }
         .btn-form-contact{
             background: @BlancoPuro;
             color: @VerdePrincipal;
+            width: 100%;
+            margin-top: 0;
         }
     }
 }
-/*MEDIAS QUERYS*/
+/*MEDIAS QUERYS para RWD*/
 
 /* Para 850px */  
 @media only screen and (max-width: 850px) {  
@@ -475,6 +220,7 @@ h1{
         height: auto;
         padding: 2px 0;
         width: 100%;
+        background: @BlancoPuro;
     }
     .layout-header .content-nav .menu ul li{
         padding: 15px 23px;
@@ -547,7 +293,12 @@ h1{
         float:left;
         clear: none;
     }
-    
+    .footer-generic{
+        padding: 10px;
+    }
+    .footer-generic .form-contact label{
+        margin: 5px 0;
+    }
 
 }
 /* Para 500px */  

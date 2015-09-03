@@ -15,7 +15,7 @@
     <AssemblyName>a2m</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -198,6 +198,9 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\a2m\css\generic.css" />
+    <Content Include="Content\a2m\css\list.css" />
+    <Content Include="Content\a2m\css\product.css" />
     <Content Include="Content\a2m\css\reset.css" />
     <Content Include="Content\a2m\css\style.css" />
     <Content Include="Content\a2m\css\style.min.css">
@@ -212,6 +215,7 @@
     <Content Include="Content\a2m\img\icon-pedido-online.svg" />
     <Content Include="Content\a2m\img\icon-recoger-local.svg" />
     <Content Include="Content\a2m\img\icon-carta-pdf.svg" />
+    <Content Include="Content\a2m\img\restaurantes\elportico.jpg" />
     <Content Include="Content\a2m\js\a2m.common.js" />
     <Content Include="Content\a2m\js\a2m.enums.js" />
     <Content Include="Content\a2m\js\a2m.municipality.js" />
@@ -240,6 +244,9 @@
     <Content Include="Content\a2m\css\style.css.map">
       <DependentUpon>style.css</DependentUpon>
     </Content>
+    <Content Include="Content\a2m\css\generic.less" />
+    <Content Include="Content\a2m\css\list.less" />
+    <Content Include="Content\a2m\css\product.less" />
     <None Include="Content\external\js\jquery-1.10.2.intellisense.js" />
     <Content Include="Content\external\js\jquery-1.10.2.js" />
     <Content Include="Content\external\js\jquery-1.10.2.min.js" />
@@ -252,9 +259,11 @@
     <Content Include="Content\external\js\respond.js" />
     <Content Include="Content\external\js\respond.min.js" />
     <Content Include="Content\external\js\_references.js" />
+    <Content Include="Static\ficha-tipo1.html" />
     <Content Include="Scripts\Script_0000_Initial_Objects_v1.0.0.sql" />
     <Content Include="Scripts\Script_0001_Initial_Data_v1.0.0.sql" />
     <Content Include="Static\index.html" />
+    <Content Include="Static\listado.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -312,7 +321,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>18237</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/a2m/</IISUrl>
+          <IISUrl>http://localhost:18237/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

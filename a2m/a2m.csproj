@@ -207,13 +207,18 @@
     <Content Include="Content\a2m\css\reset.css" />
     <Content Include="Content\a2m\img\icon-menu.svg" />
     <Content Include="Content\a2m\img\icon-a-domicilio.svg" />
+    <Content Include="Content\a2m\img\icon-move-catalog.png" />
     <Content Include="Content\a2m\img\icon-reservas.svg" />
+    <Content Include="Content\a2m\img\icono-arroces.png" />
+    <Content Include="Content\a2m\img\icono-pastas.png" />
+    <Content Include="Content\a2m\img\icono-sopas.png" />
     <Content Include="Content\a2m\img\logo-a2m.png" />
     <Content Include="BBDD\00_Initial_Objects_v1.0.0.sql" />
     <Content Include="BBDD\01_Initial_Data_v1.0.0.sql" />
     <Content Include="Content\a2m\img\icon-pedido-online.svg" />
     <Content Include="Content\a2m\img\icon-recoger-local.svg" />
     <Content Include="Content\a2m\img\icon-carta-pdf.svg" />
+    <Content Include="Content\a2m\img\restaurantes\carta-local.jpg" />
     <Content Include="Content\a2m\img\restaurantes\elportico.jpg" />
     <Content Include="Content\a2m\js\a2m.common.js" />
     <Content Include="Content\a2m\js\a2m.enums.js" />
@@ -260,6 +265,7 @@
     <Content Include="Content\external\js\respond.js" />
     <Content Include="Content\external\js\respond.min.js" />
     <Content Include="Content\external\js\_references.js" />
+    <Content Include="Static\ficha-tipo-pedido.html" />
     <Content Include="Static\ficha-tipo1.html" />
     <Content Include="Static\index.html" />
     <Content Include="Static\listado.html" />

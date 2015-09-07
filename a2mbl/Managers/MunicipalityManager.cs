@@ -18,8 +18,7 @@ namespace a2mbl.Managers
         public static List<Municipality> getAllMunicipalities()
         {
             try
-            {
-                //LogManager.GetLogger()
+            {               
                 using (var db = new a2mbl.a2mContext())
                 {
                     List<Municipality> MunicipalityList = db.Municipalities.Include("Municipality_Status").ToList();

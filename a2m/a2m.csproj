@@ -270,8 +270,7 @@
     <Content Include="Content\external\js\_references.js" />
     <Content Include="Static\ficha-tipo-pedido.html" />
     <Content Include="Static\ficha-tipo1.html" />
-    <Content Include="Scripts\Script_0000_Initial_Objects_v1.0.0.sql" />
-    <Content Include="Scripts\Script_0001_Initial_Data_v1.0.0.sql" />
+    <Content Include="Scripts\Script_0000_DatabaseVersion.sql" />
     <Content Include="Static\index.html" />
     <Content Include="Static\listado.html" />
     <Content Include="Web.config" />

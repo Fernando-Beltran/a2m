@@ -10,6 +10,7 @@ using System.Web.Routing;
 using System.Web.Http;
 using System.Web.Routing;
 using DbUp;
+using System.Configuration;
 
 namespace a2m
 {
@@ -34,7 +35,7 @@ namespace a2m
                 config.Formatters.JsonFormatter.SerializerSettings.Formatting =
                     Newtonsoft.Json.Formatting.Indented;
 
-                var connectionString = "";
+                var connectionString = ConfigurationManager.AppSettings["a2mConnectionString"];
         
 
                 var upgrader =

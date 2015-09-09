@@ -4,14 +4,16 @@
 @GrisFondoGenerico: #F7F7F8;
 @GrisOscuro: #999999;
 @GrisClaro: #E6E6E6;
+@GrisMuyClaro: #F5F5F5;
 @VerdePrincipal: #006300;
 @VerdeClaro:#439944;
+@RojoOferta: #E60000;
 
 html {
-		margin: 0;
-		padding: 0;
-		font-family: 'Oxygen', sans-serif !important;
-		overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    font-family: 'Oxygen', sans-serif !important;
+    overflow-x: hidden;
     background:  @GrisFondoGenerico;
 }
 body {
@@ -19,10 +21,16 @@ body {
     font-size: 100%;
     vertical-align: baseline;
     background:  @GrisFondoGenerico;
-		background-size: cover;
-		font-family: 'Oxygen', sans-serif !important;
+    background-size: cover;
+    font-family: 'Oxygen', sans-serif !important;
     color: @NegroPuro;
     min-width: 400px;
+}
+a{
+    color: @VerdePrincipal;
+}
+a:hover{
+    color: @VerdeClaro;
 }
 /**/
 /* Mixins
@@ -84,6 +92,7 @@ strong{
     border: 0;
     display: block;
     margin-top: 2%;
+    clear: both;
     p{
         font-weight: bold;
         text-decoration: none;

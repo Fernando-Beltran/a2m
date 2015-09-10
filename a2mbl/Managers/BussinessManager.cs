@@ -22,11 +22,10 @@ namespace a2mbl.Managers
         /// <returns>Lista de municipios activos</returns>
         public List<Business> GetBusinessFromMunicipalityId(int municipalityId){
             try
-            {
-               
-                 using (ContextWrapper context = new ContextWrapper()) {
-
-                     List<Business> BusinessList = context.Current.Businesses
+            {     
+                 using (var db = new a2mbl.a2mContext())
+                {
+                     List<Business> BusinessList = db.Businesses
                         .Include("Business_Status")
                         .Include("Categories")
                         .Where(item => item.Fk_Municipality == municipalityId).ToList();
@@ -49,9 +48,10 @@ namespace a2mbl.Managers
         public Business GetBusinessFromMunicipalityNormalizedNameAndBusinessNormalizedNamed(string municipalityName,string businessName)
         {
             try
-            {
-                using (ContextWrapper context = new ContextWrapper()) {
-                    List<Business> BusinessList = context.Current.Businesses
+            {              
+                using (var db = new a2mbl.a2mContext())
+                {
+                    List<Business> BusinessList = db.Businesses
                           .Include("Business_Status")
                           .Include("Categories")
                           .Include("Municipality").ToList();
@@ -80,11 +80,11 @@ namespace a2mbl.Managers
         public Business GetBusinessFromMunicipalityNormalizedNameAndBusinessNormalizedNamedFiltered(string municipalityName, string businessName, List<BusinessFilterCriteria> filters)
         {
             try
-            {
-                using (ContextWrapper context = new ContextWrapper())
+            {               
+                using (var db = new a2mbl.a2mContext())                
                 {
 
-                    List<Business> BusinessList = context.Current.Businesses
+                    List<Business> BusinessList = db.Businesses
                         .Include("Business_Status")
                         .Include("Categories")
                         .Include("Municipality").ToList();
@@ -111,9 +111,9 @@ namespace a2mbl.Managers
         {
             try
             {
-                using (ContextWrapper context = new ContextWrapper())
+                using (var db = new a2mbl.a2mContext())    
                 {
-                    Business Business = context.Current.Businesses
+                    Business Business = db.Businesses
                         .Include("Business_Status")
                         .Include("Categories")
                         .Where(item => item.Pk_Business == businessId).SingleOrDefault();

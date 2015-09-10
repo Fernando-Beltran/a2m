@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace a2mbl.Wrapper
 {
-    internal class ContextWrapper : BaseContextWrapper<a2mContext>
-    {
-        public ContextWrapper() : base() { }
+    //internal class ContextWrapper : BaseContextWrapper<a2mContext>
+    //internal class ContextWrapper : BaseContextWrapper<Object>
+    //{
+    //    public ContextWrapper() : base() { }
 
-        public ContextWrapper(bool shared) : base(shared) { }
+    //    public ContextWrapper(bool shared) : base(shared) { }
 
-    }
+    //}
 }

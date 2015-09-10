@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using CustomExtensions;
 using log4net;
 using a2mbl.Common;
+using a2mbl.Wrapper;
 
 namespace a2mbl.Managers
 {
@@ -40,16 +41,16 @@ namespace a2mbl.Managers
         public static List<Municipality> getAllActiveMunicipalities()
         {
             try
-            {
+            {               
                 using (var db = new a2mbl.a2mContext())
-                {
-                    List<Municipality> MunicipalityList = 
-                        db.Municipalities
-                        .Include("Municipality_Status")
-                        .Where(item => item.Fk_Municipality_Status == (int)Common.MunicipalityStatus.Active).ToList();
-                    return MunicipalityList;
+                 {
+                     List<Municipality> MunicipalityList = 
+                         db.Municipalities
+                         .Include("Municipality_Status")
+                         .Where(item => item.Fk_Municipality_Status == (int)Common.MunicipalityStatus.Active).ToList();
+                     return MunicipalityList;
 
-                }
+                 }
             }
             catch (Exception ex)
             {

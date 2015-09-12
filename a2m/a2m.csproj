@@ -198,11 +198,20 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\a2m\css\basket.css">
+      <DependentUpon>basket.less</DependentUpon>
+    </Content>
+    <Content Include="Content\a2m\css\basket.min.css">
+      <DependentUpon>basket.css</DependentUpon>
+    </Content>
     <Content Include="Content\a2m\css\generic.css" />
     <Content Include="Content\a2m\css\generic.min.css">
       <DependentUpon>generic.css</DependentUpon>
     </Content>
     <Content Include="Content\a2m\css\list.css" />
+    <Content Include="Content\a2m\css\list.min.css">
+      <DependentUpon>list.css</DependentUpon>
+    </Content>
     <Content Include="Content\a2m\css\product.css" />
     <Content Include="Content\a2m\css\product.min.css">
       <DependentUpon>product.css</DependentUpon>
@@ -256,6 +265,13 @@
     <Content Include="Content\a2m\css\generic.css.map">
       <DependentUpon>generic.css</DependentUpon>
     </Content>
+    <Content Include="Content\a2m\css\basket.less" />
+    <Content Include="Content\a2m\css\list.css.map">
+      <DependentUpon>list.css</DependentUpon>
+    </Content>
+    <Content Include="Content\a2m\css\basket.css.map">
+      <DependentUpon>basket.css</DependentUpon>
+    </Content>
     <None Include="Content\external\js\jquery-1.10.2.intellisense.js" />
     <Content Include="Content\external\js\jquery-1.10.2.js" />
     <Content Include="Content\external\js\jquery-1.10.2.min.js" />
@@ -268,6 +284,7 @@
     <Content Include="Content\external\js\respond.js" />
     <Content Include="Content\external\js\respond.min.js" />
     <Content Include="Content\external\js\_references.js" />
+    <Content Include="Static\carro-pasos.html" />
     <Content Include="Static\ficha-tipo-pedido.html" />
     <Content Include="Static\ficha-tipo1.html" />
     <Content Include="Scripts\Script_0000_DatabaseVersion.sql" />

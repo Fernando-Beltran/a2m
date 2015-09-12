@@ -73,8 +73,31 @@ strong {
   display: block;
   margin-top: 2%;
   clear: both;
+  cursor: pointer;
 }
 .btn-generic p {
+  font-weight: bold;
+  text-decoration: none;
+}
+.btn-generic:hover {
+  opacity: 0.8;
+}
+/**CTA**/
+.btn-cta {
+  background: #af0058;
+  color: #ffffff;
+  padding: 15px;
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  text-align: center;
+  border: 0;
+  display: block;
+  margin-top: 2%;
+  clear: both;
+  cursor: pointer;
+}
+.btn-cta p {
   font-weight: bold;
   text-decoration: none;
 }
@@ -407,7 +430,7 @@ h1 {
   margin-right: 5px;
 }
 .main .product-data .content-order-product {
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 .main .product-data .content-order-product header {
   padding: 0 0 25px 0;
@@ -428,16 +451,15 @@ h1 {
   display: block;
   text-align: center;
   padding: 17px 0;
-  color: #000000;
+  color: #006300;
 }
 .main .product-data .content-order-product .group-product .tit-group-dish {
   font-size: 0.9em;
   margin: 0;
   display: block;
   text-align: center;
-  font-weight: 700;
   padding: 13px 0;
-  background: #439944;
+  background: #006300;
   color: #ffffff;
 }
 .main .product-data .content-order-product .group-product .list-group-product {
@@ -449,19 +471,20 @@ h1 {
   clear: both;
   width: 100%;
   padding: 10px;
-  background: #006300;
-  color: #ffffff;
+  color: #006300;
   margin: 4px auto;
   font-size: 0.9em;
   border-bottom: 1px solid #e6e6e6;
+  font-weight: 700;
 }
 .main .product-data .content-order-product .group-product .list-group-product li:hover {
-  background: #439944;
+  background: #006300;
   color: #ffffff;
 }
 .main .product-data .content-order-product .group-product .list-group-product .link-active {
-  background: #439944;
+  background: #006300;
   color: #ffffff;
+  font-weight: normal;
 }
 .main .product-data .content-order-product .group-product .list-dish {
   display: block;
@@ -480,7 +503,7 @@ h1 {
   font-weight: 400;
 }
 .main .product-data .content-order-product .group-product .list-dish span .offer {
-  color: #e60000;
+  color: #af0058;
   padding: 0 7px;
   font-weight: 700;
   font-size: 0.85em;
@@ -501,9 +524,29 @@ h1 {
 .main .product-data .content-order-product .group-product .list-dish .clear-dish {
   font-size: 1.15em;
 }
+.main .product-data .content-order-product .group-product .list-dish .select-type-send {
+  display: inline-block;
+  text-align: center;
+  padding: 10px 0 15px 0;
+}
+.main .product-data .content-order-product .group-product .list-dish .select-type-send input {
+  margin-right: 3px;
+}
+.main .product-data .content-order-product .group-product .list-dish .select-type-send label {
+  display: inline;
+  cursor: pointer;
+}
+.main .product-data .content-order-product .group-product .list-dish .select-type-send label img {
+  max-width: 18px;
+  margin: 0 2px;
+  vertical-align: bottom;
+}
+.main .product-data .content-order-product .group-product .list-dish .select-type-send label span {
+  font-size: 0.8em;
+}
 .main .product-data .content-order-product .group-product .total-summary {
   color: #ffffff;
-  background: #439944;
+  background: #006300;
   padding: 20px 10px;
   margin: 10px 0;
   margin-bottom: 40px;
@@ -536,7 +579,6 @@ h1 {
 }
 .main .product-data .content-info-local {
   display: block;
-  margin-top: 30px;
   padding: 0;
 }
 .main .product-data .content-info-local .gallery-img-local {
@@ -548,6 +590,21 @@ h1 {
 }
 .main .product-data .content-info-local .info-local {
   display: block;
+}
+.main .product-data .content-info-local .info-local h2 {
+  font-size: 1em;
+  padding-bottom: 25px;
+  font-weight: 700;
+  color: #006300;
+}
+.main .product-data .content-info-local .info-local h2 a {
+  margin-left: 5px;
+  font-size: 0.8em;
+  font-weight: 700;
+  float: right;
+}
+.main .product-data .content-info-local .info-local h2 a i {
+  margin-right: 5px;
 }
 .main .product-data .content-info-local .info-local h3 {
   font-size: 1em;
@@ -658,7 +715,10 @@ h1 {
 .main .product-data .content-map-form .content-form {
   padding-right: 0;
 }
-.main .product-data .content-map-form .content-form h5 {
+.main .product-data .content-map-form .content-form header {
+  padding: 0;
+}
+.main .product-data .content-map-form .content-form header h5 {
   color: #006300;
   font-weight: 700;
   padding-bottom: 10px;

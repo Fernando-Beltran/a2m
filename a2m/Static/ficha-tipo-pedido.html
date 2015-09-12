@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <!--Max 50 / 55 caracteres-->
@@ -184,6 +184,24 @@
                             <div class="col-xs-1 link clear-dish"><i class="fa fa-trash"></i></div>
                         </div>
                         <!---->
+                        <!--Seleccion de envío o recogida si hay las 2 opciones-->
+                        <div class="list-dish col-xs-12">
+                            <div class="col-xs-6 select-type-send link">
+                                <input type="checkbox" />
+                                <label>
+                                    <img src="../Content/a2m/img/icon-recoger-local.svg" alt="icono recoger en local" title="Filtrar recoger en local" />
+                                    <span>Recoger en local</span>
+                                </label>
+                            </div>
+                            <div class="col-xs-6 select-type-send link">
+                                <input type="checkbox" checked />
+                                <label>
+                                    <img src="../Content/a2m/img/icon-a-domicilio.svg" alt="icono pedido a domicilio" title="Filtrar pedido a domicilio" />
+                                    <span>A domicilio</span>
+                                </label>
+                            </div>
+                        </div>
+                        <!---->
                         <!--Total de resumen-->
                         <div class="total-summary col-xs-12">
                             <span class="col-xs-10">Total pedido
@@ -192,7 +210,7 @@
                         </div>
                         <!---->
                         <!--Botón acción local sea cual sea -->
-                        <div class="btn-generic">Haz tu pedido a El Portillo</div>
+                        <div class="btn-cta">Realizar pedido a El Portillo</div>
                     </div>
                 </section>
                 <div class="content-info-local col-xs-12">
@@ -250,7 +268,9 @@ persona que se dedica a la imprenta) Lorem Ipsum es simplemente el texto de rell
                     </section>
                     <!--Formulario-->
                     <section class="content-form col-sm-5 col-xs-12">
-                        <h5>Contacta con El Portillo</h5>
+                        <header>
+                            <h5>Contacta con El Portillo</h5>
+                        </header>
                         <form class="form-notify">
                             <label class="col-xs-12">
                                 <input type="text" placeholder="Nombre" onfocus=" this.placeholder = '' " onblur=" this.placeholder = 'Nombre' ">

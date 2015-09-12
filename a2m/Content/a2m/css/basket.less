@@ -1,0 +1,110 @@
+@import "generic.less";
+/* CSS Fichas tipo 1 y 2
+------------------------------------------------------------------*/
+//Estilos Main genérico, este siempre será el mismo contenedor de donde jerarquizaremos los contenidos centrales sin layout
+.main{
+    .shadowbox();
+    background: @BlancoPuro;
+    padding-bottom: 30px;
+    //Gestion y petición pedido
+    .content-basket{
+        margin-bottom: 20px;
+        header{
+            padding:25px 0;
+        }
+        .group-product{
+            display: block;
+            //Lista platos pedidos
+            .list-dish{
+                display: block;
+                padding: 20px 0px 15px 10px;
+                border-bottom: 1px solid @GrisClaro;
+                span{
+                    padding-top: 2px;
+                    font-weight: 700;
+                    .description-dish{
+                        font-size: 0.79em;
+                        display: block;
+                        padding: 8px 7px 10px 7px;
+                        color: @NegroPuro;
+                        font-weight: 400;
+                    }
+                    .offer{
+                        color: @Oferta;
+                        padding: 0 7px;
+                        font-weight: 700;
+                        font-size: 0.85em;
+                        i{
+                            padding-right: 5px;
+                            font-size: 1.3em;
+                        }
+                    }
+                }
+                .add-basket{
+                    background: @VerdePrincipal;
+                    padding: 15px 0;
+                    color: @BlancoPuro;
+                    text-align: center;
+                    i{
+                        font-size: 1.4em;
+                    }
+                }
+            }
+            //Total compra
+            .total-summary{
+                color: @BlancoPuro;
+                background: @VerdePrincipal;
+                padding: 20px 10px;
+            }
+        }
+        .content-form{
+            padding-right: 0;
+            header{
+                padding:0;
+                h5{
+                    color: @VerdePrincipal;
+                    font-weight: 700;
+                    padding-bottom: 10px;
+                    padding-left: 15px;
+                }
+            }
+            .form-notify{
+                display: block;
+                label{
+                    padding-right: 0;
+                    input{
+                        width: 100%;
+                        margin: 5px 0;
+                        border: 1px solid @GrisOscuro;
+                        padding: 10px;
+                    }
+                    button{
+                        margin: 15px auto;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+        .summary{
+            border: 1px solid @GrisClaro;
+            border-bottom: none;
+            padding: 0;
+        }
+        .btn-generic{
+            margin-top: 60px;
+            cursor: pointer;
+            width: 90%;
+        }
+    }    
+}
+/*MEDIAS QUERYS para RWD Ficha tipo 1 y 2*/
+
+/* Para 850px */  
+@media only screen and (max-width: 850px) {  
+    //Para menú movil
+
+}
+/* Para 500px */  
+@media only screen and (max-width: 500px) {
+
+}

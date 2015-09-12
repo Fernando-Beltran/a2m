@@ -399,4 +399,103 @@ h1 {
     font-size: 1.2em;
   }
 }
-/*# sourceMappingURL=generic.css.map */
+/* CSS Fichas tipo 1 y 2
+------------------------------------------------------------------*/
+.main {
+  -webkit-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.35);
+  -moz-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.35);
+  box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.35);
+  background: #ffffff;
+  padding-bottom: 30px;
+}
+.main .content-basket {
+  margin-bottom: 20px;
+}
+.main .content-basket header {
+  padding: 25px 0;
+}
+.main .content-basket .group-product {
+  display: block;
+}
+.main .content-basket .group-product .list-dish {
+  display: block;
+  padding: 20px 0px 15px 10px;
+  border-bottom: 1px solid #e6e6e6;
+}
+.main .content-basket .group-product .list-dish span {
+  padding-top: 2px;
+  font-weight: 700;
+}
+.main .content-basket .group-product .list-dish span .description-dish {
+  font-size: 0.79em;
+  display: block;
+  padding: 8px 7px 10px 7px;
+  color: #000000;
+  font-weight: 400;
+}
+.main .content-basket .group-product .list-dish span .offer {
+  color: #af0058;
+  padding: 0 7px;
+  font-weight: 700;
+  font-size: 0.85em;
+}
+.main .content-basket .group-product .list-dish span .offer i {
+  padding-right: 5px;
+  font-size: 1.3em;
+}
+.main .content-basket .group-product .list-dish .add-basket {
+  background: #006300;
+  padding: 15px 0;
+  color: #ffffff;
+  text-align: center;
+}
+.main .content-basket .group-product .list-dish .add-basket i {
+  font-size: 1.4em;
+}
+.main .content-basket .group-product .total-summary {
+  color: #ffffff;
+  background: #006300;
+  padding: 20px 10px;
+}
+.main .content-basket .content-form {
+  padding-right: 0;
+}
+.main .content-basket .content-form header {
+  padding: 0;
+}
+.main .content-basket .content-form header h5 {
+  color: #006300;
+  font-weight: 700;
+  padding-bottom: 10px;
+  padding-left: 15px;
+}
+.main .content-basket .content-form .form-notify {
+  display: block;
+}
+.main .content-basket .content-form .form-notify label {
+  padding-right: 0;
+}
+.main .content-basket .content-form .form-notify label input {
+  width: 100%;
+  margin: 5px 0;
+  border: 1px solid #999999;
+  padding: 10px;
+}
+.main .content-basket .content-form .form-notify label button {
+  margin: 15px auto;
+  width: 100%;
+}
+.main .content-basket .summary {
+  border: 1px solid #e6e6e6;
+  border-bottom: none;
+  padding: 0;
+}
+.main .content-basket .btn-generic {
+  margin-top: 60px;
+  cursor: pointer;
+  width: 90%;
+}
+/*MEDIAS QUERYS para RWD Ficha tipo 1 y 2*/
+/* Para 850px */
+/* Para 500px */
+/*# sourceMappingURL=basket.css.map */

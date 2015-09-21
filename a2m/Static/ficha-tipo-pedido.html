@@ -95,15 +95,21 @@
             </form>
         </header>
         <!--Migas de pan-->
-        <nav class="breadcumbs">
-            <span>Estan en:</span>
-            <ul>
-                <li><a href="#" class="link">a2m</a></li>
-                <li>></li>
-                <li><a href="#">Locales Sevilla la Nueva</a></li>
-                <li>></li>
-                <li><a href="#" class="link activation-link">El Portillo</a></li>
-            </ul>
+        <nav class="breadcumbs col-xs-12">
+            <div class="col-xs-8">
+                <span>Estan en:</span>
+                <ul>
+                    <li><a href="#" class="link">a2m</a></li>
+                    <li>></li>
+                    <li><a href="#">Locales Sevilla la Nueva</a></li>
+                    <li>></li>
+                    <li><a href="#" class="link activation-link">El Portillo</a></li>
+                </ul>
+            </div>
+            <div class="col-xs-4 msj-welcome">
+                <span><i class="fa fa-hand-paper-o"></i>Hola Fernando Beltrán</span>
+                <span href="#" class="link">Cerrar sesión</span>
+            </div>
         </nav>
         <!--Seccion central genérica-->
         <div class="main container col-xs-12">
@@ -137,8 +143,8 @@
                                 <i class="description-dish">Arroz, Fideos, 4 Croquetas, 6 Alitas de pollo, 2 Refrescos</i>
                                 <span class="offer"><i class="fa fa-gift"></i>Regalo del pan y 2 refresco</span>
                             </span>
-                            <span class="col-xs-2">16,95€</span>
-                            <div class="col-xs-1 link add-basket"><i class="fa fa-cart-plus"></i></div>
+                            <span class="col-xs-2 price">16,95€</span>
+                            <a href="#modal1" class="col-xs-1 link add-basket"><i class="fa fa-cart-plus"></i></a>
                         </div>
                         <!---->
                         <!--Content de cada plato-->
@@ -147,7 +153,7 @@
                                 <i class="description-dish">Paella, 4 Croquetas, 6 Alitas de pollo, 2 Refrescos</i>
                                 <span class="offer"><i class="fa fa-gift"></i>Regalo botella de vino</span>
                             </span>
-                            <span class="col-xs-2">18,95€</span>
+                            <span class="col-xs-2 price">18,95€</span>
                             <div class="col-xs-1 link add-basket"><i class="fa fa-cart-plus"></i></div>
                         </div>
                         <!---->
@@ -157,7 +163,7 @@
                                 <i class="description-dish">Paella, 1 Pollo entero, 4 Croquetas, 6 Alitas de pollo, 2 Refrescos</i>
                                 <span class="offer"><i class="fa fa-gift"></i>Regalo botella de vino</span>
                             </span>
-                            <span class="col-xs-2">20,95€</span>
+                            <span class="col-xs-2 price">20,95€</span>
                             <div class="col-xs-1 link add-basket"><i class="fa fa-cart-plus"></i></div>
                         </div>
                         <!---->
@@ -168,7 +174,12 @@
                         <strong class="msj-basket-no-item hide"><i class="fa fa-exclamation-circle"></i>No tienes productos en el carro</strong>
                         <!--Resumen de cada plato-->
                         <div class="list-dish col-xs-12">
-                            <span class="col-xs-9">Menú para 2 personas
+                            <div class="col-xs-1 content-unit">
+                                <i class="col-xs-12">2</i>
+                                <div class="content-plus-less col-xs-12">
+                                </div>
+                            </div>
+                            <span class="col-xs-8">Menú para 2 personas
                                 <i class="description-dish">Arroz, Fideos, 4 Croquetas, 2 Refrescos</i>
                                 <span class="offer"><i class="fa fa-gift"></i>Regalo del pan y un refresco</span>
                             </span>
@@ -178,7 +189,14 @@
                         <!---->
                         <!--Resumen de cada plato-->
                         <div class="list-dish col-xs-12">
-                            <span class="col-xs-9">6 Alitas de pollo BBQ
+                            <div class="col-xs-1 content-unit">
+                                <input type="text" class="col-xs-12" placeholder="1" maxlength="2"/>
+                                <div class="content-plus-less col-xs-12">
+                                    <div class="plus-less col-xs-6">+</div>
+                                    <div class="plus-less col-xs-6">-</div>
+                                </div>
+                            </div>
+                            <span class="col-xs-8">6 Alitas de pollo BBQ
                             </span>
                             <span class="col-xs-2">3,95€</span>
                             <div class="col-xs-1 link clear-dish"><i class="fa fa-trash"></i></div>
@@ -310,6 +328,17 @@ persona que se dedica a la imprenta) Lorem Ipsum es simplemente el texto de rell
                 </label>
             </form>
         </footer>
+    </div>
+    <!--Modal configuración y modificación de pedido-->
+    <div id="modal1" class="modalmask">
+        <div class="modalbox movedown">
+            <a href="#close" title="Close" class="close-modal link">X</a>
+            <h6>Menú para 3 personas</h6>
+            <div class="content-selector">
+                <p>La ventana modal aparece por arriba y se desliza hasta su posición. Un efecto simple pero elegante.</p>
+                <p>Aquí puedes incluir cualquier cosa como vídeos, mapas, formularios...</p>
+            </div>
+        </div>
     </div>
 </body>
 </html>

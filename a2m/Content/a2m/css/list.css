@@ -265,12 +265,15 @@ h1 {
   padding: 5px 0;
   cursor: pointer;
 }
+.layout-header-basket {
+  margin-bottom: 10px;
+}
 .breadcumbs {
   padding: 10px 0 13px 0;
   float: left;
 }
 .breadcumbs span {
-  font-weight: bold;
+  font-weight: 700;
   font-size: 0.72em;
   margin: 0 5px;
 }
@@ -285,6 +288,24 @@ h1 {
 }
 .breadcumbs ul .separation-breadcumbs {
   font-size: 0.6em;
+}
+.breadcumbs .msj-welcome {
+  text-align: right;
+  color: #006300;
+  padding-right: 5px;
+}
+.breadcumbs .msj-welcome span {
+  font-size: 0.9em;
+}
+.breadcumbs .msj-welcome span i {
+  padding: 0 3px;
+}
+.breadcumbs .msj-welcome .link {
+  font-size: 0.72em;
+  font-weight: 400;
+}
+.breadcumbs .msj-welcome .link:hover {
+  text-decoration: underline;
 }
 .footer-generic {
   background: #006300;
@@ -330,6 +351,11 @@ h1 {
   color: #006300;
   width: 100%;
   margin-top: 0;
+}
+.footer-generic .legal-footer-basket {
+  color: #ffffff;
+  padding: 0px 20px 20px 20px;
+  text-align: center;
 }
 /*MEDIAS QUERYS para RWD Layout*/
 /* Para 850px */

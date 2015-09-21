@@ -204,15 +204,21 @@
     <Content Include="Content\a2m\css\basket.min.css">
       <DependentUpon>basket.css</DependentUpon>
     </Content>
-    <Content Include="Content\a2m\css\generic.css" />
+    <Content Include="Content\a2m\css\generic.css">
+      <DependentUpon>generic.less</DependentUpon>
+    </Content>
     <Content Include="Content\a2m\css\generic.min.css">
       <DependentUpon>generic.css</DependentUpon>
     </Content>
-    <Content Include="Content\a2m\css\list.css" />
+    <Content Include="Content\a2m\css\list.css">
+      <DependentUpon>list.less</DependentUpon>
+    </Content>
     <Content Include="Content\a2m\css\list.min.css">
       <DependentUpon>list.css</DependentUpon>
     </Content>
-    <Content Include="Content\a2m\css\product.css" />
+    <Content Include="Content\a2m\css\product.css">
+      <DependentUpon>product.less</DependentUpon>
+    </Content>
     <Content Include="Content\a2m\css\product.min.css">
       <DependentUpon>product.css</DependentUpon>
     </Content>
@@ -256,21 +262,21 @@
     <Content Include="Content\external\js\bootstrap.min.js" />
     <Content Include="Content\external\css\bootstrap-theme.css.map" />
     <Content Include="Content\external\css\bootstrap.css.map" />
+    <Content Include="Content\a2m\css\basket.less" />
     <Content Include="Content\a2m\css\generic.less" />
     <Content Include="Content\a2m\css\list.less" />
     <Content Include="Content\a2m\css\product.less" />
-    <Content Include="Content\a2m\css\product.css.map">
-      <DependentUpon>product.css</DependentUpon>
+    <Content Include="Content\a2m\css\basket.css.map">
+      <DependentUpon>basket.css</DependentUpon>
     </Content>
     <Content Include="Content\a2m\css\generic.css.map">
       <DependentUpon>generic.css</DependentUpon>
     </Content>
-    <Content Include="Content\a2m\css\basket.less" />
     <Content Include="Content\a2m\css\list.css.map">
       <DependentUpon>list.css</DependentUpon>
     </Content>
-    <Content Include="Content\a2m\css\basket.css.map">
-      <DependentUpon>basket.css</DependentUpon>
+    <Content Include="Content\a2m\css\product.css.map">
+      <DependentUpon>product.css</DependentUpon>
     </Content>
     <None Include="Content\external\js\jquery-1.10.2.intellisense.js" />
     <Content Include="Content\external\js\jquery-1.10.2.js" />

@@ -1,4 +1,66 @@
 @import "generic.less";
+/* CSS Modal Configuración y modificación de pedido
+------------------------------------------------------------------*/
+.modalmask {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.85);
+    z-index: 99999;
+    opacity:0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+    .modalbox{
+        width: 80%;
+        max-width: 700px;
+        .shadowbox();
+        position: relative;
+        padding: 0;
+        background: @BlancoPuro;
+        -webkit-transition: all 500ms ease-in;
+        -moz-transition: all 500ms ease-in;
+        transition: all 500ms ease-in;
+    }
+    .movedown {
+        margin: 0 auto;
+    }
+    .close-modal{
+        background: @VerdePrincipal;
+        color: #FFFFFF;
+        line-height: 25px;
+        position: absolute;
+        right: 5px;
+        text-align: center;
+        top: 6px;
+        width: 24px;
+        text-decoration: none;
+        font-weight: bold;
+        color: @BlancoPuro;
+        font-size: 1.3em;
+    }
+    h6{
+        background: @VerdePrincipal;
+        width: 100%;
+        color: @BlancoPuro;
+        padding: 10px 15px;
+        font-weight: 700;
+    }
+    .content-selector{
+        background: @BlancoPuro;
+        padding: 15px 25px;
+    }
+}
+.modalmask:target {
+    opacity:1;
+    pointer-events: all;
+}
+.modalmask:target .movedown{       
+    margin:5% auto;
+}
 /* CSS Fichas tipo 1 y 2
 ------------------------------------------------------------------*/
 //Estilos Main genérico, este siempre será el mismo contenedor de donde jerarquizaremos los contenidos centrales sin layout
@@ -89,9 +151,46 @@
                     display: block;
                     padding: 20px 0px 15px 10px;
                     border-bottom: 1px solid @GrisClaro;
+                    .content-unit{
+                        display: block;
+                        text-align: center;
+                        padding: 0;
+                        i{
+                            font-size: 0.9em;
+                            font-weight: 400;
+                            padding: 5px;
+                            border: 1px solid @GrisOscuro;
+                            font-size: 0.84em;
+                        }
+                        input{
+                            padding:0;
+                            text-align: center;
+                            line-height: 20px;
+                            font-size: 0.84em;
+                        }
+                        .content-plus-less{
+                            clear: both;
+                            padding: 0;
+                            .plus-less{
+                                background: @GrisClaro;
+                                color: @VerdePrincipal;
+                                text-align: center;
+                                cursor: pointer;
+                                padding: 3px 0;
+                                font-weight: 700;
+                                border: 1px solid @GrisOscuro;
+                                margin-top: 2px;
+                            }
+                            .plus-less:hover{
+                                color: @BlancoPuro;
+                                background: @VerdePrincipal;
+                            }
+                        }
+                    }
                     span{
                         padding-top: 2px;
                         font-weight: 700;
+                        padding-left: 10px;
                         .description-dish{
                             font-size: 0.79em;
                             display: block;
@@ -110,11 +209,16 @@
                             }
                         }
                     }
+                    .price{
+                        text-align: right;
+                    }
                     .add-basket{
                         background: @VerdePrincipal;
-                        padding: 15px 0;
+                        padding: 10px;
                         color: @BlancoPuro;
                         text-align: center;
+                        max-width: 45px;
+                        float: right;
                         i{
                             font-size: 1.4em;
                         }

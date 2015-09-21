@@ -18,7 +18,7 @@
         width: 80%;
         max-width: 700px;
         .shadowbox();
-        position: relative;
+        position: relative; 
         padding: 0;
         background: @BlancoPuro;
         -webkit-transition: all 500ms ease-in;
@@ -51,7 +51,36 @@
     }
     .content-selector{
         background: @BlancoPuro;
-        padding: 15px 25px;
+        padding: 15px 25px 5px 25px;
+        p{
+            font-weight: 700;
+            border-bottom: 1px solid @GrisOscuro;
+            padding: 0 10px 10px 0;
+        }
+        ul{
+            display: block;
+            li{
+                margin: 5px 0;
+                background: @GrisFondoGenerico;
+                padding: 10px;
+                font-size: 0.9em;
+                cursor: pointer;
+                display: inline-block;
+                width: 100%;
+                span{
+                    color: @NegroPuro;
+                    padding-top: 5px;
+                }
+                .btn-choose{
+                    background: @VerdePrincipal;
+                    color: @BlancoPuro;
+                    font-size: 0.85em;
+                    padding: 7px;
+                    float: right;
+                    text-align: center;
+                }
+            }
+        }
     }
 }
 .modalmask:target {
@@ -60,6 +89,8 @@
 }
 .modalmask:target .movedown{       
     margin:5% auto;
+    overflow-y: auto;
+    max-height: 80%;
 }
 /* CSS Fichas tipo 1 y 2
 ------------------------------------------------------------------*/

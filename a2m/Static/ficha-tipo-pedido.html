@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <!--Max 50 / 55 caracteres-->
@@ -108,7 +108,7 @@
             </div>
             <div class="col-xs-4 msj-welcome">
                 <span><i class="fa fa-hand-paper-o"></i>Hola Fernando Beltrán</span>
-                <span href="#" class="link">Cerrar sesión</span>
+                <span class="link">Cerrar sesión</span>
             </div>
         </nav>
         <!--Seccion central genérica-->
@@ -139,7 +139,8 @@
                         <span class="tit-group-dish">Menús</span>
                         <!--Content de cada plato-->
                         <div class="list-dish col-xs-12">
-                            <span class="col-xs-9">Menú para 3 personas
+                            <span class="col-xs-9">
+                                Menú para 3 personas
                                 <i class="description-dish">Arroz, Fideos, 4 Croquetas, 6 Alitas de pollo, 2 Refrescos</i>
                                 <span class="offer"><i class="fa fa-gift"></i>Regalo del pan y 2 refresco</span>
                             </span>
@@ -149,7 +150,8 @@
                         <!---->
                         <!--Content de cada plato-->
                         <div class="list-dish col-xs-12">
-                            <span class="col-xs-9">Menú para 4 personas
+                            <span class="col-xs-9">
+                                Menú para 4 personas
                                 <i class="description-dish">Paella, 4 Croquetas, 6 Alitas de pollo, 2 Refrescos</i>
                                 <span class="offer"><i class="fa fa-gift"></i>Regalo botella de vino</span>
                             </span>
@@ -159,7 +161,8 @@
                         <!---->
                         <!--Content de cada plato-->
                         <div class="list-dish col-xs-12">
-                            <span class="col-xs-9">Menú para 4 personas
+                            <span class="col-xs-9">
+                                Menú para 4 personas
                                 <i class="description-dish">Paella, 1 Pollo entero, 4 Croquetas, 6 Alitas de pollo, 2 Refrescos</i>
                                 <span class="offer"><i class="fa fa-gift"></i>Regalo botella de vino</span>
                             </span>
@@ -179,7 +182,8 @@
                                 <div class="content-plus-less col-xs-12">
                                 </div>
                             </div>
-                            <span class="col-xs-8">Menú para 2 personas
+                            <span class="col-xs-8">
+                                Menú para 2 personas
                                 <i class="description-dish">Arroz, Fideos, 4 Croquetas, 2 Refrescos</i>
                                 <span class="offer"><i class="fa fa-gift"></i>Regalo del pan y un refresco</span>
                             </span>
@@ -190,29 +194,34 @@
                         <!--Resumen de cada plato-->
                         <div class="list-dish col-xs-12">
                             <div class="col-xs-1 content-unit">
-                                <input type="text" class="col-xs-12" placeholder="1" maxlength="2"/>
+                                <input type="text" class="col-xs-12" placeholder="1" maxlength="2" />
                                 <div class="content-plus-less col-xs-12">
                                     <div class="plus-less col-xs-6">+</div>
                                     <div class="plus-less col-xs-6">-</div>
                                 </div>
                             </div>
-                            <span class="col-xs-8">6 Alitas de pollo BBQ
+                            <span class="col-xs-8">
+                                6 Alitas de pollo BBQ
                             </span>
                             <span class="col-xs-2">3,95€</span>
                             <div class="col-xs-1 link clear-dish"><i class="fa fa-trash"></i></div>
                         </div>
                         <!---->
+                        <!--Mensaje si no llegas al pedido mínimo, en este caso el botón estará deshabilitado y así no interfiere con el CTA-->
+                        <div class="alert-min-order col-xs-12">
+                            <span>El pedido mínimo para envío a domicilio es de 35,00€, te quedan <i>5,85€</i> para completar el pedido</span>
+                        </div>
                         <!--Seleccion de envío o recogida si hay las 2 opciones-->
                         <div class="list-dish col-xs-12">
                             <div class="col-xs-6 select-type-send link">
-                                <input type="checkbox" />
+                                <input type="checkbox" checked />
                                 <label>
                                     <img src="../Content/a2m/img/icon-recoger-local.svg" alt="icono recoger en local" title="Filtrar recoger en local" />
                                     <span>Recoger en local</span>
                                 </label>
                             </div>
                             <div class="col-xs-6 select-type-send link">
-                                <input type="checkbox" checked />
+                                <input type="checkbox" />
                                 <label>
                                     <img src="../Content/a2m/img/icon-a-domicilio.svg" alt="icono pedido a domicilio" title="Filtrar pedido a domicilio" />
                                     <span>A domicilio</span>
@@ -222,27 +231,30 @@
                         <!---->
                         <!--Total de resumen-->
                         <div class="total-summary col-xs-12">
-                            <span class="col-xs-10">Total pedido
+                            <span class="col-xs-10">
+                                Total pedido
                             </span>
                             <span class="col-xs-2">35,00€</span>
                         </div>
                         <!---->
                         <!--Botón acción local sea cual sea -->
-                        <div class="btn-cta">Realizar pedido a El Portillo</div>
+                        <div class="btn-cta disable">Realizar pedido a El Portillo</div>
                     </div>
                 </section>
                 <div class="content-info-local col-xs-12">
                     <!--Galeria imagenes o imagen única del local-->
                     <div class="gallery-img-local col-sm-5 col-xs-12">
-                        <img class="img-responsive" src="../Content/a2m/img/restaurantes/elportico.jpg" alt="nombre local" title="nombre local"/>
+                        <img class="img-responsive" src="../Content/a2m/img/restaurantes/elportico.jpg" alt="nombre local" title="nombre local" />
                     </div>
                     <!--Información negocio-->
                     <div class="info-local col-sm-7 col-xs-12">
                         <h3>Calle de los Sevillanos 9, 28609 Sevilla la Nueva, Madrid <a class="link" href="#content-mapa-local"><i class="fa fa-map-marker"></i>Ver en mapa</a></h3>
                         <!--Description local | Máx 300 caracteres -->
-                        <p class="txt-description-local">Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha
-sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T.
-persona que se dedica a la imprenta) Lorem Ipsum es simplemente el texto de relleno Lorem Ipsum es.</p>
+                        <p class="txt-description-local">
+                            Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha
+                            sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T.
+                            persona que se dedica a la imprenta) Lorem Ipsum es simplemente el texto de relleno Lorem Ipsum es.
+                        </p>
                         <!-- Si tiene web-->
                         <a href="#" class="link link-web-local">www.elportillo.com</a>
                         <!--Horario y precio por persona-->
@@ -282,7 +294,7 @@ persona que se dedica a la imprenta) Lorem Ipsum es simplemente el texto de rell
                     <!--Mapa-->
                     <section class="content-map col-sm-7 col-xs-12" id="content-mapa-local">
                         <h4>Situación El Portillo</h4>
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4300.259796117713!2d-4.026253160773357!3d40.34804985198501!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x4d7342f638aff412!2sEl+P%C3%B3rtico!5e0!3m2!1ses!2ses!4v1441270330466" width="800" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4300.259796117713!2d-4.026253160773357!3d40.34804985198501!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x4d7342f638aff412!2sEl+P%C3%B3rtico!5e0!3m2!1ses!2ses!4v1441270330466" width="800" height="400"  style="border:0" allowfullscreen></iframe>
                     </section>
                     <!--Formulario-->
                     <section class="content-form col-sm-5 col-xs-12">
@@ -293,7 +305,7 @@ persona que se dedica a la imprenta) Lorem Ipsum es simplemente el texto de rell
                             <label class="col-xs-12">
                                 <input type="text" placeholder="Nombre" onfocus=" this.placeholder = '' " onblur=" this.placeholder = 'Nombre' ">
                             </label>
-                            <label class="col-xs-12" >
+                            <label class="col-xs-12">
                                 <input type="text" placeholder="E-mail" onfocus=" this.placeholder = '' " onblur=" this.placeholder = 'E-mail' ">
                             </label>
                             <label class="col-xs-12">
@@ -314,10 +326,10 @@ persona que se dedica a la imprenta) Lorem Ipsum es simplemente el texto de rell
                 <label class="col-sm-4 col-xs-12">
                     <input type="text" placeholder="Nombre" onfocus=" this.placeholder = '' " onblur=" this.placeholder = 'Nombre' ">
                 </label>
-                <label class="col-sm-4 col-xs-12" >
+                <label class="col-sm-4 col-xs-12">
                     <input type="text" placeholder="E-mail" onfocus=" this.placeholder = '' " onblur=" this.placeholder = 'E-mail' ">
                 </label>
-                <label class="col-sm-4 col-xs-12" >
+                <label class="col-sm-4 col-xs-12">
                     <input type="text" placeholder="Teléfono" onfocus=" this.placeholder = '' " onblur=" this.placeholder = 'Teléfono' ">
                 </label>
                 <label class="col-xs-12">

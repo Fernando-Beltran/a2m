@@ -4,13 +4,13 @@ html {
   padding: 0;
   font-family: 'Oxygen', sans-serif !important;
   overflow-x: hidden;
-  background: #f7f7f8;
+  background: #ededed;
 }
 body {
   margin: 0 auto;
   font-size: 100%;
   vertical-align: baseline;
-  background: #f7f7f8;
+  background: #ededed;
   background-size: cover;
   font-family: 'Oxygen', sans-serif !important;
   color: #000000;
@@ -37,6 +37,7 @@ a:hover {
 .link:hover {
   opacity: 0.8;
   color: #006300;
+  text-decoration: underline;
 }
 .activation-link {
   font-weight: bold !important;
@@ -445,7 +446,7 @@ h1 {
 }
 .main .content-basket .group-product .list-dish {
   display: block;
-  padding: 20px 0px 15px 10px;
+  padding: 20px 0px 15px 0;
   border-bottom: 1px solid #e6e6e6;
 }
 .main .content-basket .group-product .list-dish span {
@@ -469,6 +470,17 @@ h1 {
   padding-right: 5px;
   font-size: 1.3em;
 }
+.main .content-basket .group-product .list-dish .summary-unit {
+  font-size: 0.8em;
+  color: #999999;
+  padding: 0 10px;
+  text-align: center;
+  font-weight: 400;
+  line-height: 16px;
+}
+.main .content-basket .group-product .list-dish .price {
+  text-align: right;
+}
 .main .content-basket .group-product .list-dish .add-basket {
   background: #006300;
   padding: 15px 0;
@@ -483,33 +495,102 @@ h1 {
   background: #006300;
   padding: 20px 10px;
 }
+.main .content-basket .group-product .total-summary .price {
+  text-align: right;
+}
 .main .content-basket .content-form {
   padding-right: 0;
 }
 .main .content-basket .content-form header {
   padding: 0;
+  display: inline-block;
+  width: 100%;
 }
 .main .content-basket .content-form header h5 {
   color: #006300;
+  padding-bottom: 8px;
+  padding-left: 19px;
+  line-height: 20px;
   font-weight: 700;
-  padding-bottom: 10px;
-  padding-left: 15px;
 }
-.main .content-basket .content-form .form-notify {
+.main .content-basket .content-form header .btn-modify-data-user {
+  font-weight: bold;
+  font-size: 0.7em;
+  margin-top: 7px;
+  text-align: right;
+}
+.main .content-basket .content-form header .btn-modify-data-user i {
+  margin-right: 5px;
+}
+.main .content-basket .content-form .data-user-basket {
+  padding: 0 20px;
+}
+.main .content-basket .content-form .data-user-basket .txt-user {
+  font-size: 0.8em;
+  line-height: 19px;
+  color: #999999;
+}
+.main .content-basket .content-form .data-user-basket p {
+  font-weight: 700;
+  font-size: 0.9em;
+  display: block;
+  color: #006300;
+  margin: 12px 0;
+}
+.main .content-basket .content-form .data-user-basket p i {
+  margin-right: 5px;
+}
+.main .content-basket .content-form .data-user-basket p span {
+  width: 100%;
+  font-size: 0.9em;
+  clear: both;
+  display: block;
+  color: #000000;
+  margin-top: 12px;
+  margin-left: 20px;
+}
+.main .content-basket .content-form .data-user-basket label {
+  padding: 0;
+}
+.main .content-basket .content-form .data-user-basket label button {
+  margin: 8px auto;
+  width: 100%;
+}
+.main .content-basket .content-form .data-user-basket label button:hover {
+  opacity: 0.8;
+}
+.main .content-basket .content-form .form-summary-user-data {
   display: block;
 }
-.main .content-basket .content-form .form-notify label {
+.main .content-basket .content-form .form-summary-user-data label {
   padding-right: 0;
 }
-.main .content-basket .content-form .form-notify label input {
+.main .content-basket .content-form .form-summary-user-data label input {
   width: 100%;
   margin: 5px 0;
   border: 1px solid #999999;
   padding: 10px;
 }
-.main .content-basket .content-form .form-notify label button {
+.main .content-basket .content-form .form-summary-user-data label button {
   margin: 15px auto;
   width: 100%;
+}
+.main .content-basket .content-form .form-summary-user-data .check-accept {
+  display: inline;
+  font-size: 0.8em;
+  margin-top: 5px;
+}
+.main .content-basket .content-form .form-summary-user-data .check-accept input {
+  margin-right: 5px;
+  width: auto;
+}
+.main .content-basket .content-form .form-summary-user-data .msj-user {
+  font-size: 0.8em;
+  margin: 0 auto;
+  display: block;
+  line-height: 17px;
+  text-align: justify;
+  padding-left: 15px;
 }
 .main .content-basket .summary {
   border: 1px solid #e6e6e6;

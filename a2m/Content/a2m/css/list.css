@@ -4,13 +4,13 @@ html {
   padding: 0;
   font-family: 'Oxygen', sans-serif !important;
   overflow-x: hidden;
-  background: #f7f7f8;
+  background: #ededed;
 }
 body {
   margin: 0 auto;
   font-size: 100%;
   vertical-align: baseline;
-  background: #f7f7f8;
+  background: #ededed;
   background-size: cover;
   font-family: 'Oxygen', sans-serif !important;
   color: #000000;
@@ -37,6 +37,7 @@ a:hover {
 .link:hover {
   opacity: 0.8;
   color: #006300;
+  text-decoration: underline;
 }
 .activation-link {
   font-weight: bold !important;
@@ -652,7 +653,7 @@ h1 {
   }
   .main .search-list .content-filter .check-filter {
     width: 100%;
-    background: #f7f7f8;
+    background: #ededed;
     padding: 13px 30px 8px 30px;
     margin-top: 0;
   }

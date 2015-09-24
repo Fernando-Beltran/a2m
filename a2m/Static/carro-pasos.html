@@ -45,43 +45,64 @@
                 <div class="group-product summary col-sm-8 col-sm-12">
                     <!--Resumen de cada plato-->
                     <div class="list-dish col-xs-12">
-                        <span class="col-xs-10">Menú para 2 personas
+                        <span class="col-xs-8">Menú para 2 personas
                             <i class="description-dish">Arroz, Fideos, 4 Croquetas, 2 Refrescos</i>
                             <span class="offer"><i class="fa fa-gift"></i>Regalo del pan y un refresco</span>
                         </span>
-                        <span class="col-xs-2">14,95€</span>
+                        <span class="col-xs-2 summary-unit">1<br/>unidad</span>
+                        <span class="col-xs-2 price">14,95€</span>
                     </div>
                     <!---->
                     <!--Resumen de cada plato-->
                     <div class="list-dish col-xs-12">
-                        <span class="col-xs-10">6 Alitas de pollo BBQ
+                        <span class="col-xs-8">6 Alitas de pollo BBQ
                         </span>
-                        <span class="col-xs-2">3,95€</span>
+                        <span class="col-xs-2 summary-unit">2<br/>unidades</span>
+                        <span class="col-xs-2 price">3,95€</span>
                     </div>
                     <!---->
                     <!--Total de resumen-->
                     <div class="total-summary col-xs-12">
                         <span class="col-xs-10">Total pedido
                         </span>
-                        <span class="col-xs-2">35,00€</span>
+                        <span class="col-xs-2 price">35,00€</span>
                     </div>
                     <!---->
                 </div>
-               <!--Confirmación de datos o logueo tel y mail-->
+                <!--Datos o logueo tel, dir y e-mail-->
                 <section class="content-form col-sm-4 col-xs-12">
                     <header>
-                        <h5>Datos de envío</h5>
+                        <h5 class="col-xs-8">Datos envío</h5>
+                        <span class="btn-modify-data-user link col-xs-4"><i class="fa fa-pencil"></i>Modificar datos</span>
                     </header>
-                    <form class="form-notify">
+                    <!--Datos de envío y pedido ya logueado-->
+                    <div class="data-user-basket">
+                        <span class="txt-user">Estos datos están registrados en nuestra base de datos y sólo se usarán con el fin de facilitarte la gestión del pedido. Nunca se compartirán o dejarán en ningún medio o base de datos.</span>
+                        <p><i class="fa fa-envelope"></i>E-mail<span>a2m@prueba.com</span></p>
+                        <p><i class="fa fa-map-marker"></i>Dirección<span>Calle Prueba de los ríos nº25 - 2Drcha</span></p>
+                        <p><i class="fa fa-phone-square"></i>Teléfono<span>656 125 147</span></p>
+                        <label class="col-xs-12">
+                            <button type="button" class="btn-cta btn-form-contact">Confirmar pedido</button>
+                        </label>
+                    </div>
+                    <form class="form-summary-user-data hide">
                         <label class="col-xs-12">
                             <input type="text" placeholder="E-mail" onfocus=" this.placeholder = '' " onblur=" this.placeholder = 'E-mail' ">
                         </label>
                         <label class="col-xs-12" >
+                            <input type="text" placeholder="Calle, número, piso..." onfocus=" this.placeholder = '' " onblur=" this.placeholder = 'Calle, número, piso...' ">
+                        </label>
+                        <label class="col-xs-12" >
                             <input type="text" placeholder="Teléfono" onfocus=" this.placeholder = '' " onblur=" this.placeholder = 'Teléfono' ">
                         </label>
-                        <label class="col-xs-12">
-                            <button type="button" class="btn-cta btn-form-contact">Confirmar pedido</button>
+                        <label class="col-xs-12 check-accept" >
+                            <input type="checkbox" />
+                            <span>Acepto los terminos y condiciones del servicio a2m</span>
                         </label>
+                        <label class="col-xs-12">
+                            <button type="button" class="btn-cta btn-form-contact disable">Confirmar pedido</button>
+                        </label>
+                        <span class="msj-user">* Una vez rellenes estos campos los guardaremos para futuros pedidos. Podrás iniciar sesión con tu e-mail y teléfono, guardar tus pedidos y en un solo click volver a pedir</span>
                     </form>
                 </section>
             </section>

@@ -8,7 +8,6 @@ html {
 }
 body {
   margin: 0 auto;
-  font-size: 100%;
   vertical-align: baseline;
   background: #ededed;
   background-size: cover;
@@ -108,7 +107,7 @@ strong {
 h1 {
   color: #006300;
   font-weight: 700;
-  font-size: 1.8em;
+  font-size: 29px;
   margin-bottom: 5px;
 }
 .row-centered {
@@ -164,7 +163,7 @@ h1 {
 }
 .layout-header .content-nav .menu ul li a {
   color: #006300;
-  font-size: 0.80em;
+  font-size: 14px;
 }
 .layout-header .content-nav .menu ul li:hover {
   opacity: 0.8;
@@ -184,7 +183,7 @@ h1 {
   color: #ffffff;
   text-align: center;
   margin: 11px 0 0 1px;
-  font-size: 0.72em;
+  font-size: 13px;
   display: inline-block;
   cursor: pointer;
 }
@@ -217,7 +216,7 @@ h1 {
   padding-left: 2px;
 }
 .layout-header .login-acces .header-form span {
-  font-size: 1em;
+  font-size: 16px;
   text-align: left;
   font-weight: bold;
   color: #006300;
@@ -229,7 +228,7 @@ h1 {
   text-align: right;
   font-weight: bold;
   color: #ffffff;
-  font-size: 1.5em;
+  font-size: 25px;
   float: right;
   margin-top: -15px;
   margin-right: -25px;
@@ -244,7 +243,7 @@ h1 {
   width: 100%;
   padding: 10px;
   margin: 3px 0;
-  font-size: 0.90em;
+  font-size: 14px;
 }
 .layout-header .login-acces .checkbox-remember-pass {
   display: inline-block;
@@ -253,7 +252,7 @@ h1 {
 .layout-header .login-acces .checkbox-remember-pass label {
   display: inline;
   width: 100%;
-  font-size: 0.8em;
+  font-size: 13px;
 }
 .layout-header .login-acces .checkbox-remember-pass label input {
   width: auto;
@@ -262,7 +261,7 @@ h1 {
   clear: both;
   display: block;
   text-align: center;
-  font-size: 0.8em;
+  font-size: 14px;
   padding: 5px 0;
   cursor: pointer;
 }
@@ -275,7 +274,7 @@ h1 {
 }
 .breadcumbs span {
   font-weight: 700;
-  font-size: 0.72em;
+  font-size: 13px;
   margin: 0 5px;
 }
 .breadcumbs ul {
@@ -285,10 +284,10 @@ h1 {
   display: inline;
   cursor: pointer;
   min-height: 30px;
-  font-size: 0.8em;
+  font-size: 13px;
 }
 .breadcumbs ul .separation-breadcumbs {
-  font-size: 0.6em;
+  font-size: 11px;
 }
 .breadcumbs .msj-welcome {
   text-align: right;
@@ -296,13 +295,13 @@ h1 {
   padding-right: 5px;
 }
 .breadcumbs .msj-welcome span {
-  font-size: 0.9em;
+  font-size: 15px;
 }
 .breadcumbs .msj-welcome span i {
   padding: 0 3px;
 }
 .breadcumbs .msj-welcome .link {
-  font-size: 0.72em;
+  font-size: 12px;
   font-weight: 400;
 }
 .breadcumbs .msj-welcome .link:hover {
@@ -319,10 +318,10 @@ h1 {
 .footer-generic strong {
   color: #ffffff;
   margin-bottom: 10px;
-  font-size: 1.6em;
+  font-size: 25px;
 }
 .footer-generic i {
-  font-size: 0.9em;
+  font-size: 14px;
   color: #ffffff;
 }
 .footer-generic .form-contact {
@@ -423,7 +422,7 @@ h1 {
 /* Para 500px */
 @media only screen and (max-width: 500px) {
   h1 {
-    font-size: 1.2em;
+    font-size: 20px;
   }
 }
 /* CSS Listado de resultados
@@ -443,12 +442,12 @@ h1 {
 }
 .main .search-list header p {
   display: block;
-  font-size: 0.9em;
+  font-size: 15px;
   line-height: 22px;
   margin-left: 18px;
 }
 .main .search-list header span {
-  font-size: 0.85em;
+  font-size: 13px;
   margin-top: 10px;
   display: block;
   text-align: center;
@@ -495,7 +494,7 @@ h1 {
 .main .search-list .content-filter .check-filter label span {
   display: block;
   clear: both;
-  font-size: 0.8em;
+  font-size: 13px;
   color: #006300;
 }
 .main .search-list .content-list-result {
@@ -530,19 +529,19 @@ h1 {
   line-height: 20px;
 }
 .main .search-list .content-list-result .content-result .item-result .content-detail strong {
-  font-size: 1.5em;
+  font-size: 24px;
 }
 .main .search-list .content-list-result .content-result .item-result .content-detail i {
   clear: both;
   width: 100%;
-  font-size: 0.8em;
+  font-size: 13px;
   display: block;
   color: #999999;
   margin-bottom: 5px;
 }
 .main .search-list .content-list-result .content-result .item-result .content-detail b {
   font-weight: bold;
-  font-size: 1.2em;
+  font-size: 19px;
   width: 100%;
   display: block;
   color: #000000;
@@ -550,7 +549,7 @@ h1 {
 }
 .main .search-list .content-list-result .content-result .item-result .content-detail span {
   color: #439944;
-  font-size: 0.8em;
+  font-size: 13px;
   display: block;
   font-weight: 700;
 }
@@ -572,7 +571,7 @@ h1 {
   margin: 0 auto;
 }
 .main .search-list .content-list-result .content-result .item-result .icons-services li span {
-  font-size: 0.65em;
+  font-size: 10px;
   clear: both;
   width: 100%;
   color: #999999;
@@ -588,51 +587,6 @@ h1 {
   margin-top: 30px;
   cursor: pointer;
 }
-.footer-generic {
-  background: #006300;
-  -webkit-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.35);
-  -moz-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.35);
-  box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.35);
-  padding: 23px 179px 0;
-  margin-top: 15px;
-}
-.footer-generic strong {
-  color: #ffffff;
-  margin-bottom: 10px;
-  font-size: 1.6em;
-}
-.footer-generic i {
-  font-size: 0.9em;
-  color: #ffffff;
-}
-.footer-generic .form-contact {
-  display: inline-block;
-  width: 100%;
-  padding: 14px;
-}
-.footer-generic .form-contact label {
-  padding-right: 5px;
-  padding-left: 0;
-}
-.footer-generic .form-contact label input {
-  border: 0;
-  width: 100%;
-  padding: 10px 14px 7px;
-}
-.footer-generic .form-contact label textarea {
-  margin-top: 10px;
-  width: 100%;
-  border: 0;
-  padding: 13px;
-  margin-bottom: 15px;
-  max-height: 250px;
-}
-.footer-generic .form-contact .btn-form-contact {
-  background: #ffffff;
-  color: #006300;
-  width: 100%;
-  margin-top: 0;
-}
 /*MEDIAS QUERYS para RWD listado resultados*/
 /* Para 850px */
 @media only screen and (max-width: 850px) {
@@ -643,7 +597,6 @@ h1 {
   .main .search-list header span {
     padding: 13px;
     cursor: pointer;
-    font-size: 0.8em;
   }
   .main .search-list header span:hover {
     opacity: 0.8;

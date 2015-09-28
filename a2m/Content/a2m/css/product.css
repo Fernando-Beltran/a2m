@@ -8,7 +8,6 @@ html {
 }
 body {
   margin: 0 auto;
-  font-size: 100%;
   vertical-align: baseline;
   background: #ededed;
   background-size: cover;
@@ -108,7 +107,7 @@ strong {
 h1 {
   color: #006300;
   font-weight: 700;
-  font-size: 1.8em;
+  font-size: 29px;
   margin-bottom: 5px;
 }
 .row-centered {
@@ -164,7 +163,7 @@ h1 {
 }
 .layout-header .content-nav .menu ul li a {
   color: #006300;
-  font-size: 0.80em;
+  font-size: 14px;
 }
 .layout-header .content-nav .menu ul li:hover {
   opacity: 0.8;
@@ -184,7 +183,7 @@ h1 {
   color: #ffffff;
   text-align: center;
   margin: 11px 0 0 1px;
-  font-size: 0.72em;
+  font-size: 13px;
   display: inline-block;
   cursor: pointer;
 }
@@ -217,7 +216,7 @@ h1 {
   padding-left: 2px;
 }
 .layout-header .login-acces .header-form span {
-  font-size: 1em;
+  font-size: 16px;
   text-align: left;
   font-weight: bold;
   color: #006300;
@@ -229,7 +228,7 @@ h1 {
   text-align: right;
   font-weight: bold;
   color: #ffffff;
-  font-size: 1.5em;
+  font-size: 25px;
   float: right;
   margin-top: -15px;
   margin-right: -25px;
@@ -244,7 +243,7 @@ h1 {
   width: 100%;
   padding: 10px;
   margin: 3px 0;
-  font-size: 0.90em;
+  font-size: 14px;
 }
 .layout-header .login-acces .checkbox-remember-pass {
   display: inline-block;
@@ -253,7 +252,7 @@ h1 {
 .layout-header .login-acces .checkbox-remember-pass label {
   display: inline;
   width: 100%;
-  font-size: 0.8em;
+  font-size: 13px;
 }
 .layout-header .login-acces .checkbox-remember-pass label input {
   width: auto;
@@ -262,7 +261,7 @@ h1 {
   clear: both;
   display: block;
   text-align: center;
-  font-size: 0.8em;
+  font-size: 14px;
   padding: 5px 0;
   cursor: pointer;
 }
@@ -275,7 +274,7 @@ h1 {
 }
 .breadcumbs span {
   font-weight: 700;
-  font-size: 0.72em;
+  font-size: 13px;
   margin: 0 5px;
 }
 .breadcumbs ul {
@@ -285,10 +284,10 @@ h1 {
   display: inline;
   cursor: pointer;
   min-height: 30px;
-  font-size: 0.8em;
+  font-size: 13px;
 }
 .breadcumbs ul .separation-breadcumbs {
-  font-size: 0.6em;
+  font-size: 11px;
 }
 .breadcumbs .msj-welcome {
   text-align: right;
@@ -296,13 +295,13 @@ h1 {
   padding-right: 5px;
 }
 .breadcumbs .msj-welcome span {
-  font-size: 0.9em;
+  font-size: 15px;
 }
 .breadcumbs .msj-welcome span i {
   padding: 0 3px;
 }
 .breadcumbs .msj-welcome .link {
-  font-size: 0.72em;
+  font-size: 12px;
   font-weight: 400;
 }
 .breadcumbs .msj-welcome .link:hover {
@@ -319,10 +318,10 @@ h1 {
 .footer-generic strong {
   color: #ffffff;
   margin-bottom: 10px;
-  font-size: 1.6em;
+  font-size: 25px;
 }
 .footer-generic i {
-  font-size: 0.9em;
+  font-size: 14px;
   color: #ffffff;
 }
 .footer-generic .form-contact {
@@ -423,7 +422,7 @@ h1 {
 /* Para 500px */
 @media only screen and (max-width: 500px) {
   h1 {
-    font-size: 1.2em;
+    font-size: 20px;
   }
 }
 /* CSS Modal Configuración y modificación de pedido
@@ -470,7 +469,7 @@ h1 {
   text-decoration: none;
   font-weight: bold;
   color: #ffffff;
-  font-size: 1.3em;
+  font-size: 22px;
 }
 .modalmask h6 {
   background: #006300;
@@ -495,7 +494,7 @@ h1 {
   margin: 5px 0;
   background: #ededed;
   padding: 10px;
-  font-size: 0.9em;
+  font-size: 15px;
   cursor: pointer;
   display: inline-block;
   width: 100%;
@@ -507,7 +506,7 @@ h1 {
 .modalmask .content-selector ul li .btn-choose {
   background: #006300;
   color: #ffffff;
-  font-size: 0.85em;
+  font-size: 13px;
   padding: 7px;
   float: right;
   text-align: center;
@@ -536,17 +535,11 @@ h1 {
 .main .product-data header {
   padding: 25px 16px;
 }
-.main .product-data header p {
-  display: block;
-  font-size: 0.9em;
-  line-height: 10px;
-  margin-left: 18px;
-}
 .main .product-data header span {
   color: #000000;
   font-weight: 400;
   margin-left: 10px;
-  font-size: 0.9em;
+  font-size: 23px;
 }
 .main .product-data header i {
   margin-right: 5px;
@@ -559,7 +552,7 @@ h1 {
 }
 .main .product-data .content-order-product header h2 {
   text-align: center;
-  font-size: 1.5em;
+  font-size: 22px;
   color: #006300;
   border-bottom: 1px solid #e6e6e6;
   padding-bottom: 20px;
@@ -568,7 +561,7 @@ h1 {
   display: block;
 }
 .main .product-data .content-order-product .group-product .tit-group-product {
-  font-size: 0.9em;
+  font-size: 14px;
   margin: 0;
   display: block;
   text-align: center;
@@ -576,7 +569,7 @@ h1 {
   color: #006300;
 }
 .main .product-data .content-order-product .group-product .tit-group-dish {
-  font-size: 0.9em;
+  font-size: 14px;
   margin: 0;
   display: block;
   text-align: center;
@@ -595,7 +588,7 @@ h1 {
   padding: 10px;
   color: #006300;
   margin: 4px auto;
-  font-size: 0.9em;
+  font-size: 14px;
   border-bottom: 1px solid #e6e6e6;
   font-weight: 700;
 }
@@ -619,17 +612,16 @@ h1 {
   padding: 0;
 }
 .main .product-data .content-order-product .group-product .list-dish .content-unit i {
-  font-size: 0.9em;
+  font-size: 13px;
   font-weight: 400;
   padding: 5px;
   border: 1px solid #999999;
-  font-size: 0.84em;
 }
 .main .product-data .content-order-product .group-product .list-dish .content-unit input {
   padding: 0;
   text-align: center;
   line-height: 20px;
-  font-size: 0.84em;
+  font-size: 13px;
 }
 .main .product-data .content-order-product .group-product .list-dish .content-unit .content-plus-less {
   clear: both;
@@ -655,7 +647,7 @@ h1 {
   padding-left: 10px;
 }
 .main .product-data .content-order-product .group-product .list-dish span .description-dish {
-  font-size: 0.79em;
+  font-size: 13px;
   display: block;
   padding: 8px 7px 10px 7px;
   color: #000000;
@@ -665,11 +657,11 @@ h1 {
   color: #af0058;
   padding: 0 7px;
   font-weight: 700;
-  font-size: 0.85em;
+  font-size: 14px;
 }
 .main .product-data .content-order-product .group-product .list-dish span .offer i {
   padding-right: 5px;
-  font-size: 1.3em;
+  font-size: 15px;
 }
 .main .product-data .content-order-product .group-product .list-dish .price {
   text-align: right;
@@ -683,10 +675,10 @@ h1 {
   float: right;
 }
 .main .product-data .content-order-product .group-product .list-dish .add-basket i {
-  font-size: 1.4em;
+  font-size: 20px;
 }
 .main .product-data .content-order-product .group-product .list-dish .clear-dish {
-  font-size: 1.15em;
+  font-size: 18px;
 }
 .main .product-data .content-order-product .group-product .list-dish .select-type-send {
   display: inline-block;
@@ -706,7 +698,7 @@ h1 {
   vertical-align: bottom;
 }
 .main .product-data .content-order-product .group-product .list-dish .select-type-send label span {
-  font-size: 0.8em;
+  font-size: 13px;
 }
 .main .product-data .content-order-product .group-product .alert-min-order {
   background: #af0058;
@@ -714,12 +706,12 @@ h1 {
 }
 .main .product-data .content-order-product .group-product .alert-min-order span {
   color: #ffffff;
-  font-size: 0.8em;
+  font-size: 13px;
 }
 .main .product-data .content-order-product .group-product .alert-min-order span i {
   font-weight: 700;
   line-height: 18px;
-  font-size: 1.25em;
+  font-size: 16px;
 }
 .main .product-data .content-order-product .group-product .total-summary {
   color: #ffffff;
@@ -735,11 +727,11 @@ h1 {
   margin: 0 auto;
   padding-top: 18px;
   font-weight: normal;
-  font-size: 0.9em;
+  font-size: 14px;
 }
 .main .product-data .content-order-product .group-product .msj-basket-no-item i {
   padding-right: 5px;
-  font-size: 1.3em;
+  font-size: 16px;
   color: #006300;
 }
 .main .product-data .content-order-product .btn-generic {
@@ -769,14 +761,14 @@ h1 {
   display: block;
 }
 .main .product-data .content-info-local .info-local h2 {
-  font-size: 1em;
+  font-size: 16px;
   padding-bottom: 25px;
   font-weight: 700;
   color: #006300;
 }
 .main .product-data .content-info-local .info-local h2 a {
   margin-left: 5px;
-  font-size: 0.8em;
+  font-size: 13px;
   font-weight: 700;
   float: right;
 }
@@ -784,14 +776,14 @@ h1 {
   margin-right: 5px;
 }
 .main .product-data .content-info-local .info-local h3 {
-  font-size: 1em;
+  font-size: 16px;
   padding-bottom: 25px;
   font-weight: 700;
   color: #006300;
 }
 .main .product-data .content-info-local .info-local h3 a {
   margin-left: 5px;
-  font-size: 0.8em;
+  font-size: 13px;
   font-weight: 700;
   float: right;
 }
@@ -799,33 +791,33 @@ h1 {
   margin-right: 5px;
 }
 .main .product-data .content-info-local .info-local .txt-description-local {
-  font-size: 0.9em;
+  font-size: 14px;
   line-height: 20px;
 }
 .main .product-data .content-info-local .info-local .link-web-local {
   font-weight: 700;
   margin-top: 15px;
-  font-size: 0.85em;
+  font-size: 14px;
   display: block;
   margin-bottom: 35px;
 }
 .main .product-data .content-info-local .info-local .hour-price {
   font-weight: 700;
   display: inline-block;
-  font-size: 0.95em;
+  font-size: 14px;
   clear: both;
   width: 100%;
   padding: 2px 0;
 }
 .main .product-data .content-info-local .info-local .hour-price i {
   font-weight: 400;
-  font-size: 0.88em;
+  font-size: 13px;
   margin-left: 5px;
 }
 .main .product-data .content-info-local .info-local .hour-price .price {
   color: #006300;
   font-weight: 700;
-  font-size: 1.2em;
+  font-size: 18px;
 }
 .main .product-data .content-info-local .info-local .content-list-services {
   margin-top: 70px;
@@ -843,7 +835,7 @@ h1 {
 .main .product-data .content-info-local .info-local .content-list-services li span {
   display: block;
   width: 100%;
-  font-size: 0.75em;
+  font-size: 13px;
   padding-top: 5px;
 }
 .main .product-data .content-catalog-bussines {

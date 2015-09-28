@@ -1,3 +1,4 @@
+@import "generic.less";
 /* CSS Listado de resultados
 ------------------------------------------------------------------*/
 //Estilos Main genérico, este siempre será el mismo contenedor de donde jerarquizaremos los contenidos centrales sin layout
@@ -12,12 +13,12 @@
             padding: 15px 0;
             p{
                 display: block; 
-                font-size: 0.9em;
+                font-size: 15px;
                 line-height: 22px;
                 margin-left: 18px;
             }
             span{
-                font-size: 0.85em;
+                font-size: 13px;
                 margin-top: 10px;
                 display: block;
                 text-align: center;
@@ -63,7 +64,7 @@
                     span{
                         display:block;
                         clear: both;
-                        font-size: 0.8em;
+                        font-size: 13px;
                         color: @VerdePrincipal;
                     }
                 }
@@ -96,19 +97,19 @@
                         padding: 10px;
                         line-height: 20px;
                         strong{
-                            font-size: 1.5em;
+                            font-size: 24px;
                         }
                         i{
                             clear: both;
                             width: 100%;
-                            font-size: 0.8em;
+                            font-size: 13px;
                             display: block;
                             color: @GrisOscuro;
                             margin-bottom: 5px;
                         }
                         b{
                             font-weight: bold;
-                            font-size: 1.2em;
+                            font-size: 19px;
                             width: 100%;
                             display: block;
                             color: @NegroPuro;
@@ -116,7 +117,7 @@
                         }
                         span{
                             color: @VerdeClaro;
-                            font-size: 0.8em;
+                            font-size: 13px;
                             display: block;
                             font-weight: 700;
                         }
@@ -137,7 +138,7 @@
                                 margin: 0 auto;
                             }
                             span{
-                                font-size: 0.65em;
+                                font-size: 10px;
                                 clear: both;
                                 width: 100%;
                                 color: @GrisOscuro;
@@ -159,50 +160,6 @@
         }
     }
 }
-//Estilos Footer
-.footer-generic{
-    background: @VerdePrincipal;
-    .shadowbox();
-    padding: 23px 179px 0;
-    margin-top: 15px;
-    strong{
-        color: @BlancoPuro;
-        margin-bottom: 10px;
-        font-size: 1.6em;
-    }
-    i{
-        font-size: 0.9em;
-        color: @BlancoPuro;
-    }
-    .form-contact{
-        display: inline-block;
-        width: 100%;
-        padding: 14px;
-        label{
-            padding-right: 5px;
-            padding-left: 0;
-            input{
-                border: 0;
-                width: 100%;
-                padding: 10px 14px 7px;
-            }
-            textarea{
-                margin-top: 10px;
-                width: 100%;
-                border: 0;
-                padding: 13px;
-                margin-bottom: 15px;
-                max-height: 250px;
-            }
-        }
-        .btn-form-contact{
-            background: @BlancoPuro;
-            color: @VerdePrincipal;
-            width: 100%;
-            margin-top: 0;
-        }
-    }
-}
 /*MEDIAS QUERYS para RWD listado resultados*/
 
 /* Para 850px */  
@@ -215,7 +172,6 @@
     .main .search-list header span{
         padding: 13px;
         cursor: pointer;
-        font-size: 0.8em;
     }
     .main .search-list header span:hover{
         opacity: 0.8;

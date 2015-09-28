@@ -180,6 +180,7 @@
     <Compile Include="Common\Responses\BusinessResultResponse.cs" />
     <Compile Include="Common\Responses\JSONResponse.cs" />
     <Compile Include="Common\Responses\RequestResponseStatus.cs" />
+    <Compile Include="Common\Sections\Sections.cs" />
     <Compile Include="Controllers\ApiController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BusinessController.cs" />

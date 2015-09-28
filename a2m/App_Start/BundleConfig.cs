@@ -34,13 +34,22 @@ namespace a2m
                       "~/Content/external/js/bootstrap.js",
                       "~/Content/external/js/respond.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
+            bundles.Add(new StyleBundle("~/css/common").Include(
                       "~/Content/external/css/bootstrap.css",
                       "~/Content/a2m/css/reset.css",
-                      "~/Content/a2m/css/generic.css",
-                      "~/Content/a2m/css/list.css",
-                      "~/Content/a2m/css/basket.css",
-                      "~/Content/a2m/css/product.css"));
+                      "~/Content/a2m/css/generic.css"
+                  ));
+            
+            bundles.Add(new StyleBundle("~/css/list").Include(
+                      "~/Content/external/css/list.css"));
+
+            bundles.Add(new StyleBundle("~/css/basket").Include(
+                      "~/Content/external/css/basket.css"));
+
+            bundles.Add(new StyleBundle("~/css/product").Include(
+                      "~/Content/external/css/product.css"));
+
+
         }
     }
 }

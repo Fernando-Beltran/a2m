@@ -25,7 +25,8 @@ namespace a2m.Controllers
         {
             try
             {
-                
+                ViewBag.Sections = a2m.Common.Enums.Sections.List;
+
                 BussinessManager BussinessManager = new a2mbl.Managers.BussinessManager();
                 Business currentBusiness =  BussinessManager.GetBusinessFromMunicipalityNormalizedNameAndBusinessNormalizedNamed(municipality, business);
                 if (currentBusiness == null) return View("Error");
@@ -38,7 +39,9 @@ namespace a2m.Controllers
             {
                 a2m.A2MApplication.Log.Error("BusinessController", ex);
                 return View("Error");
+                
             }
+
         }
 	}
 }

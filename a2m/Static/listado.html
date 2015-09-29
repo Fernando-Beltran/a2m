@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
     <!--Max 50 / 55 caracteres-->
@@ -172,6 +172,11 @@
                 </div>
                 <!--Resultado-->
                 <div class="content-list-result row-centered">
+                    <!--Mensaje si no hay resultados-->
+                    <div class="col-xs-12 content-msj-noresult hide">
+                        <i class="fa fa-frown-o icon-noresult"></i>
+                        <span>Lo sentimos pero no hay resultados en tu búsqueda</span>
+                    </div>
                     <!--Box resultado-->
                     <div class="col-sm-6 col-md-4 col-lg-3 content-result col-centered">
                         <a href="#" class="col-xs-12 item-result" title="Ves a la ficha de...">
@@ -552,6 +557,10 @@
                 </label>
             </form>
         </footer>
+    </div>
+    <!--Cargando resultados-->
+    <div class="col-xs-12 content-load-result">
+        <div class="loader hide"></div>
     </div>
 </body>
 </html>

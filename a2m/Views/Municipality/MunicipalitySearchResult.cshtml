@@ -18,37 +18,37 @@
                         <strong>@iBusiness.Name</strong>
                         <i>Comida casera y de calidad</i>
                         <b>@iBusiness.Phone</b>
-                        <span>Precio máx/per: 15€</span>
+                        <span>Precio mín pedido: @iBusiness.Min_Price_For_Shipping</span>
                         <span>Pedidos a partir de las 20:00h</span>
                     </div>
                     <ul class="icons-services">
-                        <li class="disable">
+                        <li class="@(iBusiness.Is_A2M==true ? "" : "disable")">
                             <img src="~/Content/a2m/img/icon-pedido-online.svg" alt="icono pedido online" title="Filtrar pedido online" />
                             <span>Pedido online</span>
                         </li>
-                        <li>
+                        <li class="@(iBusiness.Allow_Shipping==true ? "" : "disable")">
                             <img src="~/Content/a2m/img/icon-a-domicilio.svg" alt="icono pedido a domicilio" title="Filtrar pedido a domicilio" />
                             <span>A domicilio</span>
                         </li>
-                        <li class="disable">
+                        <li class="@(iBusiness.Allow_PickUp==true ? "" : "disable")">
                             <img src="~/Content/a2m/img/icon-recoger-local.svg" alt="icono recoger en local" title="Filtrar recoger en local" />
                             <span>Recoger en local</span>
                         </li>
-                        <li>
+                        <li class="disabled">
                             <img src="../Content/a2m/img/icon-reservas.svg" alt="icono reservas" title="Filtrar local con reservas" />
                             <span>Reservas</span>
                         </li>
-                        <li>
+                        <li class="@(iBusiness.Has_Pdf==true ? "" : "disable")">
                             <img src="../Content/a2m/img/icon-carta-pdf.svg" alt="icono carta pdf" title="Filtrar disponible con carta PDF" />
                             <span>Carta PDF</span>
                         </li>
-                        <li>
+                        <li class="disabled">
                             <img src="../Content/a2m/img/icon-menu.svg" alt="icono con menú" title="Filtrar disponible menú" />
                             <span>Con menú</span>
                         </li>
                     </ul>
                     <div class="btn-cta">
-                        <p>Hacer pedido El Portico</p>
+                        <p>Hacer pedido @iBusiness.Name</p>
                     </div>
                 </a>
             </div>

@@ -11,16 +11,6 @@
     });
 </script>
 <h2>Buscador negocios municipio </h2>
-<div>
-    Filtros
-    <input type="checkbox" id="chkOnlineOrder" /> Pedido online<br />
-    <input type="checkbox" id="chkOrderToHome" /> Pedido a domicilio<br />
-    <input type="checkbox" id="chkPickupOrder" /> Para recoger<br />
-    <input type="checkbox" id="chkReserves" /> Reservas<br />
-    <input type="checkbox" id="chkBrochurePdf" /> Folleto<br />
-    <input type="checkbox" id="chkMenu" /> Menu<br />
-</div><br />
-
 <!--Seccion central genérica-->
 <div class="main container col-xs-12">
     <section class="col-xs-12 search-list">
@@ -33,7 +23,7 @@
         <div class="content-filter">
             <!--Filtro pedido online-->
             <div class="check-filter link">
-                <input type="checkbox" />
+                <input type="checkbox" id="chkOnlineOrder" />
                 <label>
                     <img src="~/Content/a2m/img/icon-pedido-online.svg" alt="icono pedido online" title="Filtrar pedido online" />
                     <span>Pedido online</span>
@@ -41,7 +31,7 @@
             </div>
             <!--Filtro pedido a domicilio-->
             <div class="check-filter link">
-                <input type="checkbox" />
+                <input type="checkbox" id="chkOrderToHome" />
                 <label>
                     <img src="~/Content/a2m/img/icon-a-domicilio.svg" alt="icono pedido a domicilio" title="Filtrar pedido a domicilio" />
                     <span>A domicilio</span>
@@ -49,7 +39,7 @@
             </div>
             <!--Filtro pedido a recoger en local-->
             <div class="check-filter link">
-                <input type="checkbox" />
+                <input type="checkbox" id="chkPickupOrder" />
                 <label>
                     <img src="~/Content/a2m/img/icon-recoger-local.svg" alt="icono recoger en local" title="Filtrar recoger en local" />
                     <span>Recoger en local</span>
@@ -57,7 +47,7 @@
             </div>
             <!--Filtro reservas-->
             <div class="check-filter link">
-                <input type="checkbox" />
+                <input type="checkbox" id="chkReserves" />
                 <label>
                     <img src="~/Content/a2m/img/icon-reservas.svg" alt="icono reservas" title="Filtrar local con reservas" />
                     <span>Reservas</span>
@@ -65,7 +55,7 @@
             </div>
             <!--Filtro carta PDF-->
             <div class="check-filter link">
-                <input type="checkbox" />
+                <input type="checkbox" id="chkBrochurePdf" />
                 <label>
                     <img src="~/Content/a2m/img/icon-carta-pdf.svg" alt="icono carta pdf" title="Filtrar disponible con carta PDF" />
                     <span>Carta PDF</span>
@@ -73,7 +63,7 @@
             </div>
             <!--Filtro menú-->
             <div class="check-filter link">
-                <input type="checkbox" />
+                <input type="checkbox" id="chkMenu" />
                 <label>
                     <img src="~/Content/a2m/img/icon-menu.svg" alt="icono con menú" title="Filtrar disponible menú" />
                     <span>Con menú</span>
@@ -82,8 +72,6 @@
         </div>
         <!--Resultado-->
         <div class="content-list-result row-centered" id="municipalityRenderDiv">
-
-
             @{ Html.RenderPartial("MunicipalitySearchResult", Model);}
         </div>
         <!--Bton ver más resultados-->

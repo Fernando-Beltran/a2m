@@ -5,30 +5,19 @@
 @{
     ViewBag.Title = "Index";   
 }
+
 @{foreach (var iBusiness in Model.BusinessList)
 {
-
-    <div>
-        <span> @iBusiness.Name</span>
-        <span> @iBusiness.Phone</span>
-        <span> @iBusiness.Webpage</span>
-        <span> <a href="~/@Model.Municipality.Name.ToA2MUrlName()/@iBusiness.Name.ToA2MUrlName()">LINK</a></span>
-    </div>
-
-}}
-<div>@Model.BusinessList.Count() Resultado/s</div>
-
- 
-            <!--Box resultado-->
+         <!--Box resultado-->
             <div class="col-sm-6 col-md-4 col-lg-3 content-result col-centered">
                 <a href="#" class="col-xs-12 item-result" title="Ves a la ficha de...">
                     <div class="content-img">
                         <img class="img-responsive" src="~/Content/a2m/img/restaurantes/elportico.jpg" alt="Restaurante El Pórtico" title="El Pórtico" />
                     </div>
                     <div class="col-xs-12 content-detail">
-                        <strong>El Pórtico</strong>
+                        <strong>@iBusiness.Name</strong>
                         <i>Comida casera y de calidad</i>
-                        <b>91 813 06 45</b>
+                        <b>@iBusiness.Phone</b>
                         <span>Precio máx/per: 15€</span>
                         <span>Pedidos a partir de las 20:00h</span>
                     </div>
@@ -64,268 +53,10 @@
                 </a>
             </div>
             <!--Box resultado-->
-            <div class="col-sm-6 col-md-4 col-lg-3 content-result col-centered">
-                <a href="#" class="col-xs-12 item-result" title="Ves a la ficha de...">
-                    <div class="content-img">
-                        <img class="img-responsive" src="../Content/a2m/img/restaurantes/elportico.jpg" alt="Restaurante El Pórtico" title="El Pórtico" />
-                    </div>
-                    <div class="col-xs-12 content-detail">
-                        <strong>El Pórtico</strong>
-                        <i>Comida casera y de calidad</i>
-                        <b>91 813 06 45</b>
-                        <span>Precio máx/per: 15€</span>
-                        <span>Pedidos a partir de las 20:00h</span>
-                    </div>
-                    <ul class="icons-services">
-                        <li class="disable">
-                            <img src="../Content/a2m/img/icon-pedido-online.svg" alt="icono pedido online" title="Filtrar pedido online" />
-                            <span>Pedido online</span>
-                        </li>
-                        <li>
-                            <img src="../Content/a2m/img/icon-a-domicilio.svg" alt="icono pedido a domicilio" title="Filtrar pedido a domicilio" />
-                            <span>A domicilio</span>
-                        </li>
-                        <li class="disable">
-                            <img src="../Content/a2m/img/icon-recoger-local.svg" alt="icono recoger en local" title="Filtrar recoger en local" />
-                            <span>Recoger en local</span>
-                        </li>
-                        <li>
-                            <img src="../Content/a2m/img/icon-reservas.svg" alt="icono reservas" title="Filtrar local con reservas" />
-                            <span>Reservas</span>
-                        </li>
-                        <li>
-                            <img src="../Content/a2m/img/icon-carta-pdf.svg" alt="icono carta pdf" title="Filtrar disponible con carta PDF" />
-                            <span>Carta PDF</span>
-                        </li>
-                        <li>
-                            <img src="../Content/a2m/img/icon-menu.svg" alt="icono con menú" title="Filtrar disponible menú" />
-                            <span>Con menú</span>
-                        </li>
-                    </ul>
-                    <div class="btn-cta">
-                        <p>Hacer pedido El Portico</p>
-                    </div>
-                </a>
-            </div>
-            <!--Box resultado-->
-            <div class="col-sm-6 col-md-4 col-lg-3 content-result col-centered">
-                <a href="#" class="col-xs-12 item-result" title="Ves a la ficha de...">
-                    <div class="content-img">
-                        <img class="img-responsive" src="../Content/a2m/img/restaurantes/elportico.jpg" alt="Restaurante El Pórtico" title="El Pórtico" />
-                    </div>
-                    <div class="col-xs-12 content-detail">
-                        <strong>El Pórtico</strong>
-                        <i>Comida casera y de calidad</i>
-                        <b>91 813 06 45</b>
-                        <span>Precio máx/per: 15€</span>
-                        <span>Pedidos a partir de las 20:00h</span>
-                    </div>
-                    <ul class="icons-services">
-                        <li class="disable">
-                            <img src="../Content/a2m/img/icon-pedido-online.svg" alt="icono pedido online" title="Filtrar pedido online" />
-                            <span>Pedido online</span>
-                        </li>
-                        <li>
-                            <img src="../Content/a2m/img/icon-a-domicilio.svg" alt="icono pedido a domicilio" title="Filtrar pedido a domicilio" />
-                            <span>A domicilio</span>
-                        </li>
-                        <li class="disable">
-                            <img src="../Content/a2m/img/icon-recoger-local.svg" alt="icono recoger en local" title="Filtrar recoger en local" />
-                            <span>Recoger en local</span>
-                        </li>
-                        <li>
-                            <img src="../Content/a2m/img/icon-reservas.svg" alt="icono reservas" title="Filtrar local con reservas" />
-                            <span>Reservas</span>
-                        </li>
-                        <li>
-                            <img src="../Content/a2m/img/icon-carta-pdf.svg" alt="icono carta pdf" title="Filtrar disponible con carta PDF" />
-                            <span>Carta PDF</span>
-                        </li>
-                        <li>
-                            <img src="../Content/a2m/img/icon-menu.svg" alt="icono con menú" title="Filtrar disponible menú" />
-                            <span>Con menú</span>
-                        </li>
-                    </ul>
-                    <div class="btn-cta">
-                        <p>Hacer pedido El Portico</p>
-                    </div>
-                </a>
-            </div>
-            <!--Box resultado-->
-            <div class="col-sm-6 col-md-4 col-lg-3 content-result col-centered">
-                <a href="#" class="col-xs-12 item-result" title="Ves a la ficha de...">
-                    <div class="content-img">
-                        <img class="img-responsive" src="../Content/a2m/img/restaurantes/elportico.jpg" alt="Restaurante El Pórtico" title="El Pórtico" />
-                    </div>
-                    <div class="col-xs-12 content-detail">
-                        <strong>El Pórtico</strong>
-                        <i>Comida casera y de calidad</i>
-                        <b>91 813 06 45</b>
-                        <span>Precio máx/per: 15€</span>
-                        <span>Pedidos a partir de las 20:00h</span>
-                    </div>
-                    <ul class="icons-services">
-                        <li class="disable">
-                            <img src="../Content/a2m/img/icon-pedido-online.svg" alt="icono pedido online" title="Filtrar pedido online" />
-                            <span>Pedido online</span>
-                        </li>
-                        <li>
-                            <img src="../Content/a2m/img/icon-a-domicilio.svg" alt="icono pedido a domicilio" title="Filtrar pedido a domicilio" />
-                            <span>A domicilio</span>
-                        </li>
-                        <li class="disable">
-                            <img src="../Content/a2m/img/icon-recoger-local.svg" alt="icono recoger en local" title="Filtrar recoger en local" />
-                            <span>Recoger en local</span>
-                        </li>
-                        <li>
-                            <img src="../Content/a2m/img/icon-reservas.svg" alt="icono reservas" title="Filtrar local con reservas" />
-                            <span>Reservas</span>
-                        </li>
-                        <li>
-                            <img src="../Content/a2m/img/icon-carta-pdf.svg" alt="icono carta pdf" title="Filtrar disponible con carta PDF" />
-                            <span>Carta PDF</span>
-                        </li>
-                        <li>
-                            <img src="../Content/a2m/img/icon-menu.svg" alt="icono con menú" title="Filtrar disponible menú" />
-                            <span>Con menú</span>
-                        </li>
-                    </ul>
-                    <div class="btn-cta">
-                        <p>Hacer pedido El Portico</p>
-                    </div>
-                </a>
-            </div>
-            <!--Box resultado-->
-            <div class="col-sm-6 col-md-4 col-lg-3 content-result col-centered">
-                <a href="#" class="col-xs-12 item-result" title="Ves a la ficha de...">
-                    <div class="content-img">
-                        <img class="img-responsive" src="../Content/a2m/img/restaurantes/elportico.jpg" alt="Restaurante El Pórtico" title="El Pórtico" />
-                    </div>
-                    <div class="col-xs-12 content-detail">
-                        <strong>El Pórtico</strong>
-                        <i>Comida casera y de calidad</i>
-                        <b>91 813 06 45</b>
-                        <span>Precio máx/per: 15€</span>
-                        <span>Pedidos a partir de las 20:00h</span>
-                    </div>
-                    <ul class="icons-services">
-                        <li class="disable">
-                            <img src="../Content/a2m/img/icon-pedido-online.svg" alt="icono pedido online" title="Filtrar pedido online" />
-                            <span>Pedido online</span>
-                        </li>
-                        <li>
-                            <img src="../Content/a2m/img/icon-a-domicilio.svg" alt="icono pedido a domicilio" title="Filtrar pedido a domicilio" />
-                            <span>A domicilio</span>
-                        </li>
-                        <li class="disable">
-                            <img src="../Content/a2m/img/icon-recoger-local.svg" alt="icono recoger en local" title="Filtrar recoger en local" />
-                            <span>Recoger en local</span>
-                        </li>
-                        <li>
-                            <img src="../Content/a2m/img/icon-reservas.svg" alt="icono reservas" title="Filtrar local con reservas" />
-                            <span>Reservas</span>
-                        </li>
-                        <li>
-                            <img src="../Content/a2m/img/icon-carta-pdf.svg" alt="icono carta pdf" title="Filtrar disponible con carta PDF" />
-                            <span>Carta PDF</span>
-                        </li>
-                        <li>
-                            <img src="../Content/a2m/img/icon-menu.svg" alt="icono con menú" title="Filtrar disponible menú" />
-                            <span>Con menú</span>
-                        </li>
-                    </ul>
-                    <div class="btn-cta">
-                        <p>Hacer pedido El Portico</p>
-                    </div>
-                </a>
-            </div>
-            <!--Box resultado-->
-            <div class="col-sm-6 col-md-4 col-lg-3 content-result col-centered">
-                <a href="#" class="col-xs-12 item-result" title="Ves a la ficha de...">
-                    <div class="content-img">
-                        <img class="img-responsive" src="../Content/a2m/img/restaurantes/elportico.jpg" alt="Restaurante El Pórtico" title="El Pórtico" />
-                    </div>
-                    <div class="col-xs-12 content-detail">
-                        <strong>El Pórtico</strong>
-                        <i>Comida casera y de calidad</i>
-                        <b>91 813 06 45</b>
-                        <span>Precio máx/per: 15€</span>
-                        <span>Pedidos a partir de las 20:00h</span>
-                    </div>
-                    <ul class="icons-services">
-                        <li class="disable">
-                            <img src="../Content/a2m/img/icon-pedido-online.svg" alt="icono pedido online" title="Filtrar pedido online" />
-                            <span>Pedido online</span>
-                        </li>
-                        <li>
-                            <img src="../Content/a2m/img/icon-a-domicilio.svg" alt="icono pedido a domicilio" title="Filtrar pedido a domicilio" />
-                            <span>A domicilio</span>
-                        </li>
-                        <li class="disable">
-                            <img src="../Content/a2m/img/icon-recoger-local.svg" alt="icono recoger en local" title="Filtrar recoger en local" />
-                            <span>Recoger en local</span>
-                        </li>
-                        <li>
-                            <img src="../Content/a2m/img/icon-reservas.svg" alt="icono reservas" title="Filtrar local con reservas" />
-                            <span>Reservas</span>
-                        </li>
-                        <li>
-                            <img src="../Content/a2m/img/icon-carta-pdf.svg" alt="icono carta pdf" title="Filtrar disponible con carta PDF" />
-                            <span>Carta PDF</span>
-                        </li>
-                        <li>
-                            <img src="../Content/a2m/img/icon-menu.svg" alt="icono con menú" title="Filtrar disponible menú" />
-                            <span>Con menú</span>
-                        </li>
-                    </ul>
-                    <div class="btn-cta">
-                        <p>Hacer pedido El Portico</p>
-                    </div>
-                </a>
-            </div>
-            <!--Box resultado-->
-            <div class="col-sm-6 col-md-4 col-lg-3 content-result col-centered">
-                <a href="#" class="col-xs-12 item-result" title="Ves a la ficha de...">
-                    <div class="content-img">
-                        <img class="img-responsive" src="../Content/a2m/img/restaurantes/elportico.jpg" alt="Restaurante El Pórtico" title="El Pórtico" />
-                    </div>
-                    <div class="col-xs-12 content-detail">
-                        <strong>El Pórtico</strong>
-                        <i>Comida casera y de calidad</i>
-                        <b>91 813 06 45</b>
-                        <span>Precio máx/per: 15€</span>
-                        <span>Pedidos a partir de las 20:00h</span>
-                    </div>
-                    <ul class="icons-services">
-                        <li class="disable">
-                            <img src="../Content/a2m/img/icon-pedido-online.svg" alt="icono pedido online" title="Filtrar pedido online" />
-                            <span>Pedido online</span>
-                        </li>
-                        <li>
-                            <img src="../Content/a2m/img/icon-a-domicilio.svg" alt="icono pedido a domicilio" title="Filtrar pedido a domicilio" />
-                            <span>A domicilio</span>
-                        </li>
-                        <li class="disable">
-                            <img src="../Content/a2m/img/icon-recoger-local.svg" alt="icono recoger en local" title="Filtrar recoger en local" />
-                            <span>Recoger en local</span>
-                        </li>
-                        <li>
-                            <img src="../Content/a2m/img/icon-reservas.svg" alt="icono reservas" title="Filtrar local con reservas" />
-                            <span>Reservas</span>
-                        </li>
-                        <li>
-                            <img src="../Content/a2m/img/icon-carta-pdf.svg" alt="icono carta pdf" title="Filtrar disponible con carta PDF" />
-                            <span>Carta PDF</span>
-                        </li>
-                        <li>
-                            <img src="../Content/a2m/img/icon-menu.svg" alt="icono con menú" title="Filtrar disponible menú" />
-                            <span>Con menú</span>
-                        </li>
-                    </ul>
-                    <div class="btn-cta">
-                        <p>Hacer pedido El Portico</p>
-                    </div>
-                </a>
-            </div>
+
+}}
+
+ 
+   
           
       

@@ -39,7 +39,7 @@ A2M.Municipality = function () {
 
         A2M.Global.IsBusy = true;
 
-        var request = A2M.Request.getRequest("GET_municipality_update_filters");
+        var request = A2M.Request.getApiRequest("GET_municipality_update_filters");
         var headers = {};
         var token = $('input[name="__RequestVerificationToken"]').val();
         headers['__RequestVerificationToken'] = token;

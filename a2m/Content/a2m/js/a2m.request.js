@@ -17,7 +17,7 @@ A2M.Request = {
 	 * Api path
 	 * @type {boolean}
 	 */
-    apiPath: "Api",
+    apiPath: "api",
     /**
 	 * Aplication path
 	 * @type {boolean}
@@ -54,9 +54,23 @@ A2M.Request = {
 		if (value == null) {
 		    value = A2M.Request.VALUES[key];
 		}
-		return A2M.Utils.getBasePath() + "/" + this.appPath + "/" + this.apiPath + "/" + value;
+		return A2M.Utils.getBasePath() + "/" + this.appPath + "/" + value;
 	},
-	
+    /**
+	 * Obtiene la propiedad por nombre
+	 * @param {string} Nombre de la propiedad
+	 * @returns {string|number|boolean}
+	 */
+	getApiRequest: function (key) {
+	    if (this.debug == null) {
+	        this.debug = A2M.Properties.getProperty("debug." + this.CLASS_NAME);
+	    }
+	    var value = A2M.Request.OVERRIDES[key];
+	    if (value == null) {
+	        value = A2M.Request.VALUES[key];
+	    }
+	    return A2M.Utils.getBasePath() + "/" + this.apiPath + "/" + value;
+	},
 
 	CLASS_NAME: "A2M.Request",
 };

@@ -58,7 +58,7 @@ strong {
   clear: both;
 }
 .disable {
-  opacity: 0.4;
+  opacity: 0.25;
 }
 /**Botón generico**/
 .btn-generic {
@@ -563,6 +563,8 @@ h1 {
   padding: 0;
   margin-bottom: 35px;
   z-index: 1;
+  margin-left: 0;
+  margin-right: 0;
 }
 .main .search-list .content-list-result .content-msj-noresult {
   text-align: center;
@@ -637,12 +639,12 @@ h1 {
 .main .search-list .content-list-result .content-result .item-result .icons-services li {
   display: inline-block;
   text-align: center;
-  margin: 7px 5px;
+  margin: 7px 2px;
   color: #006300;
   width: 83px;
 }
 .main .search-list .content-list-result .content-result .item-result .icons-services li img {
-  width: 20px;
+  width: 26px;
   display: block;
   margin: 0 auto;
 }
@@ -650,7 +652,7 @@ h1 {
   font-size: 10px;
   clear: both;
   width: 100%;
-  color: #999999;
+  color: #000000;
   font-weight: bold;
 }
 .main .search-list .content-list-result .content-result .item-result:hover {

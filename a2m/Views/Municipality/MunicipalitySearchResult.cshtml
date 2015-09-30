@@ -10,9 +10,9 @@
 {
          <!--Box resultado-->
             <div class="col-sm-6 col-md-4 col-lg-3 content-result col-centered">
-                <a href="#" class="col-xs-12 item-result" title="Ves a la ficha de...">
+                <a href="~/@(ViewBag.MunicipalityByNormalizedName)/@iBusiness.Name.ToA2MUrlName()" class="col-xs-12 item-result" title="Ves a la ficha de...">
                     <div class="content-img">
-                        <img class="img-responsive" src="~/Content/a2m/img/restaurantes/elportico.jpg" alt="Restaurante El Pórtico" title="El Pórtico" />
+                        <img class="img-responsive" src="~/media/@(ViewBag.MunicipalityByNormalizedName)/@(iBusiness.Pk_Business).jpg" alt="@iBusiness.Name" title="@iBusiness.Name" />
                     </div>
                     <div class="col-xs-12 content-detail">
                         <strong>@iBusiness.Name</strong>

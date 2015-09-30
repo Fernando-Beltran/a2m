@@ -321,6 +321,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Media\sevilla-la-nueva\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>

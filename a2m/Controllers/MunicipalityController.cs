@@ -24,7 +24,7 @@ namespace a2m.Controllers
                 BussinessManager BussinessManager = new BussinessManager();
 
                 MunicipalityModel.BusinessList = BussinessManager.GetBusinessFromMunicipalityId(currentMunicipality.Pk_Municipality);
-
+                ViewBag.MunicipalityByNormalizedName = municipality;
                 return View(MunicipalityModel);
             }
             catch (Exception ex)

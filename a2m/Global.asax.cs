@@ -11,6 +11,7 @@ using System.Web.Http;
 using System.Web.Routing;
 using DbUp;
 using System.Configuration;
+using a2m.Common;
 
 namespace a2m
 {
@@ -35,13 +36,14 @@ namespace a2m
                 config.Formatters.JsonFormatter.SerializerSettings.Formatting =
                     Newtonsoft.Json.Formatting.Indented;
 
-                var connectionString = ConfigurationManager.AppSettings["a2mConnectionString"];
-        
+                var connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["a2mConnectionString"].ConnectionString;
 
+                BdUpLogger BdUpLogger = new BdUpLogger();
+                
                 var upgrader =
                     DeployChanges.To
                         .SqlDatabase(connectionString)
-                        .WithScriptsEmbeddedInAssembly(Assembly.GetExecutingAssembly())                        
+                        .WithScriptsEmbeddedInAssembly(Assembly.GetExecutingAssembly()).LogTo(BdUpLogger)                        
                         .Build();
 
                 var result = upgrader.PerformUpgrade();

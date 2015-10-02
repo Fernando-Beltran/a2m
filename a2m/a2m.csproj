@@ -177,6 +177,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Common\BdUpLogger.cs" />
     <Compile Include="Common\Responses\BusinessResultResponse.cs" />
     <Compile Include="Common\Responses\JSONResponse.cs" />
     <Compile Include="Common\Responses\RequestResponseStatus.cs" />
@@ -291,10 +292,11 @@
     <Content Include="Content\external\js\respond.js" />
     <Content Include="Content\external\js\respond.min.js" />
     <Content Include="Content\external\js\_references.js" />
+    <EmbeddedResource Include="Scripts\Script_0001_NewDataForFiltering.sql" />
     <Content Include="Static\carro-pasos.html" />
     <Content Include="Static\ficha-tipo-pedido.html" />
     <Content Include="Static\ficha-tipo1.html" />
-    <Content Include="Scripts\Script_0000_DatabaseVersion.sql" />
+    <EmbeddedResource Include="Scripts\Script_0000_DatabaseVersion.sql" />
     <Content Include="Static\index.html" />
     <Content Include="Static\listado.html" />
     <Content Include="Web.config" />

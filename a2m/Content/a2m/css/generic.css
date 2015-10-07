@@ -100,6 +100,7 @@ strong {
 .btn-cta p {
   font-weight: bold;
   text-decoration: none;
+  margin-bottom: 0;
 }
 .btn-generic:hover {
   opacity: 0.8;
@@ -153,6 +154,7 @@ h1 {
 .layout-header .content-nav .menu ul {
   display: table;
   height: 60px;
+  margin-bottom: 0;
 }
 .layout-header .content-nav .menu ul li {
   cursor: pointer;

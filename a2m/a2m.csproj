@@ -238,6 +238,7 @@
     <Content Include="Content\a2m\img\icon-pedido-online.svg" />
     <Content Include="Content\a2m\img\icon-recoger-local.svg" />
     <Content Include="Content\a2m\img\icon-carta-pdf.svg" />
+    <Content Include="Content\a2m\img\no-image.jpg" />
     <Content Include="Content\a2m\img\restaurantes\carta-local.jpg" />
     <Content Include="Content\a2m\img\restaurantes\elportico.jpg" />
     <Content Include="Content\a2m\js\a2m.common.js" />

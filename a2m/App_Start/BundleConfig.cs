@@ -41,13 +41,13 @@ namespace a2m
                   ));
             
             bundles.Add(new StyleBundle("~/css/list").Include(
-                      "~/Content/external/css/list.css"));
+                      "~/Content/a2m/css/list.css"));
 
             bundles.Add(new StyleBundle("~/css/basket").Include(
-                      "~/Content/external/css/basket.css"));
+                      "~/Content/a2m/css/basket.css"));
 
             bundles.Add(new StyleBundle("~/css/product").Include(
-                      "~/Content/external/css/product.css"));
+                      "~/Content/a2m/css/product.css"));
 
 
         }

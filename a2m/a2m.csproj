@@ -294,6 +294,7 @@
     <Content Include="Content\external\js\respond.min.js" />
     <Content Include="Content\external\js\_references.js" />
     <EmbeddedResource Include="Scripts\Script_0001_NewDataForFiltering.sql" />
+    <EmbeddedResource Include="Scripts\Script_0002_moreDataForFiltering.sql" />
     <Content Include="Static\carro-pasos.html" />
     <Content Include="Static\ficha-tipo-pedido.html" />
     <Content Include="Static\ficha-tipo1.html" />

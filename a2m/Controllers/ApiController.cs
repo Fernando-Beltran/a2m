@@ -56,5 +56,36 @@ namespace a2m.Controllers
 
             }
         }
+
+        [System.Web.Http.HttpPost]
+        public JsonResult GET_municipality_get_results(RequestBusinessFilter request)
+        {
+            try
+            {
+                BusinessResultResponse response = new BusinessResultResponse() { Status = a2m.Common.Responses.Response.Status.Ok };
+                Municipality currentMunicipality = MunicipalityManager.getMunicipalityByNormalizedName(request.CurrentMunicipality);
+                if (currentMunicipality == null)
+                {
+                    a2m.A2MApplication.Log.Error("BusinessController unable to found municipality " + request.CurrentMunicipality);
+                    JSONResponse responseError = new JSONResponse() { Status = a2m.Common.Responses.Response.Status.Error };
+                    return Json(responseError, JsonRequestBehavior.AllowGet);
+                }
+                MunicipalityModel MunicipalityModel = new MunicipalityModel();
+                MunicipalityModel.Municipality = currentMunicipality;
+                //TODO FILTERING
+                //MunicipalityModel.BusinessList = BussinessManager.GetBusinessFromMunicipalityId(currentMunicipality.Pk_Municipality);
+
+                response.ResultHtmlView = RenderRazorViewToString("~/Views/Municipality/MunicipalitySearchResult.cshtml", MunicipalityModel);
+
+                return Json(response, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                a2m.A2MApplication.Log.Error("BusinessController", ex);
+                JSONResponse response = new JSONResponse() { Status = a2m.Common.Responses.Response.Status.Error };
+                return Json(response, JsonRequestBehavior.AllowGet);
+
+            }
+        }
     }
 }

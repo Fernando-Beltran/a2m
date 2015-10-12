@@ -14,9 +14,9 @@ namespace a2m.Models
         public Boolean IsReserve {get; set;}
         public Boolean IsBrochure {get; set;}
         public Boolean IsDiaryMenu {get; set;}
-
         public string CurrentMunicipality { get; set; }
         public string CurrentBussiness { get; set; }
+        public int CurrentPage { get; set; }
             
     }
 }

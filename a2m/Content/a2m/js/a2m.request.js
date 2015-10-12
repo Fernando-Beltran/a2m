@@ -30,6 +30,7 @@ A2M.Request = {
 	 */
 	VALUES: {
 	    "GET_municipality_update_filters": "GET_municipality_update_filters", //Actualiza los filtros de los resultados de municipios
+	    "GET_municipality_get_results": "GET_municipality_get_results" //Obtiene los resultados por página
 	
 	},
 	/**

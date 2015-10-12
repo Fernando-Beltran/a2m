@@ -31,14 +31,18 @@ A2M.Municipality = function () {
     this.$chkBrochurePdf = null;
     this.$chkMenu = null;
     this.$municipalityRenderDiv = null;
+    this.$loader = null;
+    this.$checkFilterList = null;
+    this.$btnPaginate = null;
     /* / DOM Links */
     /**
     * Actualiza los resultados en función de los filtros
+    * @param {Number} page Número de página
     */
-    this.updateFilters = function () {
+    this.updateFilters = function (page) {
         if (this.debug) console.log(this.CLASS_NAME + ": updateFilters");
         A2M.Global.IsBusy = true;
-
+        this.$loader.removeClass("hide");
         var request = A2M.Request.getApiRequest("GET_municipality_update_filters");
         var headers = {};
         var token = $('input[name="__RequestVerificationToken"]').val();
@@ -92,7 +96,7 @@ A2M.Municipality = function () {
        .always(function () {
            if (this.debug) console.log(this.CLASS_NAME + ": updateFilters always ");
            this.requestInProgress = false;
-           
+           this.$loader.addClass("hide");
        }.bind(this));
     }
     /**
@@ -107,70 +111,61 @@ A2M.Municipality = function () {
         this.$chkBrochurePdf = $("#chkBrochurePdf");
         this.$chkMenu = $("#chkMenu");
         this.$municipalityRenderDiv = $("#municipalityRenderDiv");
+        this.$loader = $("#loader");
+        this.$btnPaginate = $("#btnPaginate");
+        this.$checkFilterList = $(".check-filter");
     };
 
     /**
     * Se generan los enlaces con los con los eventos de elementos del DOM
     */
     this.bindDOMEvents = function () {
+
+        this.$btnPaginate(function (evt) {
+            if (A2M_Municipality.debug) console.log(A2M_Municipality.CLASS_NAME + ": $btnPaginate click");
+            var currentPage = $(evt.currenTarget).data("currentPage")
+            A2M_Municipality.updateFilters(currentPage++); //Avanzamos página
+        });
+
+        this.$checkFilterList.click(function () {
+            if (A2M_Municipality.debug) console.log(A2M_Municipality.CLASS_NAME + ": image of checkbox change");
+            var item = $(this).find("input[type='checkbox']");
+            if (item.is(":checked")) {
+                item.prop("checked", false);
+            } else {
+                item.prop("checked", true);
+            }
+        });
+
         this.$chkOrderToHome.change(function () {
             if (A2M_Municipality.debug) console.log(A2M_Municipality.CLASS_NAME + ": $chkOrderToHome checked change");
-            A2M_Municipality.updateFilters();
-            if ($(this).is(":checked")) {
-
-            } else {
-
-            }
-        });
-        
+            A2M_Municipality.updateFilters(1);
+         
+        });        
         this.$chkBrochurePdf.change(function () {
             if (A2M_Municipality.debug) console.log(A2M_Municipality.CLASS_NAME + ": chkBrochurePdf checked change");
-            A2M_Municipality.updateFilters();
-            if ($(this).is(":checked")) {            
-                
-            } else {
-                
-            }           
+            A2M_Municipality.updateFilters(1);
+                 
         });
         this.$chkOnlineOrder.change(function () {
-            A2M_Municipality.updateFilters();
-            if ($(this).is(":checked")) {
-
-            } else {
-
-            }
+            A2M_Municipality.updateFilters(1);
+       
         });
         this.$chkPickupOrder.change(function () {
-            A2M_Municipality.updateFilters();
-            if ($(this).is(":checked")) {
-
-            } else {
-
-            }
+            A2M_Municipality.updateFilters(1);
+           
         });
         this.$chkReserves.change(function () {
-            A2M_Municipality.updateFilters();
-            if ($(this).is(":checked")) {
-
-            } else {
-
-            }
+            A2M_Municipality.updateFilters(1);
+          
         });
         this.$chkBrochurePdf.change(function () {
-            A2M_Municipality.updateFilters();
-            if ($(this).is(":checked")) {
-
-            } else {
-
-            }
+            A2M_Municipality.updateFilters(1);
+           
         });
         this.$chkMenu.change(function () {
-            A2M_Municipality.updateFilters();
-            if ($(this).is(":checked")) {
-
-            } else {
-
-            }
+            A2M_Municipality.updateFilters(1);
+           
         });
     };
 

@@ -19,6 +19,7 @@ namespace a2m
     {
         public static ILog Log;
         public static bool StartedSuccesfully = false;
+        public static int ResultsPaginateSize = 10;
 
         protected void Application_Start()
         {
@@ -37,6 +38,8 @@ namespace a2m
                     Newtonsoft.Json.Formatting.Indented;
 
                 var connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["a2mConnectionString"].ConnectionString;
+                var ResultsPaginateSize = int.Parse(System.Configuration.ConfigurationManager.AppSettings["ResultsPaginateSize"]);
+
 
                 BdUpLogger BdUpLogger = new BdUpLogger();
                 

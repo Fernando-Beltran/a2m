@@ -36,19 +36,29 @@ A2M.Municipality = function () {
     * Actualiza los resultados en función de los filtros
     */
     this.updateFilters = function () {
-
+        if (this.debug) console.log(this.CLASS_NAME + ": updateFilters");
         A2M.Global.IsBusy = true;
 
         var request = A2M.Request.getApiRequest("GET_municipality_update_filters");
         var headers = {};
         var token = $('input[name="__RequestVerificationToken"]').val();
         headers['__RequestVerificationToken'] = token;
+
+        var IsOnlineOrder = this.$chkOnlineOrder.is(":checked");
+        var IsOrderToPickup = this.$chkPickupOrder.is(":checked");
+        var IsReserve = this.$chkReserves.is(":checked");
+        var IsBrochure = this.$chkBrochurePdf.is(":checked");
+        var IsDiaryMenu = this.$chkMenu.is(":checked");
+        var IsOrderToHome = this.$chkOrderToHome.is(":checked");
+   
+
         var data = JSON.stringify({            
-            "IsOnlineOrder" : 0,
-            "IsOrderToPickup" : 1,
-            "IsReserve" : 0,
-            "IsBrochure" : 1,
-            "IsDiaryMenu": 1,
+            "IsOnlineOrder": IsOnlineOrder,
+            "IsOrderToHome" : IsOrderToHome,
+            "IsOrderToPickup": IsOrderToPickup,
+            "IsReserve": IsReserve,
+            "IsBrochure": IsBrochure,
+            "IsDiaryMenu": IsDiaryMenu,
             "CurrentMunicipality": this.currenMunicipality
         });
         $.ajax({
@@ -64,6 +74,7 @@ A2M.Municipality = function () {
                    case A2M.Enums.CommonRequestResponses.Ok:
                        if (this.debug) console.log(this.CLASS_NAME + ": updateFilters response ok");
                        this.$municipalityRenderDiv.html(response.ResultHtmlView);
+
                        break;
                    case A2M.Enums.CommonRequestResponses.NotAuthenticated:
                        if (this.debug) console.log(this.CLASS_NAME + ": updateFilters response NotAuthenticated");
@@ -88,8 +99,9 @@ A2M.Municipality = function () {
 	 * Se generan los enlaces con los con los elementos del DOM
 	 */
     this.bindDOMObjects = function () {
-        this.$chkBrochurePdf = $("#chkBrochurePdf");
         this.$chkOrderToHome = $("#chkOrderToHome");
+        this.$chkBrochurePdf = $("#chkBrochurePdf");
+        this.$chkOnlineOrder = $("#chkOnlineOrder");
         this.$chkPickupOrder = $("#chkPickupOrder");
         this.$chkReserves = $("#chkReserves");
         this.$chkBrochurePdf = $("#chkBrochurePdf");
@@ -101,6 +113,16 @@ A2M.Municipality = function () {
     * Se generan los enlaces con los con los eventos de elementos del DOM
     */
     this.bindDOMEvents = function () {
+        this.$chkOrderToHome.change(function () {
+            if (A2M_Municipality.debug) console.log(A2M_Municipality.CLASS_NAME + ": $chkOrderToHome checked change");
+            A2M_Municipality.updateFilters();
+            if ($(this).is(":checked")) {
+
+            } else {
+
+            }
+        });
+        
         this.$chkBrochurePdf.change(function () {
             if (A2M_Municipality.debug) console.log(A2M_Municipality.CLASS_NAME + ": chkBrochurePdf checked change");
             A2M_Municipality.updateFilters();
@@ -110,7 +132,8 @@ A2M.Municipality = function () {
                 
             }           
         });
-        this.$chkOrderToHome.change(function () {
+        this.$chkOnlineOrder.change(function () {
+            A2M_Municipality.updateFilters();
             if ($(this).is(":checked")) {
 
             } else {
@@ -118,6 +141,7 @@ A2M.Municipality = function () {
             }
         });
         this.$chkPickupOrder.change(function () {
+            A2M_Municipality.updateFilters();
             if ($(this).is(":checked")) {
 
             } else {
@@ -125,6 +149,7 @@ A2M.Municipality = function () {
             }
         });
         this.$chkReserves.change(function () {
+            A2M_Municipality.updateFilters();
             if ($(this).is(":checked")) {
 
             } else {
@@ -132,6 +157,7 @@ A2M.Municipality = function () {
             }
         });
         this.$chkBrochurePdf.change(function () {
+            A2M_Municipality.updateFilters();
             if ($(this).is(":checked")) {
 
             } else {
@@ -139,6 +165,7 @@ A2M.Municipality = function () {
             }
         });
         this.$chkMenu.change(function () {
+            A2M_Municipality.updateFilters();
             if ($(this).is(":checked")) {
 
             } else {

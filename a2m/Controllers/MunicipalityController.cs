@@ -22,7 +22,7 @@ namespace a2m.Controllers
                 MunicipalityModel MunicipalityModel = new MunicipalityModel();
                 MunicipalityModel.Municipality = currentMunicipality;
                 BussinessManager BussinessManager = new BussinessManager();
-
+                ViewBag.Section = a2m.Common.Enums.Sections.List;
                 MunicipalityModel.BusinessList = BussinessManager.GetBusinessFromMunicipalityId(currentMunicipality.Pk_Municipality);
                 ViewBag.MunicipalityByNormalizedName = municipality;
                 return View(MunicipalityModel);

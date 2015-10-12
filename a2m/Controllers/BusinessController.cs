@@ -25,9 +25,11 @@ namespace a2m.Controllers
         {
             try
             {
-                ViewBag.Sections = a2m.Common.Enums.Sections.List;
+                ViewBag.Section = a2m.Common.Enums.Sections.Product;
 
                 BussinessManager BussinessManager = new a2mbl.Managers.BussinessManager();
+
+
                 Business currentBusiness =  BussinessManager.GetBusinessFromMunicipalityNormalizedNameAndBusinessNormalizedNamed(municipality, business);
                 if (currentBusiness == null) return View("Error");
 

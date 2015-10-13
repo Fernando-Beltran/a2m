@@ -85,6 +85,7 @@
     <Compile Include="Category.cs">
       <DependentUpon>a2m_model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Common\BussinessFilter.cs" />
     <Compile Include="Common\CustomExtensions.cs" />
     <Compile Include="Common\BusinessFilterCriteria.cs" />
     <Compile Include="Common\Log.cs" />

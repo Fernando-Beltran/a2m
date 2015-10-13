@@ -11,6 +11,7 @@ using a2m.Common.Responses;
 using a2m.Models;
 using a2mbl;
 using a2mbl.Managers;
+using a2mbl.Common;
 
 
 namespace a2m.Controllers
@@ -73,7 +74,11 @@ namespace a2m.Controllers
                 MunicipalityModel MunicipalityModel = new MunicipalityModel();
                 MunicipalityModel.Municipality = currentMunicipality;
                 //TODO FILTERING
-                //MunicipalityModel.BusinessList = BussinessManager.GetBusinessFromMunicipalityId(currentMunicipality.Pk_Municipality);
+                request.CurrentBussinessId = currentMunicipality.Pk_Municipality;
+                BusinesFilter BusinesFilter = request.toBusinesFilter();
+
+                BussinessManager BussinessManager = new BussinessManager();
+                MunicipalityModel.BusinessList = BussinessManager.GetBusinessFromMunicipalityIdAndFilters(BusinesFilter);
 
                 response.ResultHtmlView = RenderRazorViewToString("~/Views/Municipality/MunicipalitySearchResult.cshtml", MunicipalityModel);
 

@@ -14,7 +14,18 @@ namespace a2mbl.Managers
 {
 
     public class BussinessManager : IBussinessManager
-    {       
+    {
+        /// <summary>
+        /// Obtiene la lista de negocios filtrados
+        /// </summary>
+        /// <param name="BussinessFilter">Filtros</param>
+        /// <returns>Lista de municipios que cumplen el filtro</returns>
+        public List<Business> GetBusinessFromMunicipalityIdAndFilters(BusinesFilter BussinessFilter)
+        {
+            //TODO
+            return new List<Business>();
+        }
+
         /// <summary>
         /// Obtiene la lista de negocios de un municipio
         /// </summary>

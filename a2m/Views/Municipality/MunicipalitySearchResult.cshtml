@@ -10,12 +10,16 @@
 {
          <!--Box resultado-->
             <div class="col-sm-6 col-md-4 col-lg-3 content-result col-centered">
-                <a href="~/@(ViewBag.MunicipalityByNormalizedName)/@iBusiness.Name.ToA2MUrlName()" class="col-xs-12 item-result" title="Ves a la ficha de...">
+                <div class="item-result">
                     <div class="content-img">
-                        <img class="img-responsive" src="~/media/@(ViewBag.MunicipalityByNormalizedName)/@(iBusiness.Pk_Business).jpg" onerror="this.onerror = null; this.src = '../Content/a2m/img/no-image.jpg';" alt="@iBusiness.Name" title="@iBusiness.Name" />
+                        <a href="~/@(ViewBag.MunicipalityByNormalizedName)/@iBusiness.Name.ToA2MUrlName()" class="col-xs-12 link-img-list" title="Ves a la ficha de @iBusiness.Name">
+                            <img class="img-responsive" src="~/media/@(ViewBag.MunicipalityByNormalizedName)/@(iBusiness.Pk_Business).jpg" onerror="this.onerror = null; this.src = '../Content/a2m/img/no-image.jpg';" alt="@iBusiness.Name" title="@iBusiness.Name" />
+                        </a>
                     </div>
                     <div class="col-xs-12 content-detail">
-                        <strong>@iBusiness.Name</strong>
+                        <a href="~/@(ViewBag.MunicipalityByNormalizedName)/@iBusiness.Name.ToA2MUrlName()" class="col-xs-12 link-tit-list" title="Ves a la ficha de @iBusiness.Name">
+                            <strong>@iBusiness.Name</strong>
+                        </a>
                         <i>Comida casera y de calidad</i>
                         <b>@iBusiness.Phone</b>
                         <span>Precio mín pedido: @iBusiness.Min_Price_For_Shipping</span>
@@ -48,9 +52,9 @@
                         </li>
                     </ul>
                     <div class="btn-cta">
-                        <p>Hacer pedido @iBusiness.Name</p>
+                        <a href="~/@(ViewBag.MunicipalityByNormalizedName)/@iBusiness.Name.ToA2MUrlName()" class="col-xs-12" title="Ves a la ficha de...">Hacer pedido @iBusiness.Name</a>
                     </div>
-                </a>
+                </div>
             </div>
             <!--Box resultado-->
 

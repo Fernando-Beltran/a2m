@@ -1,4 +1,7 @@
 ﻿/*Varaiables LESS*/
+/**/
+/* Mixins
+------------------------------------------------------------------*/
 html {
   margin: 0;
   padding: 0;
@@ -21,9 +24,6 @@ a {
 a:hover {
   color: #439944;
 }
-/**/
-/* Mixins
-------------------------------------------------------------------*/
 /* CSS Global para layout
 ------------------------------------------------------------------*/
 .link {
@@ -85,22 +85,27 @@ strong {
 /**CTA**/
 .btn-cta {
   background: #af0058;
-  color: #ffffff;
-  padding: 15px;
   width: 80%;
   margin: 0 auto;
   margin-bottom: 20px;
   text-align: center;
   border: 0;
-  display: block;
+  display: table;
   margin-top: 2%;
   clear: both;
   cursor: pointer;
 }
-.btn-cta p {
+.btn-cta a {
   font-weight: bold;
   text-decoration: none;
   margin-bottom: 0;
+  color: #ffffff;
+  padding: 15px;
+  line-height: 22px;
+  font-size: 14px;
+}
+.btn-cta:hover {
+  opacity: .9;
 }
 .btn-generic:hover {
   opacity: 0.8;

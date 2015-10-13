@@ -1,4 +1,7 @@
 ﻿/*Varaiables LESS*/
+/**/
+/* Mixins
+------------------------------------------------------------------*/
 html {
   margin: 0;
   padding: 0;
@@ -21,9 +24,6 @@ a {
 a:hover {
   color: #439944;
 }
-/**/
-/* Mixins
-------------------------------------------------------------------*/
 /* CSS Global para layout
 ------------------------------------------------------------------*/
 .link {
@@ -85,22 +85,27 @@ strong {
 /**CTA**/
 .btn-cta {
   background: #af0058;
-  color: #ffffff;
-  padding: 15px;
   width: 80%;
   margin: 0 auto;
   margin-bottom: 20px;
   text-align: center;
   border: 0;
-  display: block;
+  display: table;
   margin-top: 2%;
   clear: both;
   cursor: pointer;
 }
-.btn-cta p {
+.btn-cta a {
   font-weight: bold;
   text-decoration: none;
   margin-bottom: 0;
+  color: #ffffff;
+  padding: 15px;
+  line-height: 22px;
+  font-size: 14px;
+}
+.btn-cta:hover {
+  opacity: .9;
 }
 .btn-generic:hover {
   opacity: 0.8;
@@ -432,9 +437,10 @@ h1 {
 .content-load-result {
   width: 100%;
   height: 100vh;
-  background-color: rgba(0, 99, 0, 0.9);
+  background-color: rgba(0, 99, 0, 0.8);
   position: fixed;
   z-index: 10;
+  top: 0;
 }
 .loader:before,
 .loader:after,
@@ -589,7 +595,7 @@ h1 {
   float: left;
 }
 .main .search-list .content-list-result .content-result .item-result {
-  display: block;
+  display: inline-block;
   margin: 0;
   padding: 0;
   text-decoration: none;
@@ -601,16 +607,29 @@ h1 {
   overflow: hidden;
   height: 200px;
 }
-.main .search-list .content-list-result .content-result .item-result .content-img img {
+.main .search-list .content-list-result .content-result .item-result .content-img .link-img-list {
+  display: block;
+}
+.main .search-list .content-list-result .content-result .item-result .content-img .link-img-list img {
   width: 100%;
+}
+.main .search-list .content-list-result .content-result .item-result .content-img .link-img-list:hover {
+  opacity: 0.7;
 }
 .main .search-list .content-list-result .content-result .item-result .content-detail {
   text-align: left;
   padding: 10px;
   line-height: 20px;
 }
-.main .search-list .content-list-result .content-result .item-result .content-detail strong {
+.main .search-list .content-list-result .content-result .item-result .content-detail .link-tit-list {
+  text-decoration: none;
+  padding: 0;
+}
+.main .search-list .content-list-result .content-result .item-result .content-detail .link-tit-list strong {
   font-size: 24px;
+}
+.main .search-list .content-list-result .content-result .item-result .content-detail .link-tit-list:hover {
+  opacity: 0.7;
 }
 .main .search-list .content-list-result .content-result .item-result .content-detail i {
   clear: both;

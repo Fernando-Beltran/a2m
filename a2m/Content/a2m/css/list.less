@@ -1,4 +1,4 @@
-@import "generic.less";
+@import url("generic.less");
 /* CSS Listado de resultados
 ------------------------------------------------------------------*/
 //Estilos Main genérico, este siempre será el mismo contenedor de donde jerarquizaremos los contenidos centrales sin layout
@@ -9,6 +9,7 @@
     background-color: @VerdePrincipalTrans;
     position: fixed;
     z-index: 10;
+    top: 0;
 }
 .loader:before,
 .loader:after,
@@ -135,7 +136,7 @@
         }
         //Box de todos los resultados en el listado
         .content-list-result{
-            margin-top:20px;
+            margin-top: 20px;
             padding:0;
             margin-bottom: 35px;
             z-index: 1;
@@ -161,7 +162,7 @@
                 padding: 5px;
                 float: left;
                 .item-result{
-                    display:block;
+                    display:inline-block;
                     margin: 0;
                     padding: 0;
                     text-decoration: none;
@@ -169,16 +170,29 @@
                     .content-img{
                         overflow: hidden;
                         height: 200px;
-                        img{
-                            width: 100%;
+                        .link-img-list{
+                            display: block;
+                            img{
+                                width: 100%;
+                            }
+                        }
+                        .link-img-list:hover{
+                            opacity: 0.7;
                         }
                     }
                     .content-detail{
                         text-align: left;
                         padding: 10px;
                         line-height: 20px;
-                        strong{
-                            font-size: 24px;
+                        .link-tit-list{
+                            text-decoration: none;
+                            padding: 0;
+                            strong{
+                                font-size: 24px;
+                            }
+                        }
+                        .link-tit-list:hover{
+                            opacity: 0.7;
                         }
                         i{
                             clear: both;

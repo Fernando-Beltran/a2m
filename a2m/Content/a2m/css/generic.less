@@ -6,11 +6,23 @@
 @GrisClaro: #E6E6E6;
 @GrisMuyClaro: #F5F5F5;
 @VerdePrincipal: #006300;
-@VerdePrincipalTrans: rgba(0, 99, 0, 0.9);
+@VerdePrincipalTrans: rgba(0, 99, 0, 0.8);
 @VerdeClaro:#439944;
 @Oferta: #AF0058;
 @ColorCTA: #AF0058;
-
+/**/
+/* Mixins
+------------------------------------------------------------------*/
+.shadowbox(){
+    -webkit-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.35);
+    -moz-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.35);
+    box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.35);
+}
+.shadowboxHover(){
+    -webkit-box-shadow: 1px 1px 5px 0px rgba(0,99,0,0.85);
+    -moz-box-shadow: 1px 1px 5px 0px rgba(0,99,0,0.85);
+    box-shadow: 1px 1px 5px 0px rgba(0,99,0,0.85);
+}
 html {
     margin: 0;
     padding: 0;
@@ -32,19 +44,6 @@ a{
 }
 a:hover{
     color: @VerdeClaro;
-}
-/**/
-/* Mixins
-------------------------------------------------------------------*/
-.shadowbox(){
-    -webkit-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.35);
-    -moz-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.35);
-    box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.35);
-}
-.shadowboxHover(){
-    -webkit-box-shadow: 1px 1px 5px 0px rgba(0,99,0,0.85);
-    -moz-box-shadow: 1px 1px 5px 0px rgba(0,99,0,0.85);
-    box-shadow: 1px 1px 5px 0px rgba(0,99,0,0.85);
 }
 /* CSS Global para layout
 ------------------------------------------------------------------*/
@@ -107,22 +106,27 @@ strong{
 /**CTA**/
 .btn-cta{
     background: @ColorCTA;
-    color: @BlancoPuro;
-    padding: 15px;
     width: 80%;
     margin: 0 auto;
     margin-bottom: 20px;
     text-align: center;
     border: 0;
-    display: block;
+    display: table;
     margin-top: 2%;
     clear: both;
     cursor: pointer;
-    p{
+    a{
         font-weight: bold;
         text-decoration: none;
         margin-bottom: 0;
+        color: @BlancoPuro;
+        padding: 15px;
+        line-height: 22px;
+        font-size: 14px;
     }
+}
+.btn-cta:hover{
+    opacity: .9;
 }
 .btn-generic:hover{
     opacity: 0.8;

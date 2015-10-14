@@ -7,21 +7,23 @@
 @GrisMuyClaro: #F5F5F5;
 @VerdePrincipal: #006300;
 @VerdePrincipalTrans: rgba(0, 99, 0, 0.8);
+@ShadowNegro: rgba(0,0,0,0.35);
 @VerdeClaro:#439944;
 @Oferta: #AF0058;
+@MoradoSombra: rgba(175, 0, 88, 0.85);
 @ColorCTA: #AF0058;
 /**/
 /* Mixins
 ------------------------------------------------------------------*/
 .shadowbox(){
-    -webkit-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.35);
-    -moz-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.35);
-    box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.35);
+    -webkit-box-shadow: 1px 1px 3px 0 @ShadowNegro;
+    -moz-box-shadow: 1px 1px 3px 0 @ShadowNegro;
+    box-shadow: 1px 1px 3px 0 @ShadowNegro;
 }
 .shadowboxHover(){
-    -webkit-box-shadow: 1px 1px 5px 0px rgba(0,99,0,0.85);
-    -moz-box-shadow: 1px 1px 5px 0px rgba(0,99,0,0.85);
-    box-shadow: 1px 1px 5px 0px rgba(0,99,0,0.85);
+    -webkit-box-shadow: 1px 1px 5px 0 @MoradoSombra;
+    -moz-box-shadow: 1px 1px 5px 0 @MoradoSombra;
+    box-shadow: 1px 1px 5px 0 @MoradoSombra;
 }
 html {
     margin: 0;
@@ -115,12 +117,13 @@ strong{
     margin-top: 2%;
     clear: both;
     cursor: pointer;
+    color: @BlancoPuro;
+    padding: 15px;
     a{
         font-weight: bold;
         text-decoration: none;
         margin-bottom: 0;
         color: @BlancoPuro;
-        padding: 15px;
         line-height: 22px;
         font-size: 14px;
     }

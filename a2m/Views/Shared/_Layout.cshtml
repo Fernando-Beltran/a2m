@@ -60,9 +60,9 @@
                 <!--Menu general-->
                 <nav class="menu col-xs-5">
                     <ul>
-                        <li><a href="#">Nosotros</a></li>
-                        <li><a href="#">Añadirse</a></li>
-                        <li><a href="#">Contacto</a></li>
+                        <li><a href="#">@Html.RouteLink("Nosotros", "Inicio - Acerca de")</a></li>                        
+                        <li><a href="#">@Html.RouteLink("Añadir comercio", "Añadir comercio")</a></li>
+                        <li><a href="#">@Html.RouteLink("Contacto", "Inicio - Contacto")</a></li>
                         <li>@Html.RouteLink("Ayuda", "Inicio - Ayuda")</li>
                     </ul>
                 </nav>

@@ -31,6 +31,11 @@ namespace a2m.Controllers
             }
         }
 
+        public ActionResult AddBusines()
+        {
+
+            return View();
+        }
 
         public ActionResult About()
         {

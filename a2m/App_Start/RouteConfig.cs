@@ -28,6 +28,7 @@ namespace a2m
            routes.MapRoute(name: "Inicio - Ayuda", url: "ayuda", defaults: new { controller = "Home", action = "Help" });
            routes.MapRoute(name: "Inicio - Contacto", url: "contacto", defaults: new { controller = "Home", action = "Contact" });
            routes.MapRoute(name: "Inicio - Acerca de", url: "acerca-de-a2m", defaults: new { controller = "Home", action = "About" });
+           routes.MapRoute(name: "Añadir comercio", url: "añadir-comercio", defaults: new { controller = "Home", action = "AddBusines" });
            /* RUTAS HOME */
            /* RUTAS MUNICIPIOS */
            routes.MapRoute(name: "Home municipio", url: "{municipality}", defaults: new { controller = "Municipality", action = "Index" });

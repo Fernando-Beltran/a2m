@@ -13,7 +13,7 @@ namespace a2mbl.IManagers
         List<Business> GetBusinessFromMunicipalityId(int municipalityId);
         Business GetBusinessFromMunicipalityNormalizedNameAndBusinessNormalizedNamed(string municipalityName, string businessName);
         Business GetBusinessFromId(int businessId);
-        List<Business> GetBusinessFromMunicipalityIdAndFilters(BusinesFilter BussinessFilter);
+        List<Business> GetBusinessFromMunicipalityIdAndFilters(BusinesFilter BussinessFilter,int PageSize);
 
     }
 }

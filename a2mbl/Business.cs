@@ -46,6 +46,7 @@ namespace a2mbl
         public Nullable<double> Lat { get; set; }
         public Nullable<double> Lon { get; set; }
         public string Description { get; set; }
+        public Nullable<bool> Has_DiaryMenu { get; set; }
     
         public virtual Business_Status Business_Status { get; set; }
         public virtual Schedule Schedule { get; set; }

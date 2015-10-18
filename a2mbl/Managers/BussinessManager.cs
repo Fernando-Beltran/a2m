@@ -9,6 +9,7 @@ using a2mbl.Common;
 using a2mbl.IManagers;
 using a2mbl.Wrapper;
 using a2mbl.Linq;
+using LinqKit;
 
 namespace a2mbl.Managers
 {
@@ -20,10 +21,41 @@ namespace a2mbl.Managers
         /// </summary>
         /// <param name="BussinessFilter">Filtros</param>
         /// <returns>Lista de municipios que cumplen el filtro</returns>
-        public List<Business> GetBusinessFromMunicipalityIdAndFilters(BusinesFilter BussinessFilter)
+        public List<Business> GetBusinessFromMunicipalityIdAndFilters(BusinesFilter BussinessFilter, int PageSize)
         {
-            //TODO
-            return new List<Business>();
+            var predicate = PredicateBuilder.False<Business>();
+
+           using (var db = new a2mbl.a2mContext())
+                {
+                     List<Business> BusinessList = db.Businesses
+                        .Include("Business_Status")
+                        .Include("Categories")
+                        .ToList();
+
+                     if (BussinessFilter.IsOnlineOrder)
+                     {
+                         BusinessList = BusinessList.Where(p => p.Is_A2M == true).ToList();                         
+                     }
+                     if (BussinessFilter.IsOrderToHome)
+                     {
+                         BusinessList = BusinessList.Where(p => p.Allow_Shipping == true).ToList();
+                     }
+                     if (BussinessFilter.IsOrderToPickup)
+                     {
+                         BusinessList = BusinessList.Where(p => p.Allow_PickUp == true).ToList();
+                     }
+                     if (BussinessFilter.IsDiaryMenu)
+                     {
+                         BusinessList = BusinessList.Where(p => p.Has_DiaryMenu == true).ToList();
+                     }
+                     if (BussinessFilter.IsBrochure)
+                     {
+                         BusinessList = BusinessList.Where(p => p.Has_Pdf == true).ToList();
+                     }
+
+                    return BusinessList;
+                }
+          
         }
 
         /// <summary>

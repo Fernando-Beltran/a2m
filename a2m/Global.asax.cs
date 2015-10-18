@@ -19,7 +19,7 @@ namespace a2m
     {
         public static ILog Log;
         public static bool StartedSuccesfully = false;
-        public static int ResultsPaginateSize = 10;
+        public static int ResultsPaginateSize = int.Parse(System.Configuration.ConfigurationManager.AppSettings["ResultsPaginateSize"]);
 
         protected void Application_Start()
         {

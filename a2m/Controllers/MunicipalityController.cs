@@ -16,13 +16,16 @@ namespace a2m.Controllers
         {
             try
             {
+
+                ViewBag.Section = a2m.Common.Enums.Sections.List;
+
                 if (municipality.IsNullOrEmpty()) return View("Error");
                 Municipality currentMunicipality = MunicipalityManager.getMunicipalityByNormalizedName(municipality);
                 if (currentMunicipality == null) return View("Error");
                 MunicipalityModel MunicipalityModel = new MunicipalityModel();
                 MunicipalityModel.Municipality = currentMunicipality;
                 BussinessManager BussinessManager = new BussinessManager();
-                ViewBag.Section = a2m.Common.Enums.Sections.List;
+                
                 MunicipalityModel.BusinessList = BussinessManager.GetBusinessFromMunicipalityId(currentMunicipality.Pk_Municipality);
                 ViewBag.MunicipalityByNormalizedName = municipality;
                 return View(MunicipalityModel);

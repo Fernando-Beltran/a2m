@@ -22,7 +22,10 @@ namespace a2mbl
         {
         }
     
-     
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            throw new UnintentionalCodeFirstException();
+        }
     
         public virtual DbSet<Business> Businesses { get; set; }
         public virtual DbSet<Business_Status> Business_Status { get; set; }

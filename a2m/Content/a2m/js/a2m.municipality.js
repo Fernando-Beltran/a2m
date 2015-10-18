@@ -121,7 +121,7 @@ A2M.Municipality = function () {
     */
     this.bindDOMEvents = function () {
 
-        this.$btnPaginate(function (evt) {
+        this.$btnPaginate.click(function (evt) {
             if (A2M_Municipality.debug) console.log(A2M_Municipality.CLASS_NAME + ": $btnPaginate click");
             var currentPage = $(evt.currenTarget).data("currentPage")
             A2M_Municipality.updateFilters(currentPage++); //Avanzamos página
@@ -135,35 +135,67 @@ A2M.Municipality = function () {
             } else {
                 item.prop("checked", true);
             }
+            A2M_Municipality.updateFilters(1);//Reseteamos a la página uno cada vez que cambiamos filtros
         });
 
-        this.$chkOrderToHome.change(function () {
+        this.$chkOrderToHome.change(function () {           
             if (A2M_Municipality.debug) console.log(A2M_Municipality.CLASS_NAME + ": $chkOrderToHome checked change");
+            if ($(this).is(":checked")) {
+                $(this).prop("checked", false);
+            } else {
+                $(this).prop("checked", true);
+            }
             A2M_Municipality.updateFilters(1);
          
         });        
         this.$chkBrochurePdf.change(function () {
             if (A2M_Municipality.debug) console.log(A2M_Municipality.CLASS_NAME + ": chkBrochurePdf checked change");
+            if ($(this).is(":checked")) {
+                $(this).prop("checked", false);
+            } else {
+                $(this).prop("checked", true);
+            }
             A2M_Municipality.updateFilters(1);
                  
         });
         this.$chkOnlineOrder.change(function () {
+            if (A2M_Municipality.debug) console.log(A2M_Municipality.CLASS_NAME + ": $chkOnlineOrder checked change");
+            if ($(this).is(":checked")) {
+                $(this).prop("checked", false);
+            } else {
+                $(this).prop("checked", true);
+            }
             A2M_Municipality.updateFilters(1);
        
         });
         this.$chkPickupOrder.change(function () {
+            if (A2M_Municipality.debug) console.log(A2M_Municipality.CLASS_NAME + ": $chkPickupOrder checked change");
+            if ($(this).is(":checked")) {
+                $(this).prop("checked", false);
+            } else {
+                $(this).prop("checked", true);
+            }
             A2M_Municipality.updateFilters(1);
            
         });
         this.$chkReserves.change(function () {
+            if (A2M_Municipality.debug) console.log(A2M_Municipality.CLASS_NAME + ": $chkReserves checked change");
+            if ($(this).is(":checked")) {
+                $(this).prop("checked", false);
+            } else {
+                $(this).prop("checked", true);
+            }
             A2M_Municipality.updateFilters(1);
           
         });
-        this.$chkBrochurePdf.change(function () {
-            A2M_Municipality.updateFilters(1);
-           
-        });
+      
         this.$chkMenu.change(function () {
+            if (A2M_Municipality.debug) console.log(A2M_Municipality.CLASS_NAME + ": $chkMenu checked change");
+            if ($(this).is(":checked")) {
+                $(this).prop("checked", false);
+            } else {
+                $(this).prop("checked", true);
+            }
             A2M_Municipality.updateFilters(1);
            
         });

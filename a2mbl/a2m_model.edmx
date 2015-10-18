@@ -42,6 +42,7 @@
           <Property Name="Lat" Type="float" />
           <Property Name="Lon" Type="float" />
           <Property Name="Description" Type="nchar" MaxLength="200" />
+          <Property Name="Has_DiaryMenu" Type="bit" />
         </EntityType>
         <EntityType Name="Business_Images">
           <Key>
@@ -927,6 +928,7 @@
           <NavigationProperty Name="Business_Images" Relationship="a2mModel.FK_Business_Images_Business" FromRole="Business" ToRole="Business_Images" />
           <NavigationProperty Name="Municipality" Relationship="a2mModel.FK_Business_Municipality" FromRole="Business" ToRole="Municipality" />
           <NavigationProperty Name="Business_Status1" Relationship="a2mModel.FK_Business_Business_Status1" FromRole="Business" ToRole="Business_Status" />
+          <Property Name="Has_DiaryMenu" Type="Boolean" />
         </EntityType>
         <EntityType Name="Business_Status">
           <Key>
@@ -1536,6 +1538,7 @@
           <EntitySetMapping Name="Businesses">
             <EntityTypeMapping TypeName="a2mModel.Business">
               <MappingFragment StoreEntitySet="Business">
+                <ScalarProperty Name="Has_DiaryMenu" ColumnName="Has_DiaryMenu" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Lon" ColumnName="Lon" />
                 <ScalarProperty Name="Lat" ColumnName="Lat" />

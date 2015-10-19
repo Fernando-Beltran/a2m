@@ -301,6 +301,10 @@
     <EmbeddedResource Include="Scripts\Script_0001_NewDataForFiltering.sql" />
     <EmbeddedResource Include="Scripts\Script_0003_DiaryMenuProperty.sql" />
     <EmbeddedResource Include="Scripts\Script_0002_moreDataForFiltering.sql" />
+    <Content Include="Media\sevilla-la-nueva\15.jpg" />
+    <Content Include="Media\sevilla-la-nueva\12.jpg" />
+    <Content Include="Media\sevilla-la-nueva\19.jpg" />
+    <Content Include="Media\sevilla-la-nueva\6.jpg" />
     <Content Include="Static\carro-pasos.html" />
     <Content Include="Static\ficha-tipo-pedido.html" />
     <Content Include="Static\ficha-tipo1.html" />
@@ -332,7 +336,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Media\sevilla-la-nueva\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>

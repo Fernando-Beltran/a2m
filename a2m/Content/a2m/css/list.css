@@ -610,6 +610,7 @@ h1 {
 }
 .main .search-list .content-list-result .content-result .item-result .content-img .link-img-list {
   display: block;
+  padding: 0;
 }
 .main .search-list .content-list-result .content-result .item-result .content-img .link-img-list img {
   width: 100%;

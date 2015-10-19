@@ -688,6 +688,14 @@ h1 {
   margin-top: 30px;
   cursor: pointer;
 }
+.main .search-list .btn-nomore-result {
+  background: #e6e6e6;
+  color: #999999;
+  cursor: default;
+}
+.main .search-list .btn-nomore-result:hover {
+  opacity: 1;
+}
 /*MEDIAS QUERYS para RWD listado resultados*/
 /* Para 850px */
 @media only screen and (max-width: 850px) {

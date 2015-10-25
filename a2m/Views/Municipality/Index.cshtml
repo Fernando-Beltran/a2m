@@ -76,11 +76,12 @@
         </div>
         @if (Model.AreMoreResults) { 
         <!--Bton ver más resultados-->
-        <div class="btn-more-result btn-generic" id="btnPaginate" data-currentPage="@Model.CurrentPage">
-            <span>Ver los siguientes @A2MApplication.ResultsPaginateSize resultados de @Model.TotalResults</span>
-        </div>
+    <div class="btn-more-result btn-generic" id="btnPaginate" data-currentPage="@Model.CurrentPage">
+        <span>Ver los siguientes @Model.NextResults resultados de @Model.TotalResults</span>
+    </div>
         }
-        else { 
+        else
+        {
         <!--No hay más resultados-->
         <div class="btn-nomore-result btn-generic">
             <span>No hay más resultados para la búsqueda</span>

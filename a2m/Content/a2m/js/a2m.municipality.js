@@ -34,12 +34,45 @@ A2M.Municipality = function () {
     this.$loader = null;
     this.$checkFilterList = null;
     this.$btnPaginate = null;
+
+
     /* / DOM Links */
+
+    /**
+    * Actualiza el botónde paginación con los resultados    
+    * @param {Number} totalResults Número total de resultados
+    * @param {Number} currentPageSize Número total de página
+    * @param {Number} currentPage Página actual
+    */
+    this.updatePaginateButton = function (totalResults,currentPageSize,currentPage) {
+        var buttonResultText = "<span>Ver los siguientes {0} resultados de {0}";
+        var buttonNoResultText = "No hay más resultados.";
+        $(this.$btnPaginate).data("currentPage",currentPage);
+        var pending = currentPageSize * currentPage;
+        if (totalResults > pending) {
+            if ($(this.$btnPaginate).hasClass("btn-nomore-result")) {
+                $(this.$btnPaginate).removeClass("btn-nomore-result");
+            }
+            if (!$(this.$btnPaginate).hasClass("btn-more-result")) {
+                $(this.$btnPaginate).addClass("btn-more-result");
+            }
+            $(this.$btnPaginate).html(buttonResultText.format("a", "v"));
+        } else {
+            if (!$(this.$btnPaginate).hasClass("btn-nomore-result")) {
+                $(this.$btnPaginate).addClass("btn-nomore-result");
+            }
+            if ($(this.$btnPaginate).hasClass("btn-more-result")) {
+                $(this.$btnPaginate).removeClass("btn-more-result");
+            }
+            $(this.$btnPaginate).html(buttonNoResultText);
+        }
+    }
     /**
     * Actualiza los resultados en función de los filtros
     * @param {Number} page Número de página
+    * @param {Boolean} clean Si tiene que limpiar resultados, por cambio de filtros o solo suma paginación
     */
-    this.updateFilters = function (page) {
+    this.updateFilters = function (page,clean) {
         if (this.debug) console.log(this.CLASS_NAME + ": updateFilters");
         A2M.Global.IsBusy = true;
         this.$loader.removeClass("hide");
@@ -63,7 +96,8 @@ A2M.Municipality = function () {
             "IsReserve": IsReserve,
             "IsBrochure": IsBrochure,
             "IsDiaryMenu": IsDiaryMenu,
-            "CurrentMunicipality": this.currenMunicipality
+            "CurrentMunicipality": this.currenMunicipality,
+            "CurrentPage" : page
         });
         $.ajax({
             url: request,
@@ -77,8 +111,11 @@ A2M.Municipality = function () {
                switch (response.Status) {
                    case A2M.Enums.CommonRequestResponses.Ok:
                        if (this.debug) console.log(this.CLASS_NAME + ": updateFilters response ok");
-                       this.$municipalityRenderDiv.html(response.ResultHtmlView);
-
+                       if (clean) {
+                           $(this.$municipalityRenderDiv).html("");
+                       }
+                       $(this.$municipalityRenderDiv).append(response.ResultHtmlView);
+                       this.updatePaginateButton(response.PageSize, response.PageSize, response.NextPage);
                        break;
                    case A2M.Enums.CommonRequestResponses.NotAuthenticated:
                        if (this.debug) console.log(this.CLASS_NAME + ": updateFilters response NotAuthenticated");
@@ -123,8 +160,8 @@ A2M.Municipality = function () {
 
         this.$btnPaginate.click(function (evt) {
             if (A2M_Municipality.debug) console.log(A2M_Municipality.CLASS_NAME + ": $btnPaginate click");
-            var currentPage = $(evt.currenTarget).data("currentPage")
-            A2M_Municipality.updateFilters(currentPage++); //Avanzamos página
+            var currentPage = $(evt.currentTarget).data("currentPage")
+            A2M_Municipality.updateFilters(currentPage++,false); //Avanzamos página
         });
 
         this.$checkFilterList.click(function () {
@@ -135,7 +172,7 @@ A2M.Municipality = function () {
             } else {
                 item.prop("checked", true);
             }
-            A2M_Municipality.updateFilters(1);//Reseteamos a la página uno cada vez que cambiamos filtros
+            //A2M_Municipality.updateFilters(0,true);//Reseteamos a la página uno cada vez que cambiamos filtros
         });
 
         this.$chkOrderToHome.change(function () {           
@@ -145,7 +182,7 @@ A2M.Municipality = function () {
             } else {
                 $(this).prop("checked", true);
             }
-            A2M_Municipality.updateFilters(1);
+            A2M_Municipality.updateFilters(0, true);
          
         });        
         this.$chkBrochurePdf.change(function () {
@@ -155,7 +192,7 @@ A2M.Municipality = function () {
             } else {
                 $(this).prop("checked", true);
             }
-            A2M_Municipality.updateFilters(1);
+            A2M_Municipality.updateFilters(0, true);
                  
         });
         this.$chkOnlineOrder.change(function () {
@@ -165,7 +202,7 @@ A2M.Municipality = function () {
             } else {
                 $(this).prop("checked", true);
             }
-            A2M_Municipality.updateFilters(1);
+            A2M_Municipality.updateFilters(0, true);
        
         });
         this.$chkPickupOrder.change(function () {
@@ -175,7 +212,7 @@ A2M.Municipality = function () {
             } else {
                 $(this).prop("checked", true);
             }
-            A2M_Municipality.updateFilters(1);
+            A2M_Municipality.updateFilters(0, true);
            
         });
         this.$chkReserves.change(function () {
@@ -185,7 +222,7 @@ A2M.Municipality = function () {
             } else {
                 $(this).prop("checked", true);
             }
-            A2M_Municipality.updateFilters(1);
+            A2M_Municipality.updateFilters(0, true);
           
         });
       
@@ -196,7 +233,7 @@ A2M.Municipality = function () {
             } else {
                 $(this).prop("checked", true);
             }
-            A2M_Municipality.updateFilters(1);
+            A2M_Municipality.updateFilters(0, true);
            
         });
     };

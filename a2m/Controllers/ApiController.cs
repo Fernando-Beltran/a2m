@@ -42,12 +42,15 @@ namespace a2m.Controllers
                 }
                 MunicipalityModel MunicipalityModel = new MunicipalityModel();
                 MunicipalityModel.Municipality = currentMunicipality;
+                MunicipalityModel.CurrentPage = request.CurrentPage;
                 //TODO FILTERING
                 BussinessManager BussinessManager = new BussinessManager();
                 MunicipalityModel.BusinessList = BussinessManager.GetBusinessFromMunicipalityIdAndFilters(request.toBusinesFilter(), a2m.A2MApplication.ResultsPaginateSize);
 
                 response.ResultHtmlView = RenderRazorViewToString("~/Views/Municipality/MunicipalitySearchResult.cshtml", MunicipalityModel);
-
+                response.PageSize = a2m.A2MApplication.ResultsPaginateSize;
+                response.TotalResult = MunicipalityModel.BusinessList.Count;
+                response.NextPage = request.CurrentPage + 1;
                 return Json(response, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
@@ -74,6 +77,7 @@ namespace a2m.Controllers
                 }
                 MunicipalityModel MunicipalityModel = new MunicipalityModel();
                 MunicipalityModel.Municipality = currentMunicipality;
+                MunicipalityModel.CurrentPage = request.CurrentPage;
                 //TODO FILTERING
                 request.CurrentBussinessId = currentMunicipality.Pk_Municipality;
                 BusinesFilter BusinesFilter = request.toBusinesFilter();
@@ -82,7 +86,9 @@ namespace a2m.Controllers
                 MunicipalityModel.BusinessList = BussinessManager.GetBusinessFromMunicipalityIdAndFilters(BusinesFilter, a2m.A2MApplication.ResultsPaginateSize);
 
                 response.ResultHtmlView = RenderRazorViewToString("~/Views/Municipality/MunicipalitySearchResult.cshtml", MunicipalityModel);
-
+                response.PageSize = a2m.A2MApplication.ResultsPaginateSize;
+                response.TotalResult = MunicipalityModel.BusinessList.Count;
+                response.NextPage = request.CurrentPage + 1;
                 return Json(response, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)

@@ -99,12 +99,8 @@ namespace a2mbl.Managers
                           .Include("Categories")
                           .Include("Municipality").ToList();
 
-                    return BusinessList.Where(item => item.Name.ToA2MUrlName() == businessName && item.Municipality.Name.ToA2MUrlName() == municipalityName).SingleOrDefault();             
-                    
-                 
+                    return BusinessList.Where(item => item.Name.ToA2MUrlName() == businessName && item.Municipality.Name.ToA2MUrlName() == municipalityName).SingleOrDefault();                                 
                 }
-
-               
             }
             catch (Exception ex)
             {

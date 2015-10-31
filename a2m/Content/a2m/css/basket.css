@@ -24,6 +24,10 @@ a {
 a:hover {
   color: #439944;
 }
+a:focus {
+  color: #439944;
+  font-weight: 700;
+}
 /* CSS Global para layout
 ------------------------------------------------------------------*/
 .link {

@@ -593,7 +593,6 @@ h1 {
 }
 .main .search-list .content-list-result .content-result {
   padding: 5px;
-  float: left;
 }
 .main .search-list .content-list-result .content-result .item-result {
   display: inline-block;
@@ -603,10 +602,14 @@ h1 {
   -webkit-box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.35);
   -moz-box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.35);
   box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.35);
+  width: 100%;
 }
 .main .search-list .content-list-result .content-result .item-result .content-img {
   overflow: hidden;
-  height: 200px;
+  max-height: 200px;
+}
+.main .search-list .content-list-result .content-result .item-result .content-img img {
+  width: 100%;
 }
 .main .search-list .content-list-result .content-result .item-result .content-img .link-img-list {
   display: block;

@@ -160,16 +160,19 @@
             }
             .content-result{
                 padding: 5px;
-                float: left;
                 .item-result{
                     display:inline-block;
                     margin: 0;
                     padding: 0;
                     text-decoration: none;
                     .shadowbox();
+                    width: 100%;
                     .content-img{
                         overflow: hidden;
-                        height: 200px;
+                        max-height: 200px;
+                        img{
+                            width: 100%;
+                        }
                         .link-img-list{
                             display: block;
                             padding: 0;

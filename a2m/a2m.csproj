@@ -230,6 +230,12 @@
       <DependentUpon>product.css</DependentUpon>
     </Content>
     <Content Include="Content\a2m\css\reset.css" />
+    <Content Include="Content\a2m\css\variables.css">
+      <DependentUpon>variables.less</DependentUpon>
+    </Content>
+    <Content Include="Content\a2m\css\variables.min.css">
+      <DependentUpon>variables.css</DependentUpon>
+    </Content>
     <Content Include="Content\a2m\img\icon-menu.svg" />
     <Content Include="Content\a2m\img\icon-a-domicilio.svg" />
     <Content Include="Content\a2m\img\icon-move-catalog.png" />
@@ -285,6 +291,10 @@
     </Content>
     <Content Include="Content\a2m\css\product.css.map">
       <DependentUpon>product.css</DependentUpon>
+    </Content>
+    <Content Include="Content\a2m\css\variables.less" />
+    <Content Include="Content\a2m\css\variables.css.map">
+      <DependentUpon>variables.css</DependentUpon>
     </Content>
     <None Include="Content\external\js\jquery-1.10.2.intellisense.js" />
     <Content Include="Content\external\js\jquery-1.10.2.js" />

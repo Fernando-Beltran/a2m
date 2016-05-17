@@ -12,39 +12,18 @@
     <meta content="" name="keywords" />
     <!-- Bootstrap -->
     <link href="../Content/external/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../Content/a2m/css/reset.css" rel="stylesheet">
-    <link rel="stylesheet" href="../Content/a2m/css/generic.css" />
-    <link rel="stylesheet" href="../Content/a2m/css/list.css" />
     <link rel="shortcut icon" href="../Content/a2m/img/favicon.ico" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- Fuente Oxygen | Normal 400 | Bold 700 -->
     <link href='http://fonts.googleapis.com/css?family=Oxygen:700,400' rel='stylesheet' type='text/css'>
     <!-- Jquery, Bootstrap y js propios-->
-    <script src="../Content/external/js/jquery-1.10.2.min.js"></script>
-    <script src="../Content/external/js/bootstrap.min.js"></script>
     <script type="application/javascript" src="../Content/a2m/js/events.js"></script>
     @Styles.Render("~/css/common")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/a2m")
-    
-    @{
-        if (ViewBag.Section != null) { 
-        var section = (a2m.Common.Enums.Sections)ViewBag.Section;
-        switch (section)
-        { 
-            case a2m.Common.Enums.Sections.List:            
-                Styles.Render("~/css/list"); 
-                break;
-            case a2m.Common.Enums.Sections.Product:
-                Styles.Render("~/css/product"); 
-                break;
-            case a2m.Common.Enums.Sections.Basket:
-                Styles.Render("~/css/basket"); 
-                break;
-        }
-    }}
+
 
 </head>
 <body>

@@ -36,10 +36,6 @@ namespace a2m
 
             bundles.Add(new StyleBundle("~/css/common").Include(
                     "~/Content/a2m/css/reset.css",
- 
-                    "~/Content/a2m/css/list.css",
-                    "~/Content/a2m/css/basket.css",
-                    "~/Content/a2m/css/product.css",
                     "~/Content/a2m/css/generic.css"
                   ));
             

@@ -186,6 +186,7 @@
 }
 .main .search-list .content-list-result .content-result .item-result .content-img .link-img-list img {
   width: 100%;
+  min-height: 200px;
 }
 .main .search-list .content-list-result .content-result .item-result .content-img .link-img-list:hover {
   opacity: 0.7;
